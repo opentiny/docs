@@ -73,6 +73,40 @@ export default defineConfig({
           ],
         },
       ],
+      '/next-sdk/docs/guide/': [
+        {
+          text: '介绍',
+          items: [
+            { text: '开始', link: '/next-sdk/docs/guide/' },
+          ]
+        },
+        {
+          text: '指引',
+          base: '/next-sdk/docs/guide/',
+          items: [
+            { text: '接入三方 AI 应用', link: 'mcp-host' },
+            { text: 'Electron 应用接入', link: 'electron' },
+            { text: 'uni-app 应用接入', link: 'uni-app' },
+            { text: '本地连接', link: 'connect-local' },
+          ]
+        },
+        {
+          text: 'NEXT-SDKs API',
+          base: '/next-sdk/docs/guide/',
+          items: [
+            { text: 'WebMcpClient 类', link: 'api-client' },
+            { text: 'WebMcpServer 类', link: 'api-server' },
+            { text: 'AgentModelProvider 类', link: 'api-agentModelProvider' },
+            { text: 'createRemoter 函数', link: 'api-createRemoter' },
+            { text: '工具函数', link: 'api-tools' }
+          ]
+        },
+        {
+          text: 'TinyRemoter for Vue',
+          base: '/next-sdk/docs/guide/',
+          items: [{ text: 'TinyRobot 版本', link: 'tiny-robot-remoter' }]
+        }
+      ],
     },
     search: {
       provider: 'local',
