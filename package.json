@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env VP_MODE=development vitepress dev",
+    "build": "cross-env VP_MODE=production vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^2.1.1",
+    "less": "^4.4.1",
+    "vitepress": "^1.6.3",
+    "vitepress-demo-plugin": "^1.4.2"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  }
+}
