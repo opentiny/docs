@@ -12,6 +12,7 @@ export default defineConfig({
   title: 'OpenTiny NEXT',
   description: 'OpenTiny NEXT',
   outDir: 'dist',
+  srcExclude: ['**/README.md'],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/logo-mini.svg' }]],
   vite: {
