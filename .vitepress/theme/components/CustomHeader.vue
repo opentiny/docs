@@ -11,6 +11,12 @@
           </a>
         </div>
 
+        <!-- 产品区域 -->
+        <div class="product-section">
+          <a href="/next-sdk/docs">NEXT-SDKs</a>
+          <a href="/tiny-robot/docs/src">TinyRobot</a>
+        </div>
+
         <!-- 中央搜索栏 -->
         <div class="search-section">
           <div class="search-container">

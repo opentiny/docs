@@ -1,3 +1,6 @@
 [submodule "tiny-robot"]
 	path = tiny-robot
 	url = git@github.com:opentiny/tiny-robot.git
+[submodule "next-sdk"]
+	path = next-sdk
+	url = git@github.com:opentiny/next-sdk.git
