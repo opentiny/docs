@@ -3,6 +3,10 @@ import { fileURLToPath } from 'url'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 
+const prodAlias = {
+  '@opentiny/tiny-robot-style': '@opentiny/tiny-robot/dist/style.css',
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OpenTiny NEXT',
@@ -13,6 +17,11 @@ export default defineConfig({
   vite: {
     plugins: [vueJsx()],
     server: { open: true },
+    resolve: {
+      alias: {
+        ...prodAlias,
+      },
+    },
   },
   markdown: {
     config: (md) => {
@@ -24,16 +33,16 @@ export default defineConfig({
     logo: '/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
     nav: [
-      { text: '指南', link: '/guide/installation', activeMatch: '/guide/' },
-      { text: '组件', link: '/components/bubble', activeMatch: '/components/' },
-      { text: '工具', link: '/tools/ai-client', activeMatch: '/tools/' },
-      { text: '演示', link: '/examples/assistant', activeMatch: '/examples/' },
+      { text: '指南', link: '/tiny-robot/docs/src/guide/installation', activeMatch: '/guide/' },
+      { text: '组件', link: '/tiny-robot/docs/src/components/bubble', activeMatch: '/components/' },
+      { text: '工具', link: '/tiny-robot/docs/src/tools/ai-client', activeMatch: '/tools/' },
+      { text: '演示', link: '/tiny-robot/docs/src/examples/assistant', activeMatch: '/examples/' },
     ],
     sidebar: {
-      '/components/': [
+      '/tiny-robot/docs/src/components/': [
         {
           text: '组件',
-          base: '/components/',
+          base: '/tiny-robot/docs/src/components/',
           items: [
             { text: 'Container 容器', link: 'container' },
             { text: 'Bubble 气泡', link: 'bubble' },
@@ -52,10 +61,10 @@ export default defineConfig({
           ],
         },
       ],
-      '/tools/': [
+      '/tiny-robot/docs/src/tools/': [
         {
           text: '工具',
-          base: '/tools/',
+          base: '/tiny-robot/docs/src/tools/',
           items: [
             { text: 'AI模型交互工具类', link: 'ai-client' },
             { text: '消息数据管理', link: 'message' },
