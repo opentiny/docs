@@ -109,7 +109,6 @@ import { normalizeLink, isActiveRoute, isHomePage } from '../utils/router'
 
 // 获取 VitePress 数据
 const { site, theme } = useData()
-console.log(111,useData());
 
 const route = useRoute()
 const router = useRouter()
@@ -160,7 +159,7 @@ const activeNavTab = computed(() => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.link, activeMatch: undefined }),
   )
-  return activeProductTab.value === 'next-sdk' ? 'guide' : currentTab?.key || ''
+  return activeProductTab.value === 'next-sdk' ? 'guide' : currentTab?.key || "/tiny-robot/guide/installation"
 })
 
 // 处理导航标签变化
