@@ -6,8 +6,8 @@
         <!-- Logo 区域 -->
         <div class="logo-section">
           <a href="/" class="logo-link">
-            <img src="/logo-mini.svg" alt="OpenTiny NEXT" class="logo-icon" />
-            <span class="logo-text">{{ site.title }}</span>
+            <img src="/logo-opentiny-next-text.svg" alt="OpenTiny NEXT" class="logo-icon" />
+            <span v-if="false" class="logo-text">{{ site.title }}</span>
           </a>
           <!-- 产品区域 -->
           <div class="product-section">
@@ -126,7 +126,7 @@ interface configNavItem {
 const navigationTabs = computed(() => {
   if (activeProductTab.value === 'next-sdk') {
     return [
-      { key: 'guide', name: '使用文档', link: '/next-sdk/docs/guide/' },
+      { key: 'guide', name: '使用文档', link: '/next-sdk/guide/' },
     ]
   }else{
   return (
@@ -229,8 +229,8 @@ const openSearch = () => {
 
 // 产品Tab配置
 const productTabs = [
-  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/docs/guide', src: '/logo-mini.svg' },
-  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/docs/src/guide/installation', src: '/logo-mini.svg' },
+  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/guide', src: '/logo-next-sdk.svg' },
+  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/guide/installation', src: '/logo-tiny-robot.svg' },
 ] 
 
 // 默认激活NEXT-SDKs
@@ -312,7 +312,6 @@ const handleProductTabChange = (tabKey: string) => {
 }
 
 .logo-icon {
-  width: 40px;
   height: 40px;
 }
 
