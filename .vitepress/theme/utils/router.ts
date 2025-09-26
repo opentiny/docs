@@ -54,8 +54,8 @@ export function isActiveRoute(
   if (activeMatch) {
     return new RegExp(activeMatch).test(cleanCurrentPath)
   }
-
-  return cleanCurrentPath.startsWith(cleanTargetPath)
+  
+  return cleanCurrentPath.includes(cleanTargetPath)
 }
 /**
  * 检查当前路径是否为首页
