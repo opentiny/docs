@@ -6,6 +6,7 @@ on:
     paths:
       - 'next-sdk/docs/**'
       - 'tiny-robot/docs/**'
+      - '.vitepress/**'
 
   workflow_dispatch:
 
