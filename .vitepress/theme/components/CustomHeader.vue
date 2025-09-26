@@ -9,36 +9,40 @@
             <img src="/logo-mini.svg" alt="OpenTiny NEXT" class="logo-icon" />
             <span class="logo-text">{{ site.title }}</span>
           </a>
-        </div>
-
-        <!-- 产品区域 -->
-        <div class="product-section">
-          <a href="/next-sdk/docs">NEXT-SDKs</a>
-          <a href="/tiny-robot/docs/src">TinyRobot</a>
-        </div>
-
-        <!-- 中央搜索栏 -->
-        <div class="search-section">
-          <div class="search-container">
-            <div class="search-icon">
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-            <input type="text" placeholder="Search..." class="search-input" @click="openSearch" />
-            <div class="search-shortcut">
-              <kbd class="kbd">Ctrl K</kbd>
-            </div>
+          <!-- 产品区域 -->
+          <div class="product-section">
+            <TabNavigation
+              :tabs="productTabs"
+              :activeTab="activeProductTab"
+              @tab-change="handleProductTabChange"
+              @tab-click="handleProductTabClick"
+              style="width: 240px;"
+            />
           </div>
         </div>
 
+
         <!-- 右侧工具栏 -->
         <div class="tools-section">
+          <!-- 中央搜索栏 -->
+          <div class="search-section">
+            <div class="search-container">
+              <div class="search-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <input type="text" placeholder="Search..." class="search-input" @click="openSearch" />
+              <div class="search-shortcut">
+                <kbd class="kbd">Ctrl K</kbd>
+              </div>
+            </div>
+          </div>
           <!-- OpenTiny 链接 -->
           <a href="https://opentiny.design" title="OpenTiny" class="home-link">
             <span>OpenTiny</span>
@@ -105,6 +109,8 @@ import { normalizeLink, isActiveRoute, isHomePage } from '../utils/router'
 
 // 获取 VitePress 数据
 const { site, theme } = useData()
+console.log(111,useData());
+
 const route = useRoute()
 const router = useRouter()
 
@@ -119,14 +125,22 @@ interface configNavItem {
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
+  if (activeProductTab.value === 'next-sdk') {
+    return [
+      { key: 'guide', name: '使用文档', link: '/next-sdk/docs/guide/' },
+    ]
+  }else{
   return (
-    themeConfig.value.nav?.map((item: configNavItem) => ({
-      key: item.link || item.text.toLowerCase().replace(/\s+/g, '-'),
-      name: item.text,
-      link: item.link,
-      disabled: false,
-    })) || []
-  )
+      themeConfig.value.nav?.map((item: configNavItem) => ({
+        key: item.link || item.text.toLowerCase().replace(/\s+/g, '-'),
+        name: item.text,
+        link: item.link,
+        disabled: false,
+      })) || []
+    )
+  }
+
+
 })
 
 interface TabItem {
@@ -146,7 +160,7 @@ const activeNavTab = computed(() => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.link, activeMatch: undefined }),
   )
-  return currentTab?.key || ''
+  return activeProductTab.value === 'next-sdk' ? 'guide' : currentTab?.key || ''
 })
 
 // 处理导航标签变化
@@ -213,6 +227,25 @@ const openSearch = () => {
   })
   document.dispatchEvent(event)
 }
+
+// 产品Tab配置
+const productTabs = [
+  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/docs/guide', src: '/logo-mini.svg' },
+  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/docs/src/guide/installation', src: '/logo-mini.svg' },
+] 
+
+// 默认激活NEXT-SDKs
+const activeProductTab = ref('next-sdk')
+
+// 切换tab时路由跳转
+const handleProductTabChange = (tabKey: string) => {
+  const tab = productTabs.find(t => t.key === tabKey)
+  if (tab?.link) {
+    const targetPath = normalizeLink(tab.link, site.value.base)
+    router.go(targetPath)
+    activeProductTab.value = tabKey
+  }
+}
 </script>
 
 <style scoped>
@@ -255,12 +288,28 @@ const openSearch = () => {
   align-items: center;
 }
 
+.product-section{
+  padding-left: 48px;
+  position: relative;
+}
+
+.product-section:before {
+  content: '';
+  border-left: 1px solid #f0f0f0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  height: 50%;
+  z-index: 2;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   color: var(--vp-c-text-1);
+  margin-right: 48px;
 }
 
 .logo-icon {

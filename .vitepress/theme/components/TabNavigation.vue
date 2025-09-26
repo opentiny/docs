@@ -6,6 +6,7 @@ interface TabItem {
   key: string
   name: string
   link?: string
+  src?: string
   disabled?: boolean
 }
 
@@ -139,6 +140,7 @@ onUnmounted(() => {
       <!-- 导航容器添加ref -->
       <div class="custom-tabs__nav" ref="navRef">
         <div v-for="tab in tabs" :key="tab.key" :class="getTabClasses(tab)" @click="handleTabClick(tab)">
+          <img v-if="tab.src" :src="tab.src" class="custom-tabs__item-icon" />
           <span class="custom-tabs__item-title">{{ tab.name }}</span>
         </div>
 
@@ -169,7 +171,7 @@ onUnmounted(() => {
   &__nav {
     height: 100%;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   &__item {
@@ -181,6 +183,12 @@ onUnmounted(() => {
     position: relative;
     font-size: 0.875rem;
     line-height: 48px;
+    display: flex;
+
+    &-icon {
+      height: 20px;
+      width: 20px;
+    }
 
     &-title {
       transition: color 0.2s ease;
