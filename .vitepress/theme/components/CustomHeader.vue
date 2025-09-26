@@ -102,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted ,watch} from 'vue'
 import { useData, useRoute, useRouter } from 'vitepress'
 import TabNavigation from './TabNavigation.vue'
 import { normalizeLink, isActiveRoute, isHomePage } from '../utils/router'
@@ -124,12 +124,12 @@ interface configNavItem {
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
-  if (activeProductTab.value === 'next-sdk') {
+  if (activeProductTab.value === 'next-sdk' && route.path.startsWith('/next-sdk/')) {
     return [
       { key: 'guide', name: '使用文档', link: '/next-sdk/docs/guide/' },
     ]
   }else{
-  return (
+    return (
       themeConfig.value.nav?.map((item: configNavItem) => ({
         key: item.link || item.text.toLowerCase().replace(/\s+/g, '-'),
         name: item.text,
@@ -155,12 +155,15 @@ const showNavigation = computed(() => {
 })
 
 // 当前激活的导航标签
-const activeNavTab = computed(() => {
+const activeNavTab = ref('guide')
+
+// 处理导航标签变化
+const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.link, activeMatch: undefined }),
   )
-  return activeProductTab.value === 'next-sdk' ? 'guide' : currentTab?.key || "/tiny-robot/guide/installation"
-})
+  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.startsWith('/next-sdk/') ? 'guide' : currentTab?.key || "/tiny-robot/guide/installation"
+}
 
 // 处理导航标签变化
 const handleNavTabChange = (tabKey: string) => {
@@ -245,6 +248,19 @@ const handleProductTabChange = (tabKey: string) => {
     activeProductTab.value = tabKey
   }
 }
+
+watch(
+  () => route.path,
+  () => {
+      getActiveNavTab()
+      if(route.path.startsWith('/next-sdk/')){
+        activeProductTab.value = 'next-sdk'
+      }else if(route.path.startsWith('/tiny-robot/')){
+        activeProductTab.value = 'tiny-robot'
+      }
+  },
+  { deep: true ,immediate:true},
+)
 </script>
 
 <style scoped>

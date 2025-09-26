@@ -141,7 +141,7 @@ onUnmounted(() => {
       <div class="custom-tabs__nav" ref="navRef">
         <div v-for="tab in tabs" :key="tab.key" :class="getTabClasses(tab)" @click="handleTabClick(tab)">
           <img v-if="tab.src" :src="tab.src" class="custom-tabs__item-icon" />
-          <span class="custom-tabs__item-title">{{ tab.name }}</span>
+          <a :href="tab.link"  rel="noopener noreferrer" class="custom-tabs__item-title">{{ tab.name }}</a>
         </div>
 
         <!-- 下划线元素 -->
