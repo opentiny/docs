@@ -312,7 +312,7 @@ const handleProductTabChange = (tabKey: string) => {
 }
 
 .logo-icon {
-  height: 40px;
+  height: 32px;
 }
 
 .logo-text {
