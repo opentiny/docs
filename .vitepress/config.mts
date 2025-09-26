@@ -95,16 +95,16 @@ export default defineConfig({
           ],
         },
       ],
-      '/next-sdk/docs/guide/': [
+      '/next-sdk/guide/': [
         {
           text: '介绍',
           items: [
-            { text: '开始', link: '/next-sdk/docs/guide/' },
+            { text: '开始', link: '/next-sdk/guide/' },
           ]
         },
         {
           text: '指引',
-          base: '/next-sdk/docs/guide/',
+          base: '/next-sdk/guide/',
           items: [
             { text: '接入三方 AI 应用', link: 'mcp-host' },
             { text: 'Electron 应用接入', link: 'electron' },
@@ -114,7 +114,7 @@ export default defineConfig({
         },
         {
           text: 'NEXT-SDKs API',
-          base: '/next-sdk/docs/guide/',
+          base: '/next-sdk/guide/',
           items: [
             { text: 'WebMcpClient 类', link: 'api-client' },
             { text: 'WebMcpServer 类', link: 'api-server' },
@@ -125,7 +125,7 @@ export default defineConfig({
         },
         {
           text: 'TinyRemoter for Vue',
-          base: '/next-sdk/docs/guide/',
+          base: '/next-sdk/guide/',
           items: [{ text: 'TinyRobot 版本', link: 'tiny-robot-remoter' }]
         }
       ],
