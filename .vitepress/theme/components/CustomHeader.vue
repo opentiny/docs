@@ -13,8 +13,8 @@
 
         <!-- 产品区域 -->
         <div class="product-section">
-          <a href="/next-sdk">NEXT-SDKs</a>
-          <a href="/tiny-robot">TinyRobot</a>
+          <a href="next-sdk">NEXT-SDKs</a>
+          <a href="tiny-robot">TinyRobot</a>
         </div>
 
         <!-- 中央搜索栏 -->
