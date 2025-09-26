@@ -7,15 +7,22 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
 
+const normalizePath = (path: string, targetStyle: 'windows' | 'linux' = 'linux') => {
+  if (targetStyle === 'windows') {
+    return path.replace(/\//g, '\\')
+  }
+  return path.replace(/\\/g, '/')
+}
+
 const resolveSubmoduleRelativePathsPlugin = (options: { source: string; target: string }[] = []) => ({
   name: 'resolve-submodule-relative-paths',
   // source: 导入的路径，例如 '../../demos/attachments/basic.vue'
   // importer: 发起导入的文件路径，例如 '.../docs/project-a/docs/src/components/bubble.md'
   resolveId(source, importer) {
-
-    const index = options.findIndex(option => source.includes(option.source))
+    const targetStyle = source.includes('\\') ? 'windows' : 'linux'
+    const index = options.findIndex(option => source.includes(normalizePath(option.source, targetStyle)))
     if (index !== -1) {
-      return source.replace(options[index].source, options[index].target || '')
+      return source.replace(normalizePath(options[index].source, targetStyle), normalizePath(options[index].target || '', targetStyle))
     }
     // 如果不满足条件，则不处理
     return null
