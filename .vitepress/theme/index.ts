@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
+import '@opentiny/tiny-robot-style'
 import './style.css'
 
 declare global {
