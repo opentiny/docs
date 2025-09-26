@@ -5,6 +5,7 @@
 ```shell
 git submodule update --init
 pnpm i
+pnpm -F root build
 pnpm dev
 ```
 
@@ -12,5 +13,6 @@ pnpm dev
 
 ```shell
 cd next-sdk
+git checkout dev
 git pull origin dev
 ```
