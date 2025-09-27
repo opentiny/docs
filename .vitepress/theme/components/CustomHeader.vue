@@ -15,7 +15,6 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              @tab-click="handleProductTabClick"
               style="width: 240px;"
             />
           </div>
@@ -131,7 +130,7 @@ const navigationTabs = computed(() => {
   }else{
     return (
       themeConfig.value.nav?.map((item: configNavItem) => ({
-        key: item.link || item.text.toLowerCase().replace(/\s+/g, '-'),
+        key: getConfigKey(item.link) || item.text.toLowerCase().replace(/\s+/g, '-'),
         name: item.text,
         link: item.link,
         disabled: false,
@@ -150,6 +149,10 @@ interface TabItem {
 }
 
 // 是否显示导航栏: 如果当前路径是首页，则不显示导航栏
+const getConfigKey = (link: any) => {
+  return link.replace(/\/$/, '').split('/')[2]
+}
+// 是否显示导航栏: 如果当前路径是首页，则不显示导航栏
 const showNavigation = computed(() => {
   return !isHomePage(route.path, site.value.base)
 })
@@ -160,9 +163,9 @@ const activeNavTab = ref('guide')
 // 处理导航标签变化
 const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
-    isActiveNav({ text: tab.name, link: tab.link, activeMatch: undefined }),
+    isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined }),
   )
-  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.startsWith('/next-sdk/') ? 'guide' : currentTab?.key || "/tiny-robot/guide/installation"
+  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.startsWith('/next-sdk/') ? 'guide' : currentTab?.key || "guide"
 }
 
 // 处理导航标签变化
