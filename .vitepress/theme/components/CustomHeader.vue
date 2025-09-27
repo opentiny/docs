@@ -233,10 +233,12 @@ const openSearch = () => {
   document.dispatchEvent(event)
 }
 
+const prefix = site.value.base || '/'
+
 // 产品Tab配置
 const productTabs = [
-  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/guide', src: '/logo-next-sdk.svg' },
-  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/guide/installation', src: '/logo-tiny-robot.svg' },
+  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/guide', src: `${prefix}logo-next-sdk.svg` },
+  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/guide/installation', src: `${prefix}logo-tiny-robot.svg` },
 ] 
 
 // 默认激活NEXT-SDKs
