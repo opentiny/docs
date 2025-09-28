@@ -132,7 +132,7 @@ const navigationTabs = computed(() => {
       themeConfig.value.nav?.map((item: configNavItem) => ({
         key: getConfigKey(item.link) || item.text.toLowerCase().replace(/\s+/g, '-'),
         name: item.text,
-        link: item.link,
+        link: `${prefix}${item.link.slice(1)}`,
         disabled: false,
       })) || []
     )
@@ -237,8 +237,8 @@ const prefix = site.value.base || '/'
 
 // 产品Tab配置
 const productTabs = [
-  { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/guide', src: `${prefix}logo-next-sdk.svg` },
-  { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/guide/installation', src: `${prefix}logo-tiny-robot.svg` },
+  { key: 'next-sdk', name: 'NEXT-SDKs', link: `${prefix}next-sdk/guide`, src: `${prefix}logo-next-sdk.svg` },
+  { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/installation`, src: `${prefix}logo-tiny-robot.svg` },
 ]
 
 // 默认激活NEXT-SDKs
