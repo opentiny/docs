@@ -123,7 +123,7 @@ interface configNavItem {
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
-  if (activeProductTab.value === 'next-sdk' && route.path.startsWith('/next-sdk/')) {
+  if (activeProductTab.value === 'next-sdk' && route.path.includes('/next-sdk/')) {
     return [
       { key: 'guide', name: '使用文档', link: '/next-sdk/guide/' },
     ]
@@ -165,7 +165,7 @@ const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined }),
   )
-  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.startsWith('/next-sdk/') ? 'guide' : currentTab?.key || "guide"
+  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.includes('/next-sdk/') ? 'guide' : currentTab?.key || "guide"
 }
 
 // 处理导航标签变化
@@ -239,7 +239,7 @@ const prefix = site.value.base || '/'
 const productTabs = [
   { key: 'next-sdk', name: 'NEXT-SDKs', link: '/next-sdk/guide', src: `${prefix}logo-next-sdk.svg` },
   { key: 'tiny-robot', name: 'TinyRobot', link: '/tiny-robot/guide/installation', src: `${prefix}logo-tiny-robot.svg` },
-] 
+]
 
 // 默认激活NEXT-SDKs
 const activeProductTab = ref('next-sdk')
@@ -258,9 +258,10 @@ watch(
   () => route.path,
   () => {
       getActiveNavTab()
-      if(route.path.startsWith('/next-sdk/')){
+      const path = route.path.replace(new RegExp(`^${site.value.base}`), '/')
+      if(path.includes('/next-sdk/')){
         activeProductTab.value = 'next-sdk'
-      }else if(route.path.startsWith('/tiny-robot/')){
+      }else if(path.includes('/tiny-robot/')){
         activeProductTab.value = 'tiny-robot'
       }
   },
