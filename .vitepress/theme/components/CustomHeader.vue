@@ -263,6 +263,9 @@ watch(
         activeProductTab.value = 'next-sdk'
       }else if(path.includes('/tiny-robot/')){
         activeProductTab.value = 'tiny-robot'
+      }else if(path === '/'){
+        activeProductTab.value = 'next-sdk'
+        router.go(`${prefix}next-sdk/guide/`)
       }
   },
   { deep: true ,immediate:true},
