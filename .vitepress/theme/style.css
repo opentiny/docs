@@ -32,7 +32,7 @@ body,
   border-color: rgba(100, 108, 255, 0.3);
 }
 
-.vitepress-demo-plugin__container li + li {
+.vitepress-demo-plugin__container li+li {
   margin: 0;
 }
 
@@ -78,7 +78,7 @@ body,
 }
 
 .VPSidebarItem.is-active .link {
-  background-color:#F5FAFF;
+  background-color: #F5FAFF;
   font-weight: 600;
 }
 
@@ -86,30 +86,35 @@ body,
   font-weight: 600;
 }
 
-.VPSidebarItem.level-1.is-link.is-active.has-active > .item .link > .text {
+.VPSidebarItem.level-1.is-link.is-active.has-active>.item .link>.text {
   color: #1476FF;
 }
-.main-content .group{
+
+.main-content .group {
   margin-top: 22px;
 }
 
-.main-content .item .text{
- padding: 0 0 10px;
+.main-content .item .text {
+  padding: 0 0 10px;
 }
-.main-content .items{
+
+.main-content .items {
   margin-left: -16px;
   border-radius: 12px;
 }
-.main-content .items .item .link{
+
+.main-content .items .item .link {
   padding: 0;
   margin: 0;
   padding-left: 16px;
   height: 36px;
   line-height: 36px;
 }
-.main-content .items .item .text{
- padding: 0;
+
+.main-content .items .item .text {
+  padding: 0;
 }
+
 /* 侧边栏分组标题增强 */
 .VPSidebarGroup .title {
   font-weight: 700;
@@ -136,7 +141,8 @@ body,
 .VPDoc {
   padding-top: 2rem;
 }
-.VPDoc .vp-doc .vp-adaptive-theme{
+
+.VPDoc .vp-doc .vp-adaptive-theme {
   background: #ffffff;
   border: 1px solid #E8E8E8;
 }
@@ -144,16 +150,17 @@ body,
 .VPDocAside {
   padding-top: 10px;
 }
-.VPDocAside .content{
+
+.VPDocAside .content {
   border-left-color: #fff;
 }
 
-.outline-link.active{
+.outline-link.active {
   color: #191919;
   font-weight: 600;
 }
 
-.outline-marker{
+.outline-marker {
   display: none;
 }
 
@@ -202,6 +209,11 @@ body,
   font-size: 0.9em;
 }
 
+.vp-doc ul {
+  list-style: disc !important;
+  padding-left: 1.25rem !important;
+  margin: 16px 0 !important;
+}
 
 .VPFeatures .items .item {
   transition: transform 0.3s;
@@ -211,10 +223,11 @@ body,
   transform: translateY(-5px);
 }
 
-.main-content > .Layout {
+.main-content>.Layout {
   min-height: calc(100vh - 113px);
   min-height: calc(100dvh - 113px);
 }
+
 
 /* ===== 响应式布局 ===== */
 @media (min-width: 960px) {
