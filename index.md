@@ -1,1 +1,5 @@
-# OpenTiny NEXT 文档
+---
+layout: home
+---
+
+<HomePage />
