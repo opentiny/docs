@@ -219,12 +219,12 @@ body,
   border-radius: 8px;
 }
 
-.vp-doc a {
+.vp-doc a:not(.header-anchor):not(.VPButton) {
   color: #191919;
   text-decoration: underline;
   text-decoration-color: #1476FF; /* 设置下划线颜色为蓝色 */
 }
-.vp-doc a:hover {
+.vp-doc a:not(.header-anchor):not(.VPButton):hover {
   color: #191919;
 }
 
