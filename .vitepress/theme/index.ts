@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
+import HomePage from './home/index.vue'
 import '@opentiny/tiny-robot-style'
 import './style.css'
 
@@ -21,6 +22,7 @@ export default {
         registerServiceWorker()
       },
     })
+    app.component('HomePage', HomePage)
   },
   Layout,
 }

@@ -158,14 +158,14 @@ const showNavigation = computed(() => {
 })
 
 // 当前激活的导航标签
-const activeNavTab = ref('guide')
+const activeNavTab = ref('')
 
 // 处理导航标签变化
 const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined }),
   )
-  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.includes('/next-sdk/') ? 'guide' : currentTab?.key || "guide"
+  activeNavTab.value = activeProductTab.value === 'next-sdk' &&  route.path.includes('/next-sdk/') ? 'guide' : currentTab?.key || ""
 }
 
 // 处理导航标签变化
@@ -242,7 +242,7 @@ const productTabs = [
 ]
 
 // 默认激活NEXT-SDKs
-const activeProductTab = ref('next-sdk')
+const activeProductTab = ref('')
 
 // 切换tab时路由跳转
 const handleProductTabChange = (tabKey: string) => {
@@ -263,9 +263,8 @@ watch(
         activeProductTab.value = 'next-sdk'
       }else if(path.includes('/tiny-robot/')){
         activeProductTab.value = 'tiny-robot'
-      }else if(path === '/'){
-        activeProductTab.value = 'next-sdk'
-        router.go(`${prefix}next-sdk/guide/`)
+      }else{
+        activeProductTab.value = ''
       }
   },
   { deep: true ,immediate:true},

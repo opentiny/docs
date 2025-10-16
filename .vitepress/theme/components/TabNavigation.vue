@@ -72,7 +72,11 @@ const handleTabClick = (tab: TabItem) => {
 
 // 检查标签页是否激活
 const isTabActive = (tabKey: string): boolean => {
-  return currentActiveTab.value === tabKey
+  if( props.activeTab){
+    return props.activeTab === tabKey
+  } else{
+    return false
+  }
 }
 
 // 获取标签页类名
@@ -94,10 +98,9 @@ const updateUnderlinePosition = () => {
       const rect = activeTabEl.getBoundingClientRect()
       // 获取导航容器的位置信息
       const navRect = navRef.value.getBoundingClientRect()
-
-      // 设置下划线样式
       underlineRef.value.style.width = `${rect.width}px`
       underlineRef.value.style.left = `${rect.left - navRect.left}px`
+
     }
   })
 }
@@ -108,6 +111,20 @@ watch(
   () => {
     // 当标签数据变化时更新下划线
     nextTick(updateUnderlinePosition)
+  },
+  { deep: true },
+)
+
+watch(
+  () => props.activeTab,
+  () => {
+    // 当标签数据变化时更新下划线
+    if(!props.activeTab){
+      underlineRef.value!.style.width = `0px`
+      underlineRef.value!.style.left = `0px`
+    }else{
+      nextTick(updateUnderlinePosition)
+    }
   },
   { deep: true },
 )
