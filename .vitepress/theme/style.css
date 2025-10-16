@@ -213,6 +213,19 @@ body,
   margin: 16px 0 !important;
 }
 
+.vp-doc img {
+  border-radius: 8px;
+}
+
+.vp-doc a:not(.header-anchor):not(.VPButton) {
+  color: #191919;
+  text-decoration: underline;
+  text-decoration-color: #1476FF; /* 设置下划线颜色为蓝色 */
+}
+.vp-doc a:not(.header-anchor):not(.VPButton):hover {
+  color: #191919;
+}
+
 .VPFeatures .items .item {
   transition: transform 0.3s;
 }
