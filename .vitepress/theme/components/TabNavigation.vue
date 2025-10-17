@@ -276,19 +276,29 @@ onUnmounted(() => {
   }
 
   &__item {
-    color: var(--vp-c-text-2);
+    color: #808080;
 
     &:hover:not(&--disabled) {
-      color: var(--vp-c-text-1);
+      color: #e6e6e6;
     }
 
     &--active {
-      color: #191919;
+      color: #e6e6e6;
+      .custom-tabs__item-title {
+         color: #e6e6e6;
+      }
     }
 
     &--disabled {
       .custom-tabs__item-title {
         color: var(--vp-c-text-3);
+      }
+    }
+    
+    &-underline {
+      background: #ffffff;
+      &--active {
+        background: #ffffff;
       }
     }
   }
