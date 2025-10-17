@@ -6,7 +6,7 @@
         <!-- Logo 区域 -->
         <div class="logo-section">
           <a href="/" class="logo-link">
-            <img src="/logo-opentiny-next-text.svg" alt="OpenTiny NEXT" class="logo-icon" />
+            <img :src="isDark ? '/logo-opentiny-next-text-dark.svg' : '/logo-opentiny-next-text.svg'" alt="OpenTiny NEXT" class="logo-icon" />
             <span v-if="false" class="logo-text">{{ site.title }}</span>
           </a>
           <!-- 产品区域 -->
@@ -235,14 +235,16 @@ const openSearch = () => {
 
 const prefix = site.value.base || '/'
 
-// 产品Tab配置
-const productTabs = [
-  { key: 'next-sdk', name: 'NEXT-SDKs', link: `${prefix}next-sdk/guide`, src: `${prefix}logo-next-sdk.svg` },
-  { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/installation`, src: `${prefix}logo-tiny-robot.svg` },
-]
-
 // 默认激活NEXT-SDKs
 const activeProductTab = ref('')
+// 产品Tab配置
+const productTabs = computed(() =>[
+  { key: 'next-sdk', name: 'NEXT-SDKs', link: `${prefix}next-sdk/guide`, src: `${prefix}logo-${activeProductTab.value==='next-sdk'?'active':'normal'}-next-sdk.svg` },
+  { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/installation`, src: `${prefix}logo-${activeProductTab.value==='tiny-robot'?'active':'normal'}-tiny-robot.svg` },
+])
+
+
+
 
 // 切换tab时路由跳转
 const handleProductTabChange = (tabKey: string) => {
@@ -288,7 +290,8 @@ watch(
 
 .dark .custom-header {
   --vp-c-divider: #282c34;
-  --search-border-color: #a8b1ff;
+  --search-border-color: rgba(255, 255, 255, 0.2);
+  background-color: #000000;
 }
 
 .header-container {
@@ -415,6 +418,7 @@ watch(
 .home-link {
   --home-link-bg-color: #191919;
   --home-link-text-color: #ffffff;
+  --tool-button-color: #f5f5f5;
 
   display: inline-flex;
   align-items: center;
@@ -430,20 +434,21 @@ watch(
 }
 
 .dark .home-link {
-  --home-link-bg-color: #ffffff;
-  --home-link-text-color: #191919;
+  --home-link-bg-color: #1476ff;
+  --home-link-text-color: #ffffff;
+  --tool-button-color: #1a1a1a;
 }
 
 .tool-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: none;
   background: none;
-  border-radius: 8px;
-  color: var(--vp-c-text-2);
+  border-radius: 32px;
+  color: var(--tool-button-color);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;

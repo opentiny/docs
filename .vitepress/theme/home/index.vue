@@ -71,7 +71,7 @@ const nextDates = [
   {
     nextDateLeft: [
       {
-        icon: '/logo-next-sdk.svg',
+        icon: '/logo-normal-next-sdk.svg',
         title: 'NEXT-SDKs',
         desc: 'OpenTiny NEXT-SDKs 是一套前端智能应用开发工具包，旨在简化 WebAgent 的集成与使用，支持多种编程语言和前端框架，帮助开发者快速实现智能化功能。'
       },
@@ -92,8 +92,8 @@ const nextDates = [
         title: '快速开始',
         desc: '使用 OpenTiny NEXT-SDKs，只需要以下四步，就可以把你的前端应用变成智能应用。',
         links: [
-          { text: '让你的应用智能化',icon: '/logo-next-sdk.svg',  url: '/next-sdk/guide/#让你的应用智能化' },
-          { text: '浏览器直接引入',icon: '/logo-next-sdk.svg',  url: '/next-sdk/guide/#浏览器直接引入' },
+          { text: '让你的应用智能化',icon: '/logo-normal-next-sdk.svg',  url: '/next-sdk/guide/#让你的应用智能化' },
+          { text: '浏览器直接引入',icon: '/logo-normal-next-sdk.svg',  url: '/next-sdk/guide/#浏览器直接引入' },
         ]
       },
       {
@@ -111,7 +111,7 @@ const nextDates = [
     nextDateLeft: [
       {
         title: 'TinyRobot',
-        icon: '/logo-next-sdk.svg',
+        icon: '/logo-normal-tiny-robot.svg',
         desc: 'TinyRobot是符合OpenTiny Design 设计体系的 AI 组件库，提供了丰富的AI交互组件，助力开发者快速构建AI应用。'
       },
       {
@@ -140,8 +140,8 @@ const nextDates = [
         title: '指南',
         desc: 'TinyRobot是符合OpenTiny Design 设计体系的 AI 组件库，提供了丰富的AI交互组件，助力开发者快速构建AI应用。',
         links: [
-          { text: '安装',icon: '/logo-next-sdk.svg', url: '/tiny-robot/guide/installation.html#安装' },
-          { text: '引入与使用',icon: '/logo-next-sdk.svg', url: '/tiny-robot/guide/usage.html#引入与使用' },
+          { text: '安装',icon: '/logo-normal-next-sdk.svg', url: '/tiny-robot/guide/installation.html#安装' },
+          { text: '引入与使用',icon: '/logo-normal-next-sdk.svg', url: '/tiny-robot/guide/usage.html#引入与使用' },
         ]
       },
       {
@@ -165,19 +165,38 @@ const nextDates = [
 </script>
 <style scoped>
 
+
+
 .next-home {
   margin: 80px auto;
+  --next-home-bg-color: #ffffff;
+  --next-home-border-color: #f0f0f0;
+  --next-home-title-color: #000000;
+  --next-home-content-title-color: #000000;
+  --next-home-desc-color: #666666;
+  --next-home-li-bg-color: #f5f5f5;
+
+}
+
+.dark .next-home {
+  --next-home-bg-color: #000000;
+  --next-home-border-color: rgba(255, 255, 255, 0.2);
+  --next-home-title-color: #DEE1E6;
+  --next-home-content-title-color: #e6e6e6;
+  --next-home-desc-color: #b3b3b3;
+  --next-home-li-bg-color: #1A1A1A;
+
 }
 .next-desc {
     font-size: 16px;
-    color: #666;
+    color: var(--next-home-desc-color);
     margin-top: 8px;
     margin-bottom: 40px;
 }
 .next-title {
     display: flex;
     height: 60px;
-    color: #191919;
+    color: var(--next-home-title-color);
     font-size: 40px;
     font-weight: 600;
 }
@@ -203,10 +222,10 @@ const nextDates = [
   gap: 40px;
 }
 .next-content-box {
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--next-home-border-color);
   border-radius: 12px;
   padding: 32px;
-  background: #fff;
+  background: var(--next-home-bg-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -224,12 +243,12 @@ const nextDates = [
   font-size: 28px;
   font-weight: 600;
   line-height: 37px;
-  color: #000000;
+  color: var(--next-home-content-title-color);
   margin-bottom: 24px;
 }
 .next-content-desc {
   font-size: 16px;
-  color: #595959; 
+  color: var(--next-home-desc-color);
   line-height: 32px;  
 }
 .next-content-desc-right {
@@ -261,7 +280,7 @@ const nextDates = [
     width: 100%;
 }
 .bg-list li{
-  background: #f5f5f5;
+  background: var(--next-home-li-bg-color);
   border-radius: 8px;
   padding: 24px;
   width: 100%;
@@ -281,4 +300,6 @@ const nextDates = [
   margin: 40px 0;
   width: 100%;
 }
+
+
 </style>
