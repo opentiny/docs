@@ -20,7 +20,6 @@
           </div>
         </div>
 
-
         <!-- 右侧工具栏 -->
         <div class="tools-section">
           <!-- 中央搜索栏 -->
@@ -87,6 +86,41 @@
         </div>
       </div>
 
+      <!-- 第二行：移动端 -->
+      <div class="mb-container">
+        <div class="mb-navbar">
+          <div class="mb-logo">
+            <a href="/" class="logo-link">
+              <img :src="isDark ? '/logo-opentiny-next-text-dark.svg' : '/logo-opentiny-next-text.svg'" alt="OpenTiny NEXT" class="logo-icon" />
+              <span v-if="false" class="logo-text">{{ site.title }}</span>
+            </a>
+          </div>
+          
+          <div class="nav-buttons">
+            <button class="nav-button"  @click="openSearch" >
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+            </button>
+            <button class="nav-button" @click="showModal = true">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 第二行：主导航栏 -->
       <div class="header-bottom" v-if="showNavigation">
         <TabNavigation
@@ -95,6 +129,27 @@
           @tab-change="handleNavTabChange"
           @tab-click="handleNavTabClick"
         />
+      </div>
+
+      <!-- 弹框 -->
+      <div class="modal-overlay" v-if="showModal" @click="showModal = false">
+        <div class="modal" @click.stop>
+          <div class="modal-tabs">
+           <div v-for="tab in productTabs" :key="tab.key" :class="getModalTabClasses(tab)"  @click="showModal = false">
+              <img v-if="tab.src" :src="tab.src" class="modal-tab-icon" />
+              <a :href="tab.link"  rel="noopener noreferrer" class="modal-tab-title">{{ tab.name }}</a>
+            </div>
+          </div>
+
+          <div class="modal-header">
+            <a href="https://opentiny.design" title="OpenTiny" class="home-link">
+                <span>OpenTiny</span>
+                <svg width="3" height="24" viewBox="0 -9 3 24" class="h-5 rotate-0 overflow-visible text-white/90">
+                  <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+              </a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -112,6 +167,8 @@ const { site, theme } = useData()
 const route = useRoute()
 const router = useRouter()
 
+const showModal = ref(false)
+
 // 获取主题配置
 const themeConfig = computed(() => theme.value)
 
@@ -120,6 +177,12 @@ interface configNavItem {
   link: string
   activeMatch?: string
 }
+
+// 获取标签页类名
+const getModalTabClasses = (tab: TabItem) => ({
+  'modal-tab': true,
+  'modal-tab-active': tab.key === activeProductTab.value,
+})
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
@@ -273,7 +336,7 @@ watch(
 )
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .custom-header {
   --vp-c-divider: #f9f9f9;
   --search-border-color: #dfdfdf;
@@ -468,46 +531,165 @@ watch(
 }
 
 /* 响应式设计 */
-@media (min-width: 1024px) {
-  .header-bottom {
+@media (min-width: 980px)  {
+  .header-top {
     display: flex;
   }
-  .header-top {
-    padding: 0 3rem;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .search-section {
+  .mb-container{
     display: none;
   }
-
-  .header-top {
-    height: 56px;
-  }
-
-  .logo-text {
-    font-size: 18px;
-  }
 }
 
-@media (max-width: 640px) {
-  .header-top {
-    padding: 0 12px;
-  }
+@media (max-width: 979px){
+    .header-top {
+      display: none;
+    }
+    .mb-container{
+      display: block;
+    }
+    .mb-navbar {
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      position: relative;
+      border-bottom: 1px solid var(--search-border-color);
+    }
+    
+    .mb-logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 32px;
+    }
 
-  .tools-section {
-    gap: 4px;
-  }
+    .nav-button svg{
+      width: 20px;
+      height: 20px;
+      margin-left: 6px;
+    }
+    
+    .nav-button:hover {
+      background-color: var(--vp-c-bg-soft);
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vh;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 100;
+    }
+    .dark .modal-overlay {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .modal {
+      position: fixed;
+      top: 64px;
+      right: 0;
+      width: 223px;
+      border-radius: 12px;
+      padding: 20px;
+      background: rgb(255, 255, 255);
+      overflow: hidden;
+      z-index: 1000;
+      animation: modal-appear 0.3s ease-out;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .dark .modal {
+      background: rgba(0, 0, 0);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @keyframes modal-appear {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .modal-header {
+      color: var(--home-link-text-color);
+      text-align: center;
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 16px;
+    }
+    
+    .modal-tabs {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--search-border-color);
+    }
+    
+    .modal-tab {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+    
+    .modal-tab-icon {
+      font-size: 20px;
+      margin-right: 15px;
+      color: #4b6cb7;
+      width: 24px;
+      text-align: center;
+    }
+    
+    .modal-tab-title {
+      font-size: 16px;
+      color: #595959;
+    }
+    .modal-tab-active .modal-tab-title {
+      color: #191919;
+    }
+    .dark .modal-tab-active .modal-tab-title {
+      color: #e6e6e6;
+    }
+    .modal-tab-title:hover {
+      color: #191919;
+    }
+    .dark .modal-tab-title {
+      color: #808080;
+    }
+    .dark .modal-tab-title:hover {
+      color: #e6e6e6;
+    }
 
-  .tool-button {
-    width: 36px;
-    height: 36px;
+    .mb-route-indicator {
+      background: #e9ecef;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 500;
+      color: #495057;
+    }
+}
+@media (max-width: 679px) {
+ .header-top {
+    display: none;
   }
 }
-
 /* 可访问性支持 */
 @media (prefers-contrast: high) {
   .custom-header {

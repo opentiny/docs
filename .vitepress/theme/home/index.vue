@@ -1,6 +1,6 @@
 <template>
   <div class="next-home">
-    <div class="next-title">OpenTiny NEXT 文档中心</div>
+    <div class="next-title">OpenTiny NEXT <span> 文档中心 </span></div>
     <div class="next-desc">在这里你可以了解 NEXT 全家桶的功能，API 使用指南，以及相关资料。快速找到你想要文档。</div>
     <div class="next-content">
       <div class="next-content-section" v-for="(nextDate, sIdx) in nextDates" :key="sIdx">
@@ -71,7 +71,7 @@ const nextDates = [
   {
     nextDateLeft: [
       {
-        icon: '/logo-normal-next-sdk.svg',
+        icon: '/logo-active-next-sdk.svg',
         title: 'NEXT-SDKs',
         desc: 'OpenTiny NEXT-SDKs 是一套前端智能应用开发工具包，旨在简化 WebAgent 的集成与使用，支持多种编程语言和前端框架，帮助开发者快速实现智能化功能。'
       },
@@ -111,7 +111,7 @@ const nextDates = [
     nextDateLeft: [
       {
         title: 'TinyRobot',
-        icon: '/logo-normal-tiny-robot.svg',
+        icon: '/logo-active-tiny-robot.svg',
         desc: 'TinyRobot是符合OpenTiny Design 设计体系的 AI 组件库，提供了丰富的AI交互组件，助力开发者快速构建AI应用。'
       },
       {
@@ -275,6 +275,7 @@ const nextDates = [
 .next-content-list a:hover {
   text-decoration: underline;
   text-decoration-color: #1476FF;
+
 }
 .bg-list{
     width: 100%;
@@ -300,6 +301,45 @@ const nextDates = [
   margin: 40px 0;
   width: 100%;
 }
-
+@media (max-width: 979px){
+  .next-home{
+    margin: 20px auto;
+  }
+  .next-title{
+    font-size: 36px;
+    line-height: 50px;
+  }
+  .next-title span{
+    display: none;
+  }
+  .next-content{
+    margin-top: 20px;
+  }
+  .next-desc{
+    font-size: 16px;
+    margin-bottom: 21px;
+  }
+  .next-content-row {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }  
+  .next-content-box{
+    padding: 28px 20px;
+  } 
+  .next-content-icon{
+    margin-bottom: 12px;
+  }
+  .next-content-title{
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 20px;
+  }
+  .next-content-desc{
+    font-size: 16px;
+    line-height: 32px;  
+  }
+}
 
 </style>
