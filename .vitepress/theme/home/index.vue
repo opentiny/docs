@@ -92,8 +92,8 @@ const nextDates = [
         title: '快速开始',
         desc: '使用 OpenTiny NEXT-SDKs，只需要以下四步，就可以把你的前端应用变成智能应用。',
         links: [
-          { text: '让你的应用智能化',icon: '/logo-normal-next-sdk.svg',  url: '/next-sdk/guide/#让你的应用智能化' },
-          { text: '浏览器直接引入',icon: '/logo-normal-next-sdk.svg',  url: '/next-sdk/guide/#浏览器直接引入' },
+          { text: '让你的应用智能化',icon: '/icon-app.svg',  url: '/next-sdk/guide/#让你的应用智能化' },
+          { text: '浏览器直接引入',icon: '/icon-browser.svg',  url: '/next-sdk/guide/#浏览器直接引入' },
         ]
       },
       {
@@ -140,8 +140,8 @@ const nextDates = [
         title: '指南',
         desc: 'TinyRobot是符合OpenTiny Design 设计体系的 AI 组件库，提供了丰富的AI交互组件，助力开发者快速构建AI应用。',
         links: [
-          { text: '安装',icon: '/logo-normal-next-sdk.svg', url: '/tiny-robot/guide/installation.html#安装' },
-          { text: '引入与使用',icon: '/logo-normal-next-sdk.svg', url: '/tiny-robot/guide/usage.html#引入与使用' },
+          { text: '安装',icon: '/icon-tool.svg', url: '/tiny-robot/guide/installation.html#安装' },
+          { text: '引入与使用',icon: '/icon-download.svg', url: '/tiny-robot/guide/usage.html#引入与使用' },
         ]
       },
       {
