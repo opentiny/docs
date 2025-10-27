@@ -266,6 +266,14 @@ body,
   min-height: calc(100dvh - 113px);
 }
 
+.vp-doc button.copy { 
+  background-color: #e6e6e6 !important;
+  border-width: 0 !important;
+  height: 24px !important;
+  width: 24px !important;
+  background-size: 16px 16px !important;
+} 
+
 /* 暗色模式下全局样式 */
 .dark h1{
   color: #DEE1E6;
@@ -342,6 +350,9 @@ body,
   text-decoration: underline;
   text-decoration-color: #5291FF; /* 设置下划线颜色为蓝色 */
 }
+.dark .vp-doc button.copy { 
+  background-color: #1a1a1a !important;
+} 
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
   .VPSidebar {
@@ -375,4 +386,12 @@ body,
   .vp-doc.container {
       padding: 0 24px;
   } 
+  .VPLocalNav .menu{
+    line-height: 46px;
+  }
+}
+@media (max-width: 1500px) {
+  .VPLocalNavOutlineDropdown {
+    display: none;
+  }
 }

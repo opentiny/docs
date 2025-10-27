@@ -141,13 +141,35 @@
             </div>
           </div>
 
+          <div class="modal-theme-mb">
+              <span>外观切换</span>
+              <!-- 移动端主题切换 -->
+              <button @click="toggleDark" class="tool-button" title="Toggle theme">
+                <svg v-if="!isDark" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+                <svg v-else width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                </svg>
+              </button>
+          </div>
           <div class="modal-header">
-            <a href="https://opentiny.design" title="OpenTiny" class="home-link">
+            <a href="https://opentiny.design" title="OpenTiny" class="home-link home-link-mb">
                 <span>OpenTiny</span>
                 <svg width="3" height="24" viewBox="0 -9 3 24" class="h-5 rotate-0 overflow-visible text-white/90">
                   <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
                 </svg>
-              </a>
+            </a>
           </div>
         </div>
       </div>
@@ -493,7 +515,14 @@ watch(
   transition: all 0.2s ease;
   padding: 4px 16px;
   border-radius: 25px;
+  text-align: center;
   background-color: var(--home-link-bg-color);
+}
+
+.home-link-mb{
+  width: 182px;
+  line-height: 38px;
+  justify-content: center;
 }
 
 .dark .home-link {
@@ -627,12 +656,31 @@ watch(
     
     .modal-header {
       color: var(--home-link-text-color);
-      text-align: center;
       font-weight: 600;
       font-size: 18px;
       margin-top: 16px;
     }
-    
+
+    .modal-theme-mb{
+      display: flex;
+      margin-top: 16px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      line-height: 38px;
+      font-size: 14px;
+      color: #595959;
+      padding: 0 12px;
+    }
+    .modal-theme-mb span{
+      flex: 1;
+    }
+    .modal-theme-mb .tool-button{
+      margin-top: 3px;
+    }
+    .dark .modal-theme-mb{
+      background-color: #1a1a1a;  
+      color: #ffffff;
+    }
     .modal-tabs {
       display: flex;
       flex-direction: column;
