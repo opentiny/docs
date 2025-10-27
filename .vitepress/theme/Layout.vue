@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { ThemeProvider } from '../../tiny-robot/packages/components/src/index'
+import { ThemeProvider } from '@opentiny/tiny-robot'
 import { onMounted, onUnmounted, ref } from 'vue' 
 import { colorModeSubject } from './color-mode'
 import CustomHeader from './components/CustomHeader.vue'
