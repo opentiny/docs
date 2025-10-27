@@ -193,7 +193,7 @@ onUnmounted(() => {
 
   &__item {
     font-weight: 500;
-    color: var(--vp-c-text-2);
+    color: #595959;
     gap: 0.5rem;
     align-items: center;
     height: 100%;
@@ -306,19 +306,5 @@ onUnmounted(() => {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .custom-tabs {
-    &__header {
-      padding: 0 12px;
-    }
-
-    &__nav {
-      gap: 2px;
-    }
-
-    &__item {
-      padding: 6px 12px;
-      font-size: 13px;
-    }
-  }
 }
 </style>
