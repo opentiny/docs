@@ -13,6 +13,7 @@
     "gh-pages": "^2.1.1",
     "less": "^4.4.1",
     "vitepress": "^1.6.3",
+    "@opentiny/tiny-robot": "workspace:^",
     "vitepress-demo-plugin": "^1.4.2"
   },
   "dependencies": {

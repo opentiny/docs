@@ -5,14 +5,17 @@
 
     <!-- 主内容区域 -->
     <div class="main-content">
-      <DefaultLayout />
+      <ThemeProvider :color-mode="colorMode">
+        <DefaultLayout />
+      </ThemeProvider>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ThemeProvider } from '@opentiny/tiny-robot'
+import { onMounted, onUnmounted, ref } from 'vue' 
 import { colorModeSubject } from './color-mode'
 import CustomHeader from './components/CustomHeader.vue'
 
