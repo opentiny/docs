@@ -3,6 +3,11 @@ import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import '@opentiny/tiny-robot-style'
+import {nextTick, watch} from 'vue';
+import {useRoute} from 'vitepress';
+import mediumZoom from 'medium-zoom';
+// 引入样式文件
+import './medium-zoom.css';
 import './style.css'
 
 declare global {
@@ -25,6 +30,21 @@ export default {
     app.component('HomePage', HomePage)
   },
   Layout,
+  setup() {
+    // 为img元素添加点击放大功能
+    const route = useRoute();
+    let zomm: any = null;
+    watch(
+      () => route.path,
+      () => nextTick(() => {
+        if (zomm) {
+          zomm.detach();
+        }
+        zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+      }),
+      {immediate: true}
+    )
+  },
 }
 
 function registerServiceWorker() {
