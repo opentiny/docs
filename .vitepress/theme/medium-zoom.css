@@ -1,0 +1,8 @@
+/* 例如侧边栏 z-index: 25; 默认放大图片的覆盖层会被侧边栏遮挡，需要设置放大图片覆盖层 z-index 大于25 */
+.medium-zoom-overlay {
+    z-index:9998;
+}
+
+.medium-zoom-image {
+    z-index: 9999;
+}
