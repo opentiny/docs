@@ -333,7 +333,7 @@ const productTabs = computed(() =>[
 
 // 切换tab时路由跳转
 const handleProductTabChange = (tabKey: string) => {
-  const tab = productTabs.find(t => t.key === tabKey)
+  const tab = productTabs.value.find(t => t.key === tabKey)
   if (tab?.link) {
     const targetPath = normalizeLink(tab.link, site.value.base)
     router.go(targetPath)
@@ -392,6 +392,8 @@ watch(
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--vp-c-divider);
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .logo-section {
@@ -412,6 +414,9 @@ watch(
   left: 0;
   height: 50%;
   z-index: 2;
+}
+.dark .product-section:before {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo-link {

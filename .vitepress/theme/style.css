@@ -274,6 +274,60 @@ body,
   background-size: 16px 16px !important;
 } 
 
+.VPDoc .pager-link{
+  border-width: 0;
+}
+
+.VPDoc .pager-link .title{
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+.VPDoc .pager-link .title:hover{
+  color: #191919;
+}
+info{
+  display: inline-block;
+  padding: 1rem 1.25rem;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  border: 1px solid #e0e0e0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+.vp-doc .header-anchor:before{
+  content: url("../../public/header-anchor.svg");
+  margin-bottom: 10px;
+}
+.vp-doc .header-anchor{
+  border-radius: 0.375rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  left: -10px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DEE1E6;
+}
+.vp-doc h1 .header-anchor{
+  top: 10px;
+}
+.vp-doc h2 .header-anchor{
+  top: 28px;
+}
+.vp-doc h3 .header-anchor{
+  top: 4px;
+  left: -15px;
+}
+.vp-doc h2 .header-anchor:before {
+  margin-bottom: 5px;
+}
+.vp-doc h3 .header-anchor:before {
+  margin-bottom: 2px;
+}
+
+
 /* 暗色模式下全局样式 */
 .dark h1{
   color: #DEE1E6;
@@ -353,6 +407,20 @@ body,
 .dark .vp-doc button.copy { 
   background-color: #1a1a1a !important;
 } 
+.dark .VPDoc .pager-link .title:hover{
+  color: #ffffff;
+}
+.dark info{
+  background: #1a1a1a;
+  border: 1px solid #333333;
+}
+
+.dark .vp-doc .header-anchor{
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .vp-doc .header-anchor:hover{
+  border: 1px solid #b3b3b3;
+}
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
   .VPSidebar {
@@ -361,6 +429,13 @@ body,
   .VPHome .container {
     padding: 0 48px;
   } 
+}
+@media (min-width: 960px) and (max-width: 1440px){
+  .VPSidebar {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+ 
 }
 @media (max-width: 979px){
   .vp-doc h1 {
