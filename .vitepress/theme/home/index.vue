@@ -297,10 +297,11 @@ const nextDates = [
 }
 .next-content-divider {
   height: 1px;
-  background: #f0f0f0;
+  background: rgba(255, 255, 255, 0.2);
   margin: 40px 0;
   width: 100%;
 }
+
 @media (max-width: 979px){
   .next-home{
     margin: 20px auto;
