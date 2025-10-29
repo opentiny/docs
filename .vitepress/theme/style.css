@@ -448,6 +448,21 @@ info{
 .dark .vp-doc .header-anchor:hover{
   border: 1px solid #b3b3b3;
 }
+.VPDoc .pager-link.prev .title::before {
+  color: rgb(158 ,161 ,166);
+ 
+}
+.VPDoc .pager-link.next .title::after {
+  color: rgb(158 ,161 ,166);
+
+}
+.VPDoc .pager-link.prev:hover .title::before {
+  color: #ffffff;
+}
+.VPDoc .pager-link.next:hover .title::after {
+  color: #ffffff;
+}
+
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
   .VPSidebar {
