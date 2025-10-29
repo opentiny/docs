@@ -282,8 +282,35 @@ body,
   color: var(--vp-c-text-1);
   font-weight: 600;
 }
+.VPDoc .pager-link.prev .title::before {
+  content: "<";
+  color: rgb(158, 161, 166);
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+}
+.VPDoc .pager-link.next .title::after {
+  content: ">";
+  color: rgb(158, 161, 166);
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+}
+.VPDoc .pager-link.prev:hover .title::before {
+  color: #191919;
+}
+.VPDoc .pager-link.next:hover .title::after {
+  color: #191919;
+}
 .VPDoc .pager-link .title:hover{
   color: #191919;
+}
+.VPDoc .pager-link .desc{
+  display: none;
 }
 info{
   display: inline-block;
@@ -421,6 +448,21 @@ info{
 .dark .vp-doc .header-anchor:hover{
   border: 1px solid #b3b3b3;
 }
+.VPDoc .pager-link.prev .title::before {
+  color: rgb(158 ,161 ,166);
+ 
+}
+.VPDoc .pager-link.next .title::after {
+  color: rgb(158 ,161 ,166);
+
+}
+.VPDoc .pager-link.prev:hover .title::before {
+  color: #ffffff;
+}
+.VPDoc .pager-link.next:hover .title::after {
+  color: #ffffff;
+}
+
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
   .VPSidebar {
