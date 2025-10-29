@@ -33,14 +33,15 @@ export default {
   setup() {
     // 为img元素添加点击放大功能
     const route = useRoute();
+    let zomm: any = null;
     watch(
       () => route.path,
-      () => nextTick(
-        () => mediumZoom(
-          '.main img',
-          {background: 'var(--vp-c-bg)'}
-        )
-      ),
+      () => nextTick(() => {
+        if (zomm) {
+          zomm.detach();
+        }
+        zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+      }),
       {immediate: true}
     )
   },
