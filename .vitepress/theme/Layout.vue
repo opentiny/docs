@@ -61,17 +61,26 @@ watch(
       const path = route.path.replace(new RegExp(`^${site.value.base}`), '/')
       if(path.includes('/next-sdk/')){
         let pathkey = 0;
-        themeConfig.value.sidebar['/next-sdk/guide/'].forEach((child,key) => {
+        const sidebarConfig = themeConfig.value.sidebar['/next-sdk/guide/'];
+        if(!sidebarConfig) {
+          docTitle.value = '指南'
+          return;
+        };
+        sidebarConfig.forEach((child,key) => {
           child.items.forEach(item => {
             if(path.includes(item.link)){
               pathkey = key
             }
           });
         });
-        docTitle.value =  themeConfig.value.sidebar['/next-sdk/guide/'][pathkey].text
-
+        docTitle.value =  sidebarConfig[pathkey]?.text || '指南'
       }else if(path.includes('/tiny-robot/')){
-        themeConfig.value.nav.forEach(item => {
+        const navConfig = themeConfig.value.nav;
+        if(!navConfig) {
+          docTitle.value = ''
+          return;
+        };
+        navConfig.forEach(item => {
           if(path.includes(item.activeMatch)){
             docTitle.value = item.text
           }
