@@ -321,10 +321,16 @@ a.result:hover .titles .title .text mark{
   width: 24px;
   background-size: 16px 16px;
   opacity: 1;
+  background-image: url("../../public/icon-copy.svg");
+} 
+.vp-doc .vp-adaptive-theme button.copy.copied { 
+  background-image: url("../../public/icon-check-mark.svg");
+} 
+.vp-doc .vp-adaptive-theme button.copy.copied:hover { 
+  background-image: url("../../public/icon-check-mark.svg");
 } 
 .vp-doc .vp-adaptive-theme button.copy:hover{
-  background-color: #e6e6e6;
-
+  background-image: url("../../public/icon-copy-hover.svg");
 }
 
 .vp-doc .vp-adaptive-theme button.copy.copied::before ,.vp-doc .vp-adaptive-theme button.copy:hover.copied::before {
@@ -435,10 +441,10 @@ info{
 .outline-title::before {
   content: "";
   display: inline-block;
-  width: 12px;               /* 图标宽度 */
-  height: 12px;              /* 图标高度 */
-  margin-right: 8px;         /* 与标题间距 */
-  background-image: url("../../public/outline-title.svg");
+  width: 12px;               
+  height: 12px;            
+  margin-right: 8px;       
+  background-image: url("../../public/icon-lists.svg");
   background-repeat: no-repeat;
   background-size: contain;  /* 或用 '12px 12px' 精确控制 */
   background-position: center;
@@ -517,16 +523,19 @@ info{
 .dark .outline-link.active {
   color: #F2F5FA;
 }
+
 .dark .vp-doc a:not(.header-anchor):not(.VPButton) {
-  color: #5291FF;
+  color: #e6e6e6;
   text-decoration: none;
+  border-bottom: 1px solid #1476FF;
 }
+
 .dark .vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  text-decoration: underline;
-  text-decoration-color: #5291FF; /* 设置下划线颜色为蓝色 */
+  border-bottom-width: 2px;
+
 }
 .dark .vp-doc button.copy { 
-  background-color: #1a1a1a !important;
+  background-color: #000000 !important;
 } 
 .dark .VPDoc .pager-link .title:hover{
   color: #ffffff;
@@ -545,6 +554,16 @@ info{
 .dark .vp-doc .vp-adaptive-theme button.copy.copied::before ,.dark .vp-doc .vp-adaptive-theme button.copy:hover.copied::before {
   background-color: #1476FF;
 }
+.dark .vp-doc .vp-adaptive-theme button.copy { 
+  background-image: url("../../public/icon-copy-dark.svg");
+
+} 
+.dark .vp-doc .vp-adaptive-theme button.copy:hover{
+  background-image: url("../../public/icon-copy-dark-hover.svg");
+}
+.dark .vp-doc .vp-adaptive-theme button.copy.copied ,.dark .vp-doc .vp-adaptive-theme button.copy.copied:hover { 
+  background-image: url("../../public/icon-check-mark.svg");
+} 
 .dark a.result:hover{
   background-color: #1a1a1a;
 }
@@ -562,7 +581,7 @@ info{
  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark .outline-title::before {
-  background-color: #DFDFD6;
+  background-image: url("../../public/icon-lists-dark.svg");
 }
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
