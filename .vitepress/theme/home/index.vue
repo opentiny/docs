@@ -175,7 +175,6 @@ const nextDates = [
   --next-home-content-title-color: #000000;
   --next-home-desc-color: #666666;
   --next-home-li-bg-color: #f5f5f5;
-
 }
 
 .dark .next-home {
@@ -267,14 +266,15 @@ const nextDates = [
   margin-top: 0;
 }
 .next-content-list a {
-  color: #1476FF;
+  color: #1476FF !important;
+  border-width: 0px !important;
   text-decoration: none;
   font-size: 15px;
   transition: color 0.2s;
 }
 .next-content-list a:hover {
-  text-decoration: underline;
-  text-decoration-color: #1476FF;
+  text-decoration: underline !important;
+  text-decoration-color: #1476FF !important;
 
 }
 .bg-list{
@@ -284,6 +284,7 @@ const nextDates = [
   background: var(--next-home-li-bg-color);
   border-radius: 8px;
   padding: 24px;
+  line-height: 21px;
   width: 100%;
   margin-top: 24px;
   display: flex;
@@ -297,7 +298,7 @@ const nextDates = [
 }
 .next-content-divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--next-home-border-color);
   margin: 40px 0;
   width: 100%;
 }
