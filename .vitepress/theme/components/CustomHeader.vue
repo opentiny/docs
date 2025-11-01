@@ -713,7 +713,10 @@ watch(
     .modal-tabs {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid var(--search-border-color);
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .dark .modal-tabs{
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .modal-tab {
