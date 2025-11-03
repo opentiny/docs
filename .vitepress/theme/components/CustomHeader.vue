@@ -131,50 +131,51 @@
         />
       </div>
 
-      <!-- 弹框 -->
-      <div class="modal-overlay" v-if="showModal" @click="showModal = false">
-        <div class="modal" @click.stop>
-          <div class="modal-tabs">
-           <div v-for="tab in productTabs" :key="tab.key" :class="getModalTabClasses(tab)"  @click="showModal = false">
-              <img v-if="tab.src" :src="tab.src" class="modal-tab-icon" />
-              <a :href="tab.link"  rel="noopener noreferrer" class="modal-tab-title">{{ tab.name }}</a>
-            </div>
-          </div>
-
-          <div class="modal-theme-mb">
-              <span>外观切换</span>
-              <!-- 移动端主题切换 -->
-              <button @click="toggleDark" class="tool-button" title="Toggle theme">
-                <svg v-if="!isDark" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-                <svg v-else width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              </button>
-          </div>
-          <div class="modal-header">
-            <a href="https://opentiny.design" title="OpenTiny" class="home-link home-link-mb">
-                <span>OpenTiny</span>
-                <svg width="3" height="24" viewBox="0 -9 3 24" class="h-5 rotate-0 overflow-visible text-white/90">
-                  <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-                </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+ 
     </div>
   </header>
+  <!-- 弹框 -->
+  <div class="modal-overlay" v-if="showModal" @click="showModal = false">
+    <div class="modal" @click.stop>
+      <div class="modal-tabs">
+        <div v-for="tab in productTabs" :key="tab.key" :class="getModalTabClasses(tab)"  @click="showModal = false">
+          <img v-if="tab.src" :src="tab.src" class="modal-tab-icon" />
+          <a :href="tab.link"  rel="noopener noreferrer" class="modal-tab-title">{{ tab.name }}</a>
+        </div>
+      </div>
+
+      <div class="modal-theme-mb">
+          <span>外观切换</span>
+          <!-- 移动端主题切换 -->
+          <button @click="toggleDark" class="tool-switch " title="Toggle theme">
+            <svg v-if="!isDark" class="normal-svg" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            <svg v-else class="dark-svg" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+      </div>
+      <div class="modal-header">
+        <a href="https://opentiny.design" title="OpenTiny" class="home-link home-link-mb">
+            <span>OpenTiny</span>
+            <svg width="3" height="24" viewBox="0 -9 3 24" class="h-5 rotate-0 overflow-visible text-white/90">
+              <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -528,6 +529,7 @@ watch(
   width: 182px;
   line-height: 38px;
   justify-content: center;
+  padding: 0;
 }
 
 .dark .home-link {
@@ -555,7 +557,32 @@ watch(
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
 }
-
+.tool-switch {
+  position: relative;
+  border-radius: 11px;
+  display: block;
+  width: 40px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 8px;
+  border: 1px solid #e6e6e6;
+  background-color: #f0f0f0;
+  transition: border-color .25s, background-color .25s;
+}
+.tool-switch .normal-svg{
+  background: #ffffff;
+  border-radius: 50%;
+}
+.dark .tool-switch{
+  border: 1px solid #333333;
+  background-color: #333333;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.dark .tool-switch .dark-svg{
+  background: #000000;
+  border-radius: 50%;
+}
 /* 第二行样式 */
 .header-bottom {
   height: var(--vp-nav-bottom-height);
@@ -619,14 +646,11 @@ watch(
     }
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100vh;
-      height: 100vh;
-      background: rgba(255, 255, 255, 0.9);
-      z-index: 100;
+      overflow-y: auto;
+      z-index: 99;
+      inset: 0;
+      backdrop-filter:blur(4px);
+      background-color: rgba(11,12,15,0.2) !important;
     }
     .dark .modal-overlay {
       background: rgba(0, 0, 0, 0.8);
@@ -689,7 +713,10 @@ watch(
     .modal-tabs {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid var(--search-border-color);
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .dark .modal-tabs{
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .modal-tab {

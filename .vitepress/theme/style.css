@@ -161,6 +161,9 @@ body,
   padding-top: 2rem;
 }
 
+.VPDoc .vp-doc .vp-adaptive-theme .lang{
+  display: none;
+}
 .VPDoc .vp-doc .vp-adaptive-theme {
   background: #ffffff;
   border: 1px solid #E8E8E8;
@@ -174,8 +177,8 @@ body,
   border-left-color: #fff;
 }
 
-.outline-link.active {
-  color: #191919;
+.VPDocOutlineItem  a.outline-link.active {
+  color: #1476FF;
   font-weight: 600;
 }
 
@@ -189,7 +192,45 @@ body,
   border: 2px solid var(--vp-c-brand-soft);
   box-shadow: 0 4px 20px var(--vp-c-brand-soft);
 }
+.VPLocalSearchBox .shell{
+  border-radius: 1.25rem !important;
+  max-width: 640px;
+  padding: 6px !important;
+  gap: 0 !important;
+}
+.shell form.search-bar{
+ border-radius: 0.75rem;
+ height: 43px;
+}
+.shell form.search-bar .search-actions{
+  display: none;
+}
+.shell div.search-keyboard-shortcuts{
+  display: none;
+}
+.results a.result {
+  border-width: 0;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+}
+.results li:first-child{
+  margin-top: 8px;
+}
+a.result:hover{
+  background-color: #f5f5f5;
+}
+.VPLocalSearchBox .backdrop{
+  backdrop-filter:blur(4px);
+  background-color: rgba(11,12,15,0.2) !important;
+}
 
+.titles .title .text mark{
+  background-color: #ffffff;
+  color: #1476FF;
+}
+a.result:hover .titles .title .text mark{
+  background-color: #f5f5f5;
+}
 /* ===== 表格样式优化 ===== */
 .vp-doc table {
   border-collapse: collapse;
@@ -237,19 +278,26 @@ body,
   padding-left: 1.25rem !important;
   margin: 16px 0 !important;
 }
-
+.vp-doc ul li {
+  line-height: 28px;
+}
+.vp-doc ul li + li {
+    margin-top: 16px;
+}
 .vp-doc img {
   border-radius: 8px;
+  margin: 10px 0;
 }
 
 .vp-doc a:not(.header-anchor):not(.VPButton) {
-  color: #1476FF;
+  color: #191919;
+  font-weight: 600;
   text-decoration: none;
+  border-bottom: 1px solid #1476FF;
 }
 
 .vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  text-decoration: underline;
-  text-decoration-color: #1476FF; /* 设置下划线颜色为蓝色 */
+  border-bottom-width: 2px;
 
 }
 
@@ -266,14 +314,33 @@ body,
   min-height: calc(100dvh - 113px);
 }
 
-.vp-doc button.copy { 
-  background-color: #e6e6e6 !important;
-  border-width: 0 !important;
-  height: 24px !important;
-  width: 24px !important;
-  background-size: 16px 16px !important;
+.vp-doc .vp-adaptive-theme button.copy { 
+  background-color: #ffffff;
+  border-width: 0;
+  height: 24px;
+  width: 24px;
+  background-size: 16px 16px;
+  opacity: 1;
+  background-image: url("../../public/icon-copy.svg");
 } 
+.vp-doc .vp-adaptive-theme button.copy.copied { 
+  background-image: url("../../public/icon-check-mark.svg");
+} 
+.vp-doc .vp-adaptive-theme button.copy.copied:hover { 
+  background-image: url("../../public/icon-check-mark.svg");
+} 
+.vp-doc .vp-adaptive-theme button.copy:hover{
+  background-image: url("../../public/icon-copy-hover.svg");
+}
 
+.vp-doc .vp-adaptive-theme button.copy.copied::before ,.vp-doc .vp-adaptive-theme button.copy:hover.copied::before {
+  background-color: #191919;
+  color: #ffffff;
+  border-radius: 80px;
+  height: 20px;
+  top: 22px;
+  left: 38px;
+}
 .VPDoc .pager-link{
   border-width: 0;
 }
@@ -321,6 +388,7 @@ info{
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 14px;
+  width: 100%;
 }
 .vp-doc .header-anchor:before{
   content: url("../../public/header-anchor.svg");
@@ -341,11 +409,21 @@ info{
   top: 10px;
 }
 .vp-doc h2 .header-anchor{
-  top: 28px;
+  top: 4px;
+}
+.vp-doc h2{
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding: 0;
+  border-width: 0;
 }
 .vp-doc h3 .header-anchor{
   top: 4px;
   left: -15px;
+}
+.vp-doc h4 .header-anchor{
+  top: 0px;
+  left: -20px;
 }
 .vp-doc h2 .header-anchor:before {
   margin-bottom: 5px;
@@ -353,8 +431,30 @@ info{
 .vp-doc h3 .header-anchor:before {
   margin-bottom: 2px;
 }
-
-
+.vp-doc h4 .header-anchor:before {
+  margin-bottom: 0px;
+}
+.outline-title {
+  display: flex;
+  align-items: center; /* 垂直居中图标和文本 */
+}
+.outline-title::before {
+  content: "";
+  display: inline-block;
+  width: 12px;               
+  height: 12px;            
+  margin-right: 8px;       
+  background-image: url("../../public/icon-lists.svg");
+  background-repeat: no-repeat;
+  background-size: contain;  /* 或用 '12px 12px' 精确控制 */
+  background-position: center;
+  transform: translateY(0);  /* 需要微调时改为 translateY(1px) / -1px */
+}
+.vp-doc blockquote{
+  border-left-width: 4px;
+  padding-left: 24px;
+  margin: 25.6px 0;
+}
 /* 暗色模式下全局样式 */
 .dark h1{
   color: #DEE1E6;
@@ -423,16 +523,19 @@ info{
 .dark .outline-link.active {
   color: #F2F5FA;
 }
+
 .dark .vp-doc a:not(.header-anchor):not(.VPButton) {
-  color: #5291FF;
+  color: #e6e6e6;
   text-decoration: none;
+  border-bottom: 1px solid #1476FF;
 }
+
 .dark .vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  text-decoration: underline;
-  text-decoration-color: #5291FF; /* 设置下划线颜色为蓝色 */
+  border-bottom-width: 2px;
+
 }
 .dark .vp-doc button.copy { 
-  background-color: #1a1a1a !important;
+  background-color: #000000 !important;
 } 
 .dark .VPDoc .pager-link .title:hover{
   color: #ffffff;
@@ -448,21 +551,38 @@ info{
 .dark .vp-doc .header-anchor:hover{
   border: 1px solid #b3b3b3;
 }
-.VPDoc .pager-link.prev .title::before {
-  color: rgb(158 ,161 ,166);
- 
+.dark .vp-doc .vp-adaptive-theme button.copy.copied::before ,.dark .vp-doc .vp-adaptive-theme button.copy:hover.copied::before {
+  background-color: #1476FF;
 }
-.VPDoc .pager-link.next .title::after {
-  color: rgb(158 ,161 ,166);
+.dark .vp-doc .vp-adaptive-theme button.copy { 
+  background-image: url("../../public/icon-copy-dark.svg");
 
+} 
+.dark .vp-doc .vp-adaptive-theme button.copy:hover{
+  background-image: url("../../public/icon-copy-dark-hover.svg");
 }
-.VPDoc .pager-link.prev:hover .title::before {
-  color: #ffffff;
+.dark .vp-doc .vp-adaptive-theme button.copy.copied ,.dark .vp-doc .vp-adaptive-theme button.copy.copied:hover { 
+  background-image: url("../../public/icon-check-mark.svg");
+} 
+.dark a.result:hover{
+  background-color: #1a1a1a;
 }
-.VPDoc .pager-link.next:hover .title::after {
-  color: #ffffff;
+.dark a.result:hover .titles .title .text mark{
+  background-color: #1a1a1a;
 }
-
+.dark .titles .title .text mark{
+  background-color: #000000;
+}
+.dark .shell form.search-bar{
+ border-color: #ffffff;
+}
+.dark .shell{
+ background-color: #000000 !important;
+ border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .outline-title::before {
+  background-image: url("../../public/icon-lists-dark.svg");
+}
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
   .VPSidebar {
