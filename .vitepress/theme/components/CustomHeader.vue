@@ -326,7 +326,7 @@ const activeProductTab = ref('')
 // 产品Tab配置
 const productTabs = computed(() =>[
   { key: 'next-sdk', name: 'NEXT-SDKs', link: `${prefix}next-sdk/guide`, src: `${prefix}logo-${activeProductTab.value==='next-sdk'?'active':'normal'}-next-sdk.svg` },
-  { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/installation`, src: `${prefix}logo-${activeProductTab.value==='tiny-robot'?'active':'normal'}-tiny-robot.svg` },
+  { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/quick-start`, src: `${prefix}logo-${activeProductTab.value==='tiny-robot'?'active':'normal'}-tiny-robot.svg` },
 ])
 
 

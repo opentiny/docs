@@ -63,12 +63,19 @@ export default defineConfig({
     logo: '/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
     nav: [
-      { text: '指南', link: '/tiny-robot/guide/installation', activeMatch: '/guide/' },
+      { text: '指南', link: '/tiny-robot/guide/quick-start', activeMatch: '/guide/' },
       { text: '组件', link: '/tiny-robot/components/bubble', activeMatch: '/components/' },
       { text: '工具', link: '/tiny-robot/tools/ai-client', activeMatch: '/tools/' },
       { text: '演示', link: '/tiny-robot/examples/assistant', activeMatch: '/examples/' },
     ],
     sidebar: {
+      '/tiny-robot/guide/': [
+        {
+          text: '指南',
+          base: '/tiny-robot/guide/',
+          items: [{ text: '快速开始', link: 'quick-start' }],
+        },
+      ],
       '/tiny-robot/components/': [
         {
           text: '组件',
@@ -100,6 +107,13 @@ export default defineConfig({
             { text: '消息数据管理', link: 'message' },
             { text: '会话数据管理', link: 'conversation' },
           ],
+        },
+      ],
+      '/tiny-robot/examples/': [
+        {
+          text: '演示',
+          base: '/tiny-robot/examples/',
+          items: [{ text: '综合示例', link: 'assistant' }],
         },
       ],
       '/next-sdk/guide/': [
@@ -136,6 +150,7 @@ export default defineConfig({
           items: [{ text: 'TinyRobot 版本', link: 'tiny-robot-remoter' }]
         }
       ],
+      
     },
     search: {
       provider: 'local',
