@@ -504,7 +504,7 @@ info{
   content: url("../../public/icon-app.svg");
 }
 
-/* 暗色模式下全局样式 */r
+/* 暗色模式下全局样式 */
 .dark h1{
   color: #DEE1E6;
 }
