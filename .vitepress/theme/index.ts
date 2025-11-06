@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
+import CustomTable from './components/CustomTable.vue'
 import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
@@ -28,6 +29,7 @@ export default {
       },
     })
     app.component('HomePage', HomePage)
+    app.component('CustomTable', CustomTable)
   },
   Layout,
   setup() {
