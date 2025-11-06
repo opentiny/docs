@@ -63,22 +63,10 @@ const props = defineProps({
   columns: {
     type: Array,
     required: true,
-    default: () => [],
   },
   data: {
     type: Array,
     required: true,
-    default: () => [],
-  },
-  rowStyle: {
-    type: String,
-    default: "default",
-    validator: (value) => ["default", "hover"].includes(value),
-  },
-  columnWidthMode: {
-    type: String,
-    default: "auto",
-    validator: (value) => ["auto", "fixed"].includes(value),
   },
   rowKey: {
     type: [String, Function],
