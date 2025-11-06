@@ -4,3 +4,6 @@
 [submodule "next-sdk"]
 	path = next-sdk
 	url = git@github.com:opentiny/next-sdk.git
+[submodule "tiny-vue"]
+	path = tiny-vue
+	url = git@github.com:opentiny/tiny-vue.git

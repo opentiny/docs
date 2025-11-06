@@ -57,6 +57,7 @@ export default defineConfig({
   rewrites: {
     'tiny-robot/docs/src/:path*': 'tiny-robot/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
+    'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -150,6 +151,25 @@ export default defineConfig({
           items: [{ text: 'TinyRobot 版本', link: 'tiny-robot-remoter' }]
         }
       ],
+      '/tiny-vue/guide/': [
+        {
+          text: '指南',
+          base: '/tiny-vue/guide/',
+          items: [
+            { text: '环境准备', link: 'envpreparation-open' },
+            { text: '安装', link: 'installation' },
+            { text: '更新日志', link: 'changelog' },
+            { text: '引入组件', link: 'import-components' },
+            { text: '国际化', link: 'i18n' },
+            { text: '主题配置', link: 'theme' },
+            { text: '暗黑模式', link: 'theme-dark' },
+            { text: '智能化', link: 'mcp' },
+            { text: '表单校验配置', link: 'form-valid' },
+            { text: '常见问题', link: 'faq' },
+          ]
+        },
+      ],
+      
       
     },
     search: {
