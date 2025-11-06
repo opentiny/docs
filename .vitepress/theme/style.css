@@ -493,7 +493,8 @@ info{
 .vp-doc .custom-block::before {
   display: inline-block;
   width: 20px;               
-  height: 20px;            
+  height: 20px;    
+  margin-top: 2px;        
   margin-right: 12px;       
   background-repeat: no-repeat;
   background-size: contain;  /* 或用 '12px 12px' 精确控制 */
@@ -501,7 +502,16 @@ info{
   transform: translateY(0);  /* 需要微调时改为 translateY(1px) / -1px */
 }
 .vp-doc .custom-block.info::before {
-  content: url("../../public/icon-app.svg");
+  content: url("../../public/icon-info.svg");
+}
+.vp-doc .custom-block.warning::before {
+  content: url("../../public/icon-warning.svg");
+}
+.vp-doc .custom-block.danger::before {
+  content: url("../../public/icon-error.svg");
+}
+.vp-doc .custom-block.tip::before {
+  content: url("../../public/icon-success.svg");
 }
 
 /* 暗色模式下全局样式 */
@@ -651,6 +661,18 @@ info{
   background: rgba(91, 168, 84, 0.1);
   border: 1px solid rgba(91, 168, 84, 0.2);
   color: #5ba854;
+}
+.vp-doc .custom-block.info::before {
+  content: url("../../public/icon-info-dark.svg");
+}
+.vp-doc .custom-block.warning::before {
+  content: url("../../public/icon-warning-dark.svg");
+}
+.vp-doc .custom-block.danger::before {
+  content: url("../../public/icon-error-dark.svg");
+}
+.vp-doc .custom-block.tip::before {
+  content: url("../../public/icon-success-dark.svg");
 }
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {
