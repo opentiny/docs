@@ -662,16 +662,16 @@ info{
   border: 1px solid rgba(91, 168, 84, 0.2);
   color: #5ba854;
 }
-.vp-doc .custom-block.info::before {
+.dark .vp-doc .custom-block.info::before {
   content: url("../../public/icon-info-dark.svg");
 }
-.vp-doc .custom-block.warning::before {
+.dark .vp-doc .custom-block.warning::before {
   content: url("../../public/icon-warning-dark.svg");
 }
-.vp-doc .custom-block.danger::before {
+.dark .vp-doc .custom-block.danger::before {
   content: url("../../public/icon-error-dark.svg");
 }
-.vp-doc .custom-block.tip::before {
+.dark .vp-doc .custom-block.tip::before {
   content: url("../../public/icon-success-dark.svg");
 }
 /* ===== 响应式布局 ===== */
