@@ -15,7 +15,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 240px;"
+              style="width: 360px;"
             />
           </div>
         </div>
@@ -213,6 +213,10 @@ const navigationTabs = computed(() => {
     return [
       { key: 'guide', name: '使用文档', link: '/next-sdk/guide/' },
     ]
+  }else if(activeProductTab.value === 'tiny-vue' && route.path.includes('/tiny-vue/')) {
+   return [
+      { key: 'guide', name: '使用文档', link: '/tiny-vue/guide/' },
+    ]
   }else{
     return (
       themeConfig.value.nav?.map((item: configNavItem) => ({
@@ -327,6 +331,7 @@ const activeProductTab = ref('')
 const productTabs = computed(() =>[
   { key: 'next-sdk', name: 'NEXT-SDKs', link: `${prefix}next-sdk/guide`, src: `${prefix}logo-${activeProductTab.value==='next-sdk'?'active':'normal'}-next-sdk.svg` },
   { key: 'tiny-robot', name: 'TinyRobot', link: `${prefix}tiny-robot/guide/quick-start`, src: `${prefix}logo-${activeProductTab.value==='tiny-robot'?'active':'normal'}-tiny-robot.svg` },
+  { key: 'tiny-vue', name: 'TinyVue', link: `${prefix}tiny-vue/guide/envpreparation-open`, src: `${prefix}logo-active-next-sdk.svg` },
 ])
 
 
@@ -351,6 +356,8 @@ watch(
         activeProductTab.value = 'next-sdk'
       }else if(path.includes('/tiny-robot/')){
         activeProductTab.value = 'tiny-robot'
+      }else if(path.includes('/tiny-vue/')){
+        activeProductTab.value = 'tiny-vue'
       }else{
         activeProductTab.value = ''
       }
