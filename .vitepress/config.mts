@@ -252,9 +252,9 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "简介", link: "dev-intro.md" },
-            { text: "快速上手", link: "dev-quick-start.md" },
-            { text: "前后端启动联调(Java服务端)", link: "debugging-of-java-backend.md" }
+            { text: "简介", link: "dev-intro" },
+            { text: "快速上手", link: "dev-quick-start" },
+            { text: "前后端启动联调(Java服务端)", link: "debugging-of-java-backend" }
           ]
         },
         {
@@ -262,8 +262,8 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "更新日志", link: "changelog.md" },
-            { text: "v2.7升级指南", link: "v2.7-upgrade-guide.md" }
+            { text: "更新日志", link: "changelog" },
+            { text: "v2.7升级指南", link: "v2.7-upgrade-guide" }
           ]
         },
         {
@@ -271,16 +271,16 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            {text: "前端及Java服务端docker部署", link: "front-backend-docker-deployment.md"},
-            { text: "Java服务端部署", link: "server-deployment-solution-java.md" },
-            { text: "Node.js服务端部署", link: "server-deployment-solution.md" },
-            { text: "区块发布方案(Node.js服务端)", link: "block-release-solution.md" },
-            { text: "区块局域网发布方案(Node.js服务端)", link: "block-lan-release-solution.md" },
-            { text: "设计器中引入第三方组件库", link: "third-party-library-in-designer.md" },
-            { text: "物料同步方案", link: "material-sync-solution.md" },
-            { text: "本地化CDN方案", link: "import-map-local.md" },
-            { text: "全新区块构建方案", link: "block-construction-solution.md" },
-            { text: "全新画布通信方案", link: "canvas-communication-solution.md" }
+            {text: "前端及Java服务端docker部署", link: "front-backend-docker-deployment"},
+            { text: "Java服务端部署", link: "server-deployment-solution-java" },
+            { text: "Node.js服务端部署", link: "server-deployment-solution" },
+            { text: "区块发布方案(Node.js服务端)", link: "block-release-solution" },
+            { text: "区块局域网发布方案(Node.js服务端)", link: "block-lan-release-solution" },
+            { text: "设计器中引入第三方组件库", link: "third-party-library-in-designer" },
+            { text: "物料同步方案", link: "material-sync-solution" },
+            { text: "本地化CDN方案", link: "import-map-local" },
+            { text: "全新区块构建方案", link: "block-construction-solution" },
+            { text: "全新画布通信方案", link: "canvas-communication-solution" }
           ]
         },
         {
@@ -288,11 +288,11 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "新架构介绍", link: "new-architecture.md" },
-            { text: "注册表", link: "registry.md" },
-            { text: "注册表（新版）", link: "new-registry.md" },
-            { text: "注册表高级特性", link: "new-registry-advanced.md" },
-            { text: "元服务和元应用", link: "meta-services-and-meta-apps.md" }
+            { text: "新架构介绍", link: "new-architecture" },
+            { text: "注册表", link: "registry" },
+            { text: "注册表（新版）", link: "new-registry" },
+            { text: "注册表高级特性", link: "new-registry-advanced" },
+            { text: "元服务和元应用", link: "meta-services-and-meta-apps" }
           ]
         },
         {
@@ -300,24 +300,24 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "如何开发插件", link: "how-to-develop-plugins.md" },
+            { text: "如何开发插件", link: "how-to-develop-plugins" },
             {
               text: "出码功能",
               collapsed: false,
               base: "/tiny-engine/dev/code-output-function/",
               items: [
-                { text: "出码功能简介与使用", link: "code-output-overview-and-usage.md" },
-                { text: "如何自定义出码", link: "how-to-customize-code-output.md" },
-                { text: "如何自定义出码插件", link: "how-to-customize-code-output-plugins.md" },
-                { text: "自定义页面出码插件", link: "custom-page-code-output-plugin.md" },
-                { text: "官方出码能力API", link: "official-code-output-api.md" }
+                { text: "出码功能简介与使用", link: "code-output-overview-and-usage" },
+                { text: "如何自定义出码", link: "how-to-customize-code-output" },
+                { text: "如何自定义出码插件", link: "how-to-customize-code-output-plugins" },
+                { text: "自定义页面出码插件", link: "custom-page-code-output-plugin" },
+                { text: "官方出码能力API", link: "official-code-output-api" }
               ]
             },
-            { text: "定制插件UI", link: "customize-plugin-ui.md" },
-            { text: "定制元服务逻辑", link: "customize-meta-service-logic.md" },
-            { text: "开发设置器组件", link: "develop-configurator-components.md" },
-            { text: "AI插件使用前配置", link: "ai-plugin-configuration.md" },
-            { text: "如何自定义主题", link: "how-to-custom-theme.md" }
+            { text: "定制插件UI", link: "customize-plugin-ui" },
+            { text: "定制元服务逻辑", link: "customize-meta-service-logic" },
+            { text: "开发设置器组件", link: "develop-configurator-components" },
+            { text: "AI插件使用前配置", link: "ai-plugin-configuration" },
+            { text: "如何自定义主题", link: "how-to-custom-theme" }
           ]
         },
         {
@@ -325,18 +325,18 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "API总览", link: "api-overview.md" },
+            { text: "API总览", link: "api-overview" },
             {
               text: "前端API",
               collapsed: false,
               base: "/tiny-engine/dev/frontend-api/",
               items: [
-                { text: "主包API", link: "main-package-api.md" },
-                { text: "画布API", link: "canvas-api.md" },
-                { text: "全局布局API", link: "global-layout-api.md" },
-                { text: "物料API", link: "material-api.md" },
-                { text: "设置面板API", link: "settings-panel-api.md" },
-                { text: "预览API", link: "preview-api.md" }
+                { text: "主包API", link: "main-package-api" },
+                { text: "画布API", link: "canvas-api" },
+                { text: "全局布局API", link: "global-layout-api" },
+                { text: "物料API", link: "material-api" },
+                { text: "设置面板API", link: "settings-panel-api" },
+                { text: "预览API", link: "preview-api" }
               ]
             },
             {
@@ -344,16 +344,16 @@ export default defineConfig({
               collapsed: false,
               base: "/tiny-engine/dev/backend-api/",
               items: [
-                { text: "AI功能接口", link: "ai-function-api.md" },
-                { text: "应用管理", link: "app-management.md" },
-                { text: "区块分类", link: "block-categories.md" },
-                { text: "应用工具类管理", link: "app-utility-management.md" },
-                { text: "区块管理", link: "block-management-api.md" },
-                { text: "数据源管理", link: "data-source-management.md" },
-                { text: "DSL代码生成", link: "dsl-code-generation.md" },
-                { text: "物料中心", link: "material-center.md" },
-                { text: "页面管理", link: "page-management-api.md" },
-                { text: "APP服务", link: "app-services.md" }
+                { text: "AI功能接口", link: "ai-function-api" },
+                { text: "应用管理", link: "app-management" },
+                { text: "区块分类", link: "block-categories" },
+                { text: "应用工具类管理", link: "app-utility-management" },
+                { text: "区块管理", link: "block-management-api" },
+                { text: "数据源管理", link: "data-source-management" },
+                { text: "DSL代码生成", link: "dsl-code-generation" },
+                { text: "物料中心", link: "material-center" },
+                { text: "页面管理", link: "page-management-api" },
+                { text: "APP服务", link: "app-services" }
               ]
             }
           ]
@@ -363,9 +363,9 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/dev/",
           items: [
-            { text: "PDM元数据审批电子流", link: "pdm-metadata-approval-workflow.md" },
-            { text: "图元编排设计器", link: "graphical-element-arrangement-designer.md" },
-            { text: "SMB轻量应用服务", link: "smb-lightweight-application-service.md" }
+            { text: "PDM元数据审批电子流", link: "pdm-metadata-approval-workflow" },
+            { text: "图元编排设计器", link: "graphical-element-arrangement-designer" },
+            { text: "SMB轻量应用服务", link: "smb-lightweight-application-service" }
           ]
         }
       ],
@@ -375,10 +375,10 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/portal/",
           items: [
-            { text: "介绍", link: "ecosystem-intro.md" },
-            { text: "如何导入组件库", link: "how-to-import-library.md" },
-            { text: "如何发布区块", link: "how-to-publish-block.md" },
-            { text: "发布其他生态", link: "publish-other-ecosystems.md" }
+            { text: "介绍", link: "ecosystem-intro" },
+            { text: "如何导入组件库", link: "how-to-import-library" },
+            { text: "如何发布区块", link: "how-to-publish-block" },
+            { text: "发布其他生态", link: "publish-other-ecosystems" }
           ]
         },
         {
@@ -388,9 +388,9 @@ export default defineConfig({
           items: [
             {
               text: "创建应用（创建空白应用、从模板创建应用）",
-              link: "create-application-blank-or-template.md"
+              link: "create-application-blank-or-template"
             },
-            { text: "开发应用", link: "develop-application.md" }
+            { text: "开发应用", link: "develop-application" }
           ]
         },
         {
@@ -398,10 +398,10 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/portal/",
           items: [
-            { text: "介绍", link: "materials-intro.md" },
-            { text: "创建物料资产包", link: "create-material-asset-package.md" },
-            { text: "添加组件库和区块", link: "add-library-and-blocks.md" },
-            { text: "构建物料资产包", link: "build-material-asset-package.md" }
+            { text: "介绍", link: "materials-intro" },
+            { text: "创建物料资产包", link: "create-material-asset-package" },
+            { text: "添加组件库和区块", link: "add-library-and-blocks" },
+            { text: "构建物料资产包", link: "build-material-asset-package" }
           ]
         },
         {
@@ -409,13 +409,13 @@ export default defineConfig({
           collapsed: false,
           base: "/tiny-engine/portal/",
           items: [
-            { text: "介绍", link: "designer-intro.md" },
-            { text: "创建设计器", link: "create-designer.md" },
+            { text: "介绍", link: "designer-intro" },
+            { text: "创建设计器", link: "create-designer" },
             {
               text: "定制物料资产包、主题、DSL、工具栏和插件栏",
-              link: "customize-material-package-themes-dsl-toolbar-plugins.md"
+              link: "customize-material-package-themes-dsl-toolbar-plugins"
             },
-            { text: "定制设计器", link: "customize-designer.md" }
+            { text: "定制设计器", link: "customize-designer" }
           ]
         }
       ],
