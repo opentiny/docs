@@ -98,12 +98,30 @@ body,
 .VPSidebarItem.level-1.is-link.is-active.has-active>.item .link>.text {
   color: #1476FF;
 }
+.VPSidebarItem.level-2.is-active .item  .indicator{
+  width:0
+}
+.VPSidebarItem.level-2.is-active.has-active  .item .link  .text{
+  color: #1476FF;
+  font-weight: 600;
+}
+.VPSidebarItem.level-2.is-active.has-active  .item .link:hover  .text{
+  color: #1476FF;
+  font-weight: 600;
+}
 /* 暗色主题侧边栏项目样式增强 */
 .dark .VPSidebarItem .link:hover  {
   background: #262626;
 }
 .dark .VPSidebarItem.level-1.is-link>.item .link:hover .text {
   color: #e6e6e6;
+}
+.dark .VPSidebarItem.level-2.is-link>.item .link:hover .text {
+  color: #e6e6e6;
+}
+.dark .VPSidebarItem.level-2.is-active.has-active  .item .link:hover  .text{
+  color: #1476FF;
+  font-weight: 600;
 }
 .dark .VPSidebarItem.is-active .link {
   background-color: #152A47;
@@ -135,7 +153,13 @@ body,
 .main-content .items .item .text {
   padding: 0;
 }
-
+.main-content .VPSidebarItem.collapsible .items .items{
+  border-width: 0;
+  padding-left: 28px;
+}
+.main-content .VPSidebarItem.collapsible .items .item h3{
+  padding-left: 16px;
+}
 /* 侧边栏分组标题增强 */
 .VPSidebarGroup .title {
   font-weight: 700;

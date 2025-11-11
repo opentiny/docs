@@ -58,6 +58,9 @@ export default defineConfig({
     'tiny-robot/docs/src/:path*': 'tiny-robot/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
+    'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*': 'tiny-engine/engines/:path*',
+    'tiny-engine/docs/:section(practical-cases|api|extension-capabilities-tutorial|development-getting-started|changelog|solutions|extension-capabilities-overview)/:path*': 'tiny-engine/dev/:path*',
+    'tiny-engine/docs/:section(ecosystem-center|about-applications|about-materials|about-designer)/:path*': 'tiny-engine/portal/:path*',
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -68,6 +71,11 @@ export default defineConfig({
       { text: '组件', link: '/tiny-robot/components/bubble', activeMatch: '/components/' },
       { text: '工具', link: '/tiny-robot/tools/ai-client', activeMatch: '/tools/' },
       { text: '演示', link: '/tiny-robot/examples/assistant', activeMatch: '/examples/' },
+    ],
+    engineNav: [
+      { text: '使用指南', link: '/tiny-engine/engines/introduction', activeMatch: '/engines/' },
+      { text: '平台开发指南', link: '/tiny-engine/dev/dev-intro', activeMatch: '/dev/' },
+      { text: '网站文档', link: '/tiny-engine/portal/ecosystem-intro', activeMatch: '/portal/' },
     ],
     sidebar: {
       '/tiny-robot/guide/': [
@@ -169,8 +177,248 @@ export default defineConfig({
           ]
         },
       ],
-      
-      
+      '/tiny-engine/engines/': [
+        {
+          text: "新手指引",
+          collapsed: false,
+          base: "/tiny-engine/engines/",
+          items: [
+            { text: "简介", link: "introduction" },
+            { text: "快速上手", link: "quick-start" }
+          ]
+        },
+        {
+          text: "基础功能",
+          collapsed: false,
+          base: "/tiny-engine/engines/",
+          items: [
+            { text: "初识设计器", link: "intro-to-designer" },
+            { text: "设计前端应用流程", link: "frontend-application-flow" },
+            { text: "设计器界面模块简介", link: "designer-ui-modules" },
+            { text: "页面管理", link: "page-management" },
+            { text: "使用组件", link: "using-components" },
+            { text: "样式设置", link: "style-settings" },
+            { text: "使用状态管理和变量绑定", link: "state-management-and-variable-binding" },
+            { text: "行内样式绑定状态变量", link: "inline-style-variable-binding" },
+            { text: "查看大纲树", link: "outline-tree" },
+            { text: "国际化", link: "internationalization" },
+            { text: "页面和区块预览", link: "page-and-block-preview" }
+          ]
+        },
+        {
+          text: "进阶功能",
+          collapsed: false,
+          base: "/tiny-engine/engines/",
+          items: [
+            { text: "区块管理", link: "block-management" },
+            { text: "使用JS面板和事件绑定", link: "js-panel-and-event-binding" },
+            { text: "使用工具类方法 utils", link: "using-utils-methods" },
+            { text: "高级面板设置", link: "advanced-panel-settings" },
+            { text: "如何使用插槽", link: "how-to-use-slots" },
+            { text: "循环渲染", link: "loop-rendering" },
+            { text: "条件渲染", link: "conditional-rendering" },
+            { text: "集成ChatGPT搭建简单页面能力", link: "integrating-chatgpt-for-simple-pages" },
+            { text: "新版AI插件使用", link: "new-ai-plugin-usage" },
+            { text: "数据源和Collection—远程字段", link: "data-source-and-collection-remote-fields" },
+            { text: "数据源和Collection—mock数据", link: "data-source-and-collection-mock-data" },
+            { text: "数据源和Collection—使用数据源", link: "data-source-and-collection-usage" },
+            {
+              text: "路由功能",
+              collapsed: false,
+              base: "/tiny-engine/engines/route-capabilities/",
+              items: [
+                { text: "页面支持嵌套路由", link: "page-support-nested-route" },
+                { text: "路由bar一键清除预览页面路径", link: "route-bar-clear-preview-page" },
+                { text: "路由bar高亮显示预览页面路径", link: "route-bar-current-page-highlight" },
+                { text: "RouterView组件支持预览子界面", link: "route-view-support-preview-subpage" }
+              ]
+            },
+            { text: "主题切换功能", link: "theme-switch" },
+            { text: "画布快捷操作", link: "canvas-shortcuts" }
+          ]
+        },
+        {
+          text: "教程",
+          collapsed: false,
+          base: "/tiny-engine/engines/",
+          items: [
+            { text: "从零搭建一个页面", link: "build-a-page-from-scratch" },
+          ]
+        }
+      ],
+      '/tiny-engine/dev/': [
+        {
+          text: "开始",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "简介", link: "dev-intro.md" },
+            { text: "快速上手", link: "dev-quick-start.md" },
+            { text: "前后端启动联调(Java服务端)", link: "debugging-of-java-backend.md" }
+          ]
+        },
+        {
+          text: "更新日志",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "更新日志", link: "changelog.md" },
+            { text: "v2.7升级指南", link: "v2.7-upgrade-guide.md" }
+          ]
+        },
+        {
+          text: "解决方案",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            {text: "前端及Java服务端docker部署", link: "front-backend-docker-deployment.md"},
+            { text: "Java服务端部署", link: "server-deployment-solution-java.md" },
+            { text: "Node.js服务端部署", link: "server-deployment-solution.md" },
+            { text: "区块发布方案(Node.js服务端)", link: "block-release-solution.md" },
+            { text: "区块局域网发布方案(Node.js服务端)", link: "block-lan-release-solution.md" },
+            { text: "设计器中引入第三方组件库", link: "third-party-library-in-designer.md" },
+            { text: "物料同步方案", link: "material-sync-solution.md" },
+            { text: "本地化CDN方案", link: "import-map-local.md" },
+            { text: "全新区块构建方案", link: "block-construction-solution.md" },
+            { text: "全新画布通信方案", link: "canvas-communication-solution.md" }
+          ]
+        },
+        {
+          text: "扩展能力介绍",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "新架构介绍", link: "new-architecture.md" },
+            { text: "注册表", link: "registry.md" },
+            { text: "注册表（新版）", link: "new-registry.md" },
+            { text: "注册表高级特性", link: "new-registry-advanced.md" },
+            { text: "元服务和元应用", link: "meta-services-and-meta-apps.md" }
+          ]
+        },
+        {
+          text: "扩展能力使用教程",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "如何开发插件", link: "how-to-develop-plugins.md" },
+            {
+              text: "出码功能",
+              collapsed: false,
+              base: "/tiny-engine/dev/code-output-function/",
+              items: [
+                { text: "出码功能简介与使用", link: "code-output-overview-and-usage.md" },
+                { text: "如何自定义出码", link: "how-to-customize-code-output.md" },
+                { text: "如何自定义出码插件", link: "how-to-customize-code-output-plugins.md" },
+                { text: "自定义页面出码插件", link: "custom-page-code-output-plugin.md" },
+                { text: "官方出码能力API", link: "official-code-output-api.md" }
+              ]
+            },
+            { text: "定制插件UI", link: "customize-plugin-ui.md" },
+            { text: "定制元服务逻辑", link: "customize-meta-service-logic.md" },
+            { text: "开发设置器组件", link: "develop-configurator-components.md" },
+            { text: "AI插件使用前配置", link: "ai-plugin-configuration.md" },
+            { text: "如何自定义主题", link: "how-to-custom-theme.md" }
+          ]
+        },
+        {
+          text: "API",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "API总览", link: "api-overview.md" },
+            {
+              text: "前端API",
+              collapsed: false,
+              base: "/tiny-engine/dev/frontend-api/",
+              items: [
+                { text: "主包API", link: "main-package-api.md" },
+                { text: "画布API", link: "canvas-api.md" },
+                { text: "全局布局API", link: "global-layout-api.md" },
+                { text: "物料API", link: "material-api.md" },
+                { text: "设置面板API", link: "settings-panel-api.md" },
+                { text: "预览API", link: "preview-api.md" }
+              ]
+            },
+            {
+              text: "后端API",
+              collapsed: false,
+              base: "/tiny-engine/dev/backend-api/",
+              items: [
+                { text: "AI功能接口", link: "ai-function-api.md" },
+                { text: "应用管理", link: "app-management.md" },
+                { text: "区块分类", link: "block-categories.md" },
+                { text: "应用工具类管理", link: "app-utility-management.md" },
+                { text: "区块管理", link: "block-management-api.md" },
+                { text: "数据源管理", link: "data-source-management.md" },
+                { text: "DSL代码生成", link: "dsl-code-generation.md" },
+                { text: "物料中心", link: "material-center.md" },
+                { text: "页面管理", link: "page-management-api.md" },
+                { text: "APP服务", link: "app-services.md" }
+              ]
+            }
+          ]
+        },
+        {
+          text: "实战案例",
+          collapsed: false,
+          base: "/tiny-engine/dev/",
+          items: [
+            { text: "PDM元数据审批电子流", link: "pdm-metadata-approval-workflow.md" },
+            { text: "图元编排设计器", link: "graphical-element-arrangement-designer.md" },
+            { text: "SMB轻量应用服务", link: "smb-lightweight-application-service.md" }
+          ]
+        }
+      ],
+      '/tiny-engine/portal/': [
+        {
+          text: "生态中心",
+          collapsed: false,
+          base: "/tiny-engine/portal/",
+          items: [
+            { text: "介绍", link: "ecosystem-intro.md" },
+            { text: "如何导入组件库", link: "how-to-import-library.md" },
+            { text: "如何发布区块", link: "how-to-publish-block.md" },
+            { text: "发布其他生态", link: "publish-other-ecosystems.md" }
+          ]
+        },
+        {
+          text: "关于应用",
+          collapsed: false,
+          base: "/tiny-engine/portal/",
+          items: [
+            {
+              text: "创建应用（创建空白应用、从模板创建应用）",
+              link: "create-application-blank-or-template.md"
+            },
+            { text: "开发应用", link: "develop-application.md" }
+          ]
+        },
+        {
+          text: "关于物料",
+          collapsed: false,
+          base: "/tiny-engine/portal/",
+          items: [
+            { text: "介绍", link: "materials-intro.md" },
+            { text: "创建物料资产包", link: "create-material-asset-package.md" },
+            { text: "添加组件库和区块", link: "add-library-and-blocks.md" },
+            { text: "构建物料资产包", link: "build-material-asset-package.md" }
+          ]
+        },
+        {
+          text: "关于设计器",
+          collapsed: false,
+          base: "/tiny-engine/portal/",
+          items: [
+            { text: "介绍", link: "designer-intro.md" },
+            { text: "创建设计器", link: "create-designer.md" },
+            {
+              text: "定制物料资产包、主题、DSL、工具栏和插件栏",
+              link: "customize-material-package-themes-dsl-toolbar-plugins.md"
+            },
+            { text: "定制设计器", link: "customize-designer.md" }
+          ]
+        }
+      ],
     },
     search: {
       provider: 'local',
