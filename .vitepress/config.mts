@@ -140,6 +140,7 @@ export default defineConfig({
             { text: 'Electron 应用接入', link: 'electron' },
             { text: 'uni-app 应用接入', link: 'uni-app' },
             { text: '本地连接', link: 'connect-local' },
+            { text: 'WebAgent 私有化部署', link: 'web-agent-private-deployment' },
           ]
         },
         {
