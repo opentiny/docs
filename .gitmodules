@@ -7,3 +7,6 @@
 [submodule "tiny-vue"]
 	path = tiny-vue
 	url = git@github.com:opentiny/tiny-vue.git
+[submodule "tiny-engine"]
+	path = tiny-engine
+	url = git@github.com:opentiny/tiny-engine.git
