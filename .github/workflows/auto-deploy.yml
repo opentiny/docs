@@ -29,6 +29,7 @@ jobs:
       - name: Checkout repository (with submodules)
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.PAT_TOKEN }}  # 使用 PAT 以确保有权限访问私有子模块
           fetch-depth: 0        # 推荐完整历史以支持 lastUpdated 等
           submodules: recursive # 检出子模块（递归）
           persist-credentials: false
@@ -43,12 +44,6 @@ jobs:
           git submodule update --remote --merge --recursive
           # 打印状态便于调试
           git submodule status --recursive
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
