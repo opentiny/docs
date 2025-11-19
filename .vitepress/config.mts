@@ -38,7 +38,7 @@ export default defineConfig({
   outDir: 'dist',
   srcExclude: ['**/README*.md','**/develop-demo-en.md','**/theme-en.md'],
   base: process.env.VITEPRESS_BASE || '/',
-  head: [['link', { rel: 'icon', href: '/logo-mini.svg' }]],
+  head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
     // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
     assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
@@ -69,7 +69,7 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/logo-mini.svg',
+    logo: '/images/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
     nav: [
       { text: '指南', link: '/tiny-robot/guide/quick-start', activeMatch: '/guide/' },

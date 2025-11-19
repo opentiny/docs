@@ -345,16 +345,16 @@ a.result:hover .titles .title .text mark{
   width: 24px;
   background-size: 16px 16px;
   opacity: 1;
-  background-image: url("../../public/icon-copy.svg");
+  background-image: url("../../public/images/icon-copy.svg");
 } 
 .vp-doc .vp-adaptive-theme button.copy.copied { 
-  background-image: url("../../public/icon-check-mark.svg");
+  background-image: url("../../public/images/icon-check-mark.svg");
 } 
 .vp-doc .vp-adaptive-theme button.copy.copied:hover { 
-  background-image: url("../../public/icon-check-mark.svg");
+  background-image: url("../../public/images/icon-check-mark.svg");
 } 
 .vp-doc .vp-adaptive-theme button.copy:hover{
-  background-image: url("../../public/icon-copy-hover.svg");
+  background-image: url("../../public/images/icon-copy-hover.svg");
 }
 
 .vp-doc .vp-adaptive-theme button.copy.copied::before ,.vp-doc .vp-adaptive-theme button.copy:hover.copied::before {
@@ -415,7 +415,7 @@ info{
   width: 100%;
 }
 .vp-doc .header-anchor:before{
-  content: url("../../public/header-anchor.svg");
+  content: url("../../public/images/header-anchor.svg");
   margin-bottom: 10px;
 }
 .vp-doc .header-anchor{
@@ -468,7 +468,7 @@ info{
   width: 12px;               
   height: 12px;            
   margin-right: 8px;       
-  background-image: url("../../public/icon-lists.svg");
+  background-image: url("../../public/images/icon-lists.svg");
   background-repeat: no-repeat;
   background-size: contain;  /* 或用 '12px 12px' 精确控制 */
   background-position: center;
@@ -526,16 +526,16 @@ info{
   transform: translateY(0);  /* 需要微调时改为 translateY(1px) / -1px */
 }
 .vp-doc .custom-block.info::before {
-  content: url("../../public/icon-info.svg");
+  content: url("../../public/images/icon-info.svg");
 }
 .vp-doc .custom-block.warning::before {
-  content: url("../../public/icon-warning.svg");
+  content: url("../../public/images/icon-warning.svg");
 }
 .vp-doc .custom-block.danger::before {
-  content: url("../../public/icon-error.svg");
+  content: url("../../public/images/icon-error.svg");
 }
 .vp-doc .custom-block.tip::before {
-  content: url("../../public/icon-success.svg");
+  content: url("../../public/images/icon-success.svg");
 }
 
 /* 暗色模式下全局样式 */
@@ -638,14 +638,14 @@ info{
   background-color: #1476FF;
 }
 .dark .vp-doc .vp-adaptive-theme button.copy { 
-  background-image: url("../../public/icon-copy-dark.svg");
+  background-image: url("../../public/images/icon-copy-dark.svg");
 
 } 
 .dark .vp-doc .vp-adaptive-theme button.copy:hover{
-  background-image: url("../../public/icon-copy-dark-hover.svg");
+  background-image: url("../../public/images/icon-copy-dark-hover.svg");
 }
 .dark .vp-doc .vp-adaptive-theme button.copy.copied ,.dark .vp-doc .vp-adaptive-theme button.copy.copied:hover { 
-  background-image: url("../../public/icon-check-mark.svg");
+  background-image: url("../../public/images/icon-check-mark.svg");
 } 
 .dark a.result:hover{
   background-color: #1a1a1a;
@@ -664,7 +664,7 @@ info{
  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark .outline-title::before {
-  background-image: url("../../public/icon-lists-dark.svg");
+  background-image: url("../../public/images/icon-lists-dark.svg");
 }
 .dark .vp-doc .custom-block.info{
   background: rgba(82, 145, 255, 0.1);
@@ -687,16 +687,16 @@ info{
   color: #5ba854;
 }
 .dark .vp-doc .custom-block.info::before {
-  content: url("../../public/icon-info-dark.svg");
+  content: url("../../public/images/icon-info-dark.svg");
 }
 .dark .vp-doc .custom-block.warning::before {
-  content: url("../../public/icon-warning-dark.svg");
+  content: url("../../public/images/icon-warning-dark.svg");
 }
 .dark .vp-doc .custom-block.danger::before {
-  content: url("../../public/icon-error-dark.svg");
+  content: url("../../public/images/icon-error-dark.svg");
 }
 .dark .vp-doc .custom-block.tip::before {
-  content: url("../../public/icon-success-dark.svg");
+  content: url("../../public/images/icon-success-dark.svg");
 }
 /* ===== 响应式布局 ===== */
 @media (min-width: 980px) {

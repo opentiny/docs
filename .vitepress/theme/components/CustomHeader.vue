@@ -9,8 +9,8 @@
             <img
               :src="
                 isDark
-                  ? '/logo-opentiny-next-text-dark.svg'
-                  : '/logo-opentiny-next-text.svg'
+                  ? '/images/logo-opentiny-next-text-dark.svg'
+                  : '/images/logo-opentiny-next-text.svg'
               "
               alt="OpenTiny NEXT"
               class="logo-icon"
@@ -138,8 +138,8 @@
               <img
                 :src="
                   isDark
-                    ? '/logo-opentiny-next-text-dark.svg'
-                    : '/logo-opentiny-next-text.svg'
+                    ? '/images/logo-opentiny-next-text-dark.svg'
+                    : '/images/logo-opentiny-next-text.svg'
                 "
                 alt="OpenTiny NEXT"
                 class="logo-icon"
@@ -455,7 +455,7 @@ const productTabs = computed(() => [
     key: "next-sdk",
     name: "NEXT-SDKs",
     link: `${prefix}next-sdk/guide`,
-    src: `${prefix}logo-${
+    src: `${prefix}images/logo-${
       activeProductTab.value === "next-sdk" ? "active" : "normal"
     }-next-sdk.svg`,
   },
@@ -463,7 +463,7 @@ const productTabs = computed(() => [
     key: "tiny-robot",
     name: "TinyRobot",
     link: `${prefix}tiny-robot/guide/quick-start`,
-    src: `${prefix}logo-${
+    src: `${prefix}images/logo-${
       activeProductTab.value === "tiny-robot" ? "active" : "normal"
     }-tiny-robot.svg`,
   },
@@ -471,13 +471,17 @@ const productTabs = computed(() => [
     key: "tiny-vue",
     name: "TinyVue",
     link: `${prefix}tiny-vue/guide/envpreparation-open`,
-    src: `${prefix}logo-active-next-sdk.svg`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-vue" ? "active" : "normal"
+    }-tiny-vue.svg`,
   },
   {
     key: "tiny-engine",
     name: "TinyEngine",
     link: `${prefix}tiny-engine/engines/introduction`,
-    src: `${prefix}logo-active-next-sdk.svg`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-engine" ? "active" : "normal"
+    }-tiny-engine.svg`,
   },
 ]);
 
