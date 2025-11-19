@@ -33,11 +33,15 @@ const resolveSubmoduleRelativePathsPlugin = (options: { source: string; target: 
 export default defineConfig({
   title: 'OpenTiny NEXT',
   description: 'OpenTiny NEXT',
+    // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
+  ignoreDeadLinks: true,
   outDir: 'dist',
-  srcExclude: ['**/README.md'],
+  srcExclude: ['**/README*.md','**/develop-demo-en.md','**/theme-en.md'],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/logo-mini.svg' }]],
   vite: {
+    // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
+    assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
     plugins: [vueJsx(), resolveSubmoduleRelativePathsPlugin([{
       source: path.resolve(rootDir, 'demos'),
       target: path.resolve(rootDir, 'tiny-robot/docs/demos'),
@@ -46,6 +50,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
+        '@demos': path.resolve(__dirname, '../../tiny-vue/examples/sites/demos/pc'), // 根据你的项目结构调整路径
       },
     },
   },
