@@ -50,7 +50,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
-        '@demos': path.resolve(__dirname, '../../tiny-vue/examples/sites/demos/pc'), // 根据你的项目结构调整路径
+        '@demos': '../', // 根据你的项目结构调整路径
       },
     },
   },
