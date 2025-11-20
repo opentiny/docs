@@ -236,7 +236,7 @@ export default defineConfig({
                 { text: "页面支持嵌套路由", link: "page-support-nested-route" },
                 { text: "路由bar一键清除预览页面路径", link: "route-bar-clear-preview-page" },
                 { text: "路由bar高亮显示预览页面路径", link: "route-bar-current-page-highlight" },
-                { text: "RouterView组件支持预览子界面", link: "route-view-support-preview-subpage" }
+                { text: "RouterView支持预览子界面", link: "route-view-support-preview-subpage" }
               ]
             },
             { text: "主题切换功能", link: "theme-switch" },
@@ -281,7 +281,7 @@ export default defineConfig({
             { text: "Java服务端部署", link: "server-deployment-solution-java" },
             { text: "Node.js服务端部署", link: "server-deployment-solution" },
             { text: "区块发布方案(Node.js服务端)", link: "block-release-solution" },
-            { text: "区块局域网发布方案(Node.js服务端)", link: "block-lan-release-solution" },
+            { text: "区块局域网发布方案", link: "block-lan-release-solution" },
             { text: "设计器中引入第三方组件库", link: "third-party-library-in-designer" },
             { text: "物料同步方案", link: "material-sync-solution" },
             { text: "本地化CDN方案", link: "import-map-local" },
@@ -393,7 +393,7 @@ export default defineConfig({
           base: "/tiny-engine/portal/",
           items: [
             {
-              text: "创建应用（创建空白应用、从模板创建应用）",
+              text: "创建应用",
               link: "create-application-blank-or-template"
             },
             { text: "开发应用", link: "develop-application" }
@@ -418,7 +418,7 @@ export default defineConfig({
             { text: "介绍", link: "designer-intro" },
             { text: "创建设计器", link: "create-designer" },
             {
-              text: "定制物料资产包、主题、DSL、工具栏和插件栏",
+              text: "定制物料资产包",
               link: "customize-material-package-themes-dsl-toolbar-plugins"
             },
             { text: "定制设计器", link: "customize-designer" }
