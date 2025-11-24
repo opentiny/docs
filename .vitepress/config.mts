@@ -170,6 +170,7 @@ export default defineConfig({
           text: '指南',
           base: '/tiny-vue/guide/',
           items: [
+            { text: '简介', link: 'introduce' },
             { text: '环境准备', link: 'envpreparation-open' },
             { text: '安装', link: 'installation' },
             { text: '更新日志', link: 'changelog' },
