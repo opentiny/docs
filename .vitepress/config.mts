@@ -162,7 +162,18 @@ export default defineConfig({
         {
           text: 'TinyRemoter for Vue',
           base: '/next-sdk/guide/',
-          items: [{ text: 'TinyRobot 版本', link: 'tiny-robot-remoter' }]
+          items: [
+            { text: 'TinyRobot 版本', link: 'tiny-robot-remoter' },
+            { text: 'useNextAgent 函数', link: 'use-next-agent' }
+          ]
+        },
+        {
+          text: 'AI Extension',
+          base: '/next-sdk/guide/',
+          items: [
+            { text: '', link: 'ai-extension-next-wxt' },
+            { text: '', link: 'ai-extension-install' }
+          ]
         }
       ],
       '/tiny-vue/guide/': [
