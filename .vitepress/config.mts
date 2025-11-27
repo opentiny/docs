@@ -18,7 +18,7 @@ const normalizePath = (
 }
 
 const resolveSubmoduleRelativePathsPlugin = (
-  options: { source: string target: string }[] = []
+  options: { source: string; target: string }[] = []
 ) => ({
   name: 'resolve-submodule-relative-paths',
   // source: 导入的路径，例如 '../../demos/attachments/basic.vue'
