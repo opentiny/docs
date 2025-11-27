@@ -7,32 +7,22 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
 
-const normalizePath = (
-  path: string,
-  targetStyle: 'windows' | 'linux' = 'linux'
-) => {
+const normalizePath = (path: string, targetStyle: 'windows' | 'linux' = 'linux') => {
   if (targetStyle === 'windows') {
     return path.replace(/\//g, '\\')
   }
   return path.replace(/\\/g, '/')
 }
 
-const resolveSubmoduleRelativePathsPlugin = (
-  options: { source: string; target: string }[] = []
-) => ({
+const resolveSubmoduleRelativePathsPlugin = (options: { source: string; target: string }[] = []) => ({
   name: 'resolve-submodule-relative-paths',
   // source: 导入的路径，例如 '../../demos/attachments/basic.vue'
   // importer: 发起导入的文件路径，例如 '.../docs/project-a/docs/src/components/bubble.md'
   resolveId(source, importer) {
     const targetStyle = source.includes('\\') ? 'windows' : 'linux'
-    const index = options.findIndex((option) =>
-      source.includes(normalizePath(option.source, targetStyle))
-    )
+    const index = options.findIndex(option => source.includes(normalizePath(option.source, targetStyle)))
     if (index !== -1) {
-      return source.replace(
-        normalizePath(options[index].source, targetStyle),
-        normalizePath(options[index].target || '', targetStyle)
-      )
+      return source.replace(normalizePath(options[index].source, targetStyle), normalizePath(options[index].target || '', targetStyle))
     }
     // 如果不满足条件，则不处理
     return null
@@ -43,31 +33,23 @@ const resolveSubmoduleRelativePathsPlugin = (
 export default defineConfig({
   title: 'OpenTiny NEXT',
   description: 'OpenTiny NEXT',
-  // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
+    // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
   ignoreDeadLinks: true,
   outDir: 'dist',
-  srcExclude: ['**/README*.md', '**/develop-demo-en.md', '**/theme-en.md'],
+  srcExclude: ['**/README*.md','**/develop-demo-en.md','**/theme-en.md'],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
     // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
-    assetsInclude: [
-      '**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}',
-    ],
-    plugins: [
-      vueJsx(),
-      resolveSubmoduleRelativePathsPlugin([
-        {
-          source: path.resolve(rootDir, 'demos'),
-          target: path.resolve(rootDir, 'tiny-robot/docs/demos'),
-        },
-      ]),
-    ],
+    assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
+    plugins: [vueJsx(), resolveSubmoduleRelativePathsPlugin([{
+      source: path.resolve(rootDir, 'demos'),
+      target: path.resolve(rootDir, 'tiny-robot/docs/demos'),
+    }])],
     server: { open: true },
     resolve: {
       alias: {
-        '@opentiny/tiny-robot-style':
-          '../../tiny-robot/packages/components/dist/style.css',
+        '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
         '@demos': '../', // 根据你的项目结构调整路径
       },
     },
@@ -78,16 +60,12 @@ export default defineConfig({
     },
   },
   rewrites: {
-    'tiny-robot/docs/src/:section(guide|components|tools)/:path*':
-      'tiny-robot/guide/:path*',
+    'tiny-robot/docs/src/:path*': 'tiny-robot/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
-    'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
-      'tiny-engine/engines/:path*',
-    'tiny-engine/docs/:section(practical-cases|api|extension-capabilities-tutorial|development-getting-started|changelog|solutions|extension-capabilities-overview)/:path*':
-      'tiny-engine/dev/:path*',
-    'tiny-engine/docs/:section(ecosystem-center|about-applications|about-materials|about-designer)/:path*':
-      'tiny-engine/portal/:path*',
+    'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*': 'tiny-engine/engines/:path*',
+    'tiny-engine/docs/:section(practical-cases|api|extension-capabilities-tutorial|development-getting-started|changelog|solutions|extension-capabilities-overview)/:path*': 'tiny-engine/dev/:path*',
+    'tiny-engine/docs/:section(ecosystem-center|about-applications|about-materials|about-designer)/:path*': 'tiny-engine/portal/:path*',
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -174,7 +152,7 @@ export default defineConfig({
         },
       ],
       '/next-sdk/guide/': [
-      {
+        {
           text: '介绍',
           items: [
             { text: '开始', link: '/next-sdk/guide/' },
@@ -224,9 +202,9 @@ export default defineConfig({
             { text: '表单校验配置', link: 'form-valid' },
             { text: '常见问题', link: 'faq' },
           ],
-        },
+        }
       ],
-'/tiny-engine/engines/': [
+      '/tiny-engine/engines/': [
         {
           text: "新手指引",
           collapsed: false,
