@@ -3,7 +3,7 @@ layout: false
 ---
 
 <script setup>
-import { useRoute, useRouter  } from 'vitepress'
+import { useRouter  } from 'vitepress'
 import { onMounted } from 'vue'
 
 const router = useRouter()
@@ -34,7 +34,7 @@ onMounted(() => {
     link.click()
     document.body.removeChild(link)
 
-     // 下载后跳转回首页
+    // 下载后跳转回首页
     setTimeout(() => {
       router.go('/')
     }, 1000)
