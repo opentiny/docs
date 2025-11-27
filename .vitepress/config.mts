@@ -171,8 +171,8 @@ export default defineConfig({
           text: 'AI Extension',
           base: '/next-sdk/guide/',
           items: [
-            { text: '', link: 'ai-extension-next-wxt' },
-            { text: '', link: 'ai-extension-install' }
+            { text: 'mcp-servers 插件工具开发指南', link: 'ai-extension-next-wxt' },
+            { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' }
           ]
         }
       ],
