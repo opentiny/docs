@@ -60,7 +60,7 @@ export default defineConfig({
     },
   },
   rewrites: {
-    'tiny-robot/docs/src/:path*': 'tiny-robot/:path*',
+    'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*': 'tiny-engine/engines/:path*',
