@@ -39,7 +39,16 @@ export default defineConfig({
   // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
   ignoreDeadLinks: true,
   outDir: 'dist',
-  srcExclude: ['**/README*.md', '**/develop-demo-en.md', '**/theme-en.md'],
+  srcExclude: [
+    '**/README*.md',
+    '**/develop-demo-en.md',
+    '**/theme-en.md',
+    'tiny-vue/packages/**/*.md',
+    'tiny-engine/packages/**/*.md',
+    'tiny-robot/packages/**/*.md',
+    'next-sdk/packages/**/*.md',
+    'tiny-engine/docs/advanced-features/new-ai-plugin-usage.md',
+  ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
