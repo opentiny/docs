@@ -115,5 +115,5 @@ jobs:
 
           # 把本地 dist/ 目录整站同步到桶根目录
           echo "needs.build.outputs.version: ${{ needs.build.outputs.version }}"
-          mv dist ${{ env.VERSION }}
-          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/opentiny-docs/ -r -f
+          mv dist ${{ needs.build.outputs.version }}
+          obsutil cp ${{ needs.build.outputs.version }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/opentiny-docs/ -r -f
