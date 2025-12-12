@@ -72,7 +72,8 @@ export default defineConfig({
     }
   },
   rewrites: {
-    'tiny-robot/docs/src/:path*': 'tiny-robot/:path*',
+    'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
+    'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
@@ -87,28 +88,48 @@ export default defineConfig({
     logo: '/images/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
     nav: [
-      { text: '指南', link: '/tiny-robot/guide/quick-start', activeMatch: '/guide/' },
-      { text: '组件', link: '/tiny-robot/components/bubble', activeMatch: '/components/' },
-      { text: '工具', link: '/tiny-robot/tools/ai-client', activeMatch: '/tools/' },
-      { text: '演示', link: '/tiny-robot/examples/assistant', activeMatch: '/examples/' }
+      {
+        text: '指南',
+        link: '/tiny-robot/guide/quick-start',
+        activeMatch: '/guide/',
+      },
+      {
+        text: '演示',
+        link: '/tiny-robot/examples/assistant',
+        activeMatch: '/examples/',
+      },
     ],
     engineNav: [
-      { text: '使用指南', link: '/tiny-engine/engines/introduction', activeMatch: '/engines/' },
-      { text: '平台开发指南', link: '/tiny-engine/dev/dev-intro', activeMatch: '/dev/' },
-      { text: '网站文档', link: '/tiny-engine/portal/ecosystem-intro', activeMatch: '/portal/' }
+      {
+        text: '使用指南',
+        link: '/tiny-engine/engines/introduction',
+        activeMatch: '/engines/',
+      },
+      {
+        text: '平台开发指南',
+        link: '/tiny-engine/dev/dev-intro',
+        activeMatch: '/dev/',
+      },
+      {
+        text: '网站文档',
+        link: '/tiny-engine/portal/ecosystem-intro',
+        activeMatch: '/portal/',
+      },
     ],
     sidebar: {
       '/tiny-robot/guide/': [
         {
           text: '指南',
           base: '/tiny-robot/guide/',
-          items: [{ text: '快速开始', link: 'quick-start' }]
-        }
-      ],
-      '/tiny-robot/components/': [
+          items: [
+            { text: '快速开始', link: 'quick-start' },
+            { text: '主题配置', link: 'theme-config' },
+            { text: '更新日志', link: 'update-log' },
+          ],
+        },
         {
           text: '组件',
-          base: '/tiny-robot/components/',
+          base: '/tiny-robot/guide/',
           items: [
             { text: 'Container 容器', link: 'container' },
             { text: 'Bubble 气泡', link: 'bubble' },
@@ -118,19 +139,20 @@ export default defineConfig({
             { text: 'Feedback 气泡反馈', link: 'feedback' },
             { text: 'History 历史', link: 'history' },
             { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
-            { text: 'SuggestionPopover 建议弹出框', link: 'suggestion-popover' },
+            {
+              text: 'SuggestionPopover 建议弹出框',
+              link: 'suggestion-popover',
+            },
             { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
             { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
             { text: 'Attachments 附件卡片', link: 'attachments' },
             { text: 'McpServerPicker 插件选择器', link: 'mcp-server-picker' },
-            { text: 'Theme 主题', link: 'theme' }
-          ]
-        }
-      ],
-      '/tiny-robot/tools/': [
+            { text: 'Theme 主题', link: 'theme' },
+          ],
+        },
         {
           text: '工具',
-          base: '/tiny-robot/tools/',
+          base: '/tiny-robot/guide/',
           items: [
             { text: 'AI模型交互工具类', link: 'ai-client' },
             { text: '消息数据管理', link: 'message' },
