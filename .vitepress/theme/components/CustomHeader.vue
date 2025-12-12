@@ -470,7 +470,7 @@ const productTabs = computed(() => [
   {
     key: "tiny-vue",
     name: "TinyVue",
-    link: `${prefix}tiny-vue/guide/envpreparation-open`,
+    link: `${prefix}tiny-vue/guide/introduce`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "tiny-vue" ? "active" : "normal"
     }-tiny-vue.svg`,
