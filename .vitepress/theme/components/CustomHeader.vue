@@ -321,7 +321,7 @@ const navigationTabs = computed(() => {
     activeProductTab.value === "tiny-vue" &&
     route.path.includes("/tiny-vue/")
   ) {
-    return [{ key: "guide", name: "使用文档", link: "/tiny-vue/guide/" }];
+    return [{ key: "guide", name: "使用文档", link: "/tiny-vue/guide/introduce" }];
   } else {
     let configNav: configNavItem[] = [];
     if (
