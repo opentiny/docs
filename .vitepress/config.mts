@@ -224,7 +224,7 @@ export default defineConfig({
             { text: '引入组件', link: 'import-components' },
             { text: '国际化', link: 'i18n' },
             { text: '主题配置', link: 'theme' },
-            { text: '暗黑模式', link: 'theme-dark' },
+            { text: '深色模式', link: 'theme-dark' },
             { text: '智能化', link: 'mcp' },
             { text: '表单校验配置', link: 'form-valid' },
             { text: '常见问题', link: 'faq' }

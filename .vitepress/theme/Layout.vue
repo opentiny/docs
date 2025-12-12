@@ -55,41 +55,96 @@ if (typeof window !== 'undefined') {
 // 获取 VitePress 默认布局组件
 const DefaultLayout = DefaultTheme.Layout
 
+// 将文档标题更新逻辑提取为独立函数，便于维护和测试
+const updateDocTitle = () => {
+  const base = site.value?.base || '/'
+  const path = route.path.replace(new RegExp(`^${base}`), '/')
+  const cfg = themeConfig.value || {}
+
+  // next-sdk / tiny-vue: 从对应 sidebar 的 guide 中寻找匹配项
+  if (path.includes('/next-sdk/') || path.includes('/tiny-vue/')) {
+    let sidebarConfig: any[] = []
+    if (path.includes('/next-sdk/')) {
+      sidebarConfig = cfg.sidebar?.['/next-sdk/guide/'] || []
+    } else if (path.includes('/tiny-vue/')) {
+      sidebarConfig = cfg.sidebar?.['/tiny-vue/guide/'] || []
+    }
+
+    if (!sidebarConfig || !sidebarConfig.length) {
+      docTitle.value = '指南'
+      return
+    }
+
+    const pathIndex = sidebarConfig.findIndex((child: any) =>
+      child.items?.some((item: any) => item?.link && path.includes(item.link))
+    )
+
+    docTitle.value = sidebarConfig[pathIndex >= 0 ? pathIndex : 0]?.text || '指南'
+    return
+  }
+
+  // tiny-robot: 从 nav 中匹配 activeMatch
+  if (path.includes('/tiny-robot/')) {
+    const navConfig = cfg.nav || []
+    if (!navConfig.length) {
+      docTitle.value = ''
+      return
+    }
+    const match = navConfig.find((item: any) => item?.activeMatch && path.includes(item.activeMatch))
+    docTitle.value = match?.text || ''
+    return
+  }
+
+  // tiny-engine: 需要先找到对应的 engineNav，然后查 sidebar 的二级或三级项
+  if (path.includes('/tiny-engine/')) {
+    const engineNavConfig = cfg.engineNav || []
+    if (!engineNavConfig.length) {
+      docTitle.value = ''
+      return
+    }
+
+    const activeNav = engineNavConfig.find((item: any) => item?.activeMatch && path.includes(item.activeMatch))
+    const engineSidebarConfig = cfg.sidebar?.[`/tiny-engine${activeNav?.activeMatch}`] || []
+    if (!engineSidebarConfig.length) {
+      docTitle.value = ''
+      return
+    }
+
+    let enginePathkey = 0
+    let engineDeepPathkey: number | null = null
+
+    engineSidebarConfig.forEach((child: any, key: number) => {
+      child.items?.forEach((item: any, deepKey: number) => {
+        if (item?.items?.length) {
+          const foundDeep = item.items.find((deepItem: any) => deepItem?.link && path.includes(deepItem.link))
+          if (foundDeep) {
+            enginePathkey = key
+            engineDeepPathkey = deepKey
+          }
+        } else if (item?.link && path.includes(item.link)) {
+          enginePathkey = key
+        }
+      })
+    })
+
+    if (engineDeepPathkey !== null) {
+      docTitle.value = engineSidebarConfig[enginePathkey].items?.[engineDeepPathkey]?.text || ''
+    } else {
+      docTitle.value = engineSidebarConfig[enginePathkey]?.text || ''
+    }
+
+    return
+  }
+
+  // 默认情况：清空标题
+  docTitle.value = ''
+}
+
+// 监听路由变更，初始化并同步标题
 watch(
   () => route.path,
-  () => {
-      const path = route.path.replace(new RegExp(`^${site.value.base}`), '/')
-      if(path.includes('/next-sdk/')){
-        let pathkey = 0;
-        const sidebarConfig = themeConfig.value.sidebar['/next-sdk/guide/'];
-        if(!sidebarConfig) {
-          docTitle.value = '指南'
-          return;
-        };
-        sidebarConfig.forEach((child,key) => {
-          child.items.forEach(item => {
-            if(path.includes(item.link)){
-              pathkey = key
-            }
-          });
-        });
-        docTitle.value =  sidebarConfig[pathkey]?.text || '指南'
-      }else if(path.includes('/tiny-robot/')){
-        const navConfig = themeConfig.value.nav;
-        if(!navConfig) {
-          docTitle.value = ''
-          return;
-        };
-        navConfig.forEach(item => {
-          if(path.includes(item.activeMatch)){
-            docTitle.value = item.text
-          }
-        });
-      }else{
-        docTitle.value = ''
-      }
-  },
-  { deep: true ,immediate:true},
+  updateDocTitle,
+  { deep: true, immediate: true }
 )
 </script>
 
