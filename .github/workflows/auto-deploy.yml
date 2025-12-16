@@ -8,7 +8,10 @@ on:
       - 'tiny-robot/docs/**'
       - 'tiny-vue/examples/sites/demos/pc/webdoc/**'
       - '.vitepress/**'
-  workflow_dispatch: {}   # 支持手动触发
+      - 'submodule/**'  
+  workflow_dispatch: {} # 当子模块仓库有推送时触发
+  repository_dispatch:
+    types: [submodule-updated]   # 支持手动触发
 
 permissions:
   contents: read
