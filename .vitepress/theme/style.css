@@ -537,6 +537,9 @@ info{
 .vp-doc .custom-block.tip::before {
   content: url("../../public/images/icon-success.svg");
 }
+.vp-doc :not(pre) > code{
+  padding:0 6px;
+}
 
 /* 暗色模式下全局样式 */
 .dark h1{
