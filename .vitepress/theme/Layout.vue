@@ -34,6 +34,7 @@ const docTitle = ref('指南')
 const { site,theme } = useData()
 const route = useRoute()
 const themeConfig = computed(() => theme.value)
+const router = useRouter();
 
 // 在客户端环境下同步 ColorModeSubject
 if (typeof window !== 'undefined') {
@@ -55,11 +56,50 @@ if (typeof window !== 'undefined') {
 // 获取 VitePress 默认布局组件
 const DefaultLayout = DefaultTheme.Layout
 
+// 定义重定向映射
+const redirectMap = [
+  { 
+    patterns: ['/tiny-engine.html', '/tiny-engine/', '/tiny-engine/guide.html', '/tiny-engine/guide/'],
+    target: '/tiny-engine/guide/introduction'
+  },
+  { 
+    patterns: ['/tiny-engine/dev/', '/tiny-engine/dev.html'],
+    target: '/tiny-engine/dev/dev-intro'
+  },
+  { 
+    patterns: ['/tiny-engine/portal/', '/tiny-engine/portal.html'],
+    target: '/tiny-engine/portal/ecosystem-intro'
+  },
+  { 
+    patterns: ['/tiny-vue.html', '/tiny-vue/', '/tiny-vue/guide.html', '/tiny-vue/guide/'],
+    target: '/tiny-vue/guide/introduce'
+  },
+  { 
+    patterns: ['/tiny-robot.html', '/tiny-robot/', '/tiny-robot/guide.html', '/tiny-robot/guide/'],
+    target: '/tiny-robot/guide/quick-start'
+  },
+  { 
+    patterns: ['/tiny-robot/examples/', '/tiny-robot/examples.html'],
+    target: '/tiny-robot/examples/assistant'
+  },
+  { 
+    patterns: ['/next-sdk.html', '/next-sdk/'],
+    target: '/next-sdk/guide'
+  }
+];
+
 // 将文档标题更新逻辑提取为独立函数，便于维护和测试
 const updateDocTitle = () => {
   const base = site.value?.base || '/'
   const path = route.path.replace(new RegExp(`^${base}`), '/')
   const cfg = themeConfig.value || {}
+
+  for (const { patterns, target } of redirectMap) {
+    if (patterns.includes(path)) {
+      router.go(target);
+      break;
+    }
+  }
 
   // next-sdk / tiny-vue: 从对应 sidebar 的 guide 中寻找匹配项
   if (path.includes('/next-sdk/') || path.includes('/tiny-vue/')) {

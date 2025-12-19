@@ -478,7 +478,7 @@ const productTabs = computed(() => [
   {
     key: "tiny-engine",
     name: "TinyEngine",
-    link: `${prefix}tiny-engine/engines/introduction`,
+    link: `${prefix}tiny-engine/guide/introduction`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "tiny-engine" ? "active" : "normal"
     }-tiny-engine.svg`,
@@ -511,6 +511,13 @@ watch(
     } else {
       activeProductTab.value = "";
     }
+  },
+  { deep: true, immediate: true }
+);
+watch(
+  () => navigationTabs.value,
+  () => {
+    getActiveNavTab();
   },
   { deep: true, immediate: true }
 );
