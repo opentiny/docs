@@ -10,3 +10,6 @@
 [submodule "tiny-engine"]
 	path = tiny-engine
 	url = git@github.com:opentiny/tiny-engine.git
+[submodule "genui-sdk"]
+	path = genui-sdk
+	url = git@github.com:opentiny/genui-sdk.git
