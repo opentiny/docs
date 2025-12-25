@@ -39,11 +39,12 @@ export default defineConfig({
   // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
   ignoreDeadLinks: true,
   outDir: 'dist',
-  srcExclude: [
-    '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
-    'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
-    'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
-  ],
+    srcExclude: [
+      '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
+      'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
+      'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
+      'genui-sdk/packages/**/*.md',
+    ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
@@ -75,6 +76,7 @@ export default defineConfig({
     'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
+    'genui-sdk/docs/:path*': 'genui-sdk/guide/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
       'tiny-engine/guide/:path*',
@@ -209,6 +211,17 @@ export default defineConfig({
             { text: 'architecture 技术架构', link: 'ai-extension-architecture' },
             { text: 'mcp-servers 工具开发指南', link: 'ai-extension-next-wxt' },
             { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' }
+          ]
+        }
+      ],
+      '/genui-sdk/guide/': [
+        {
+          text: '指南',
+          base: '/genui-sdk/guide/',
+          items: [
+            { text: '首页', link: 'index' },
+            { text: 'Markdown 示例', link: 'markdown-examples' },
+            { text: 'API 示例', link: 'api-examples' }
           ]
         }
       ],
