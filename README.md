@@ -5,7 +5,7 @@
 ```shell
 git submodule update --init
 pnpm i
-pnpm -F root build
+pnpm -F robot-root build
 pnpm dev
 ```
 
