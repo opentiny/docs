@@ -540,6 +540,10 @@ info{
 .vp-doc :not(pre) > code{
   padding:0 6px;
 }
+img.image-inline {
+  display: inline-block;
+  margin: 0;
+}
 
 /* 暗色模式下全局样式 */
 .dark h1{

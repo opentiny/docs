@@ -77,7 +77,7 @@ export default defineConfig({
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
-      'tiny-engine/engines/:path*',
+      'tiny-engine/guide/:path*',
     'tiny-engine/docs/:section(practical-cases|api|extension-capabilities-tutorial|development-getting-started|changelog|solutions|extension-capabilities-overview)/:path*':
       'tiny-engine/dev/:path*',
     'tiny-engine/docs/:section(ecosystem-center|about-applications|about-materials|about-designer)/:path*':
@@ -102,8 +102,8 @@ export default defineConfig({
     engineNav: [
       {
         text: '使用指南',
-        link: '/tiny-engine/engines/introduction',
-        activeMatch: '/engines/',
+        link: '/tiny-engine/guide/introduction',
+        activeMatch: '/guide/',
       },
       {
         text: '平台开发指南',
@@ -231,11 +231,11 @@ export default defineConfig({
           ]
         }
       ],
-      '/tiny-engine/engines/': [
+      '/tiny-engine/guide/': [
         {
           text: '新手指引',
           collapsed: false,
-          base: '/tiny-engine/engines/',
+          base: '/tiny-engine/guide/',
           items: [
             { text: '简介', link: 'introduction' },
             { text: '快速上手', link: 'quick-start' }
@@ -244,11 +244,10 @@ export default defineConfig({
         {
           text: '基础功能',
           collapsed: false,
-          base: '/tiny-engine/engines/',
+          base: '/tiny-engine/guide/',
           items: [
-            { text: '初识设计器', link: 'intro-to-designer' },
-            { text: '设计前端应用流程', link: 'frontend-application-flow' },
             { text: '设计器界面模块简介', link: 'designer-ui-modules' },
+            { text: '设计前端应用流程', link: 'frontend-application-flow' },
             { text: '页面管理', link: 'page-management' },
             { text: '使用组件', link: 'using-components' },
             { text: '样式设置', link: 'style-settings' },
@@ -262,7 +261,7 @@ export default defineConfig({
         {
           text: '进阶功能',
           collapsed: false,
-          base: '/tiny-engine/engines/',
+          base: '/tiny-engine/guide/',
           items: [
             { text: '区块管理', link: 'block-management' },
             { text: '使用JS面板和事件绑定', link: 'js-panel-and-event-binding' },
@@ -271,7 +270,6 @@ export default defineConfig({
             { text: '如何使用插槽', link: 'how-to-use-slots' },
             { text: '循环渲染', link: 'loop-rendering' },
             { text: '条件渲染', link: 'conditional-rendering' },
-            { text: '集成ChatGPT搭建简单页面能力', link: 'integrating-chatgpt-for-simple-pages' },
             { text: '新版AI插件使用', link: 'new-ai-plugin-usage' },
             { text: '数据源和Collection—远程字段', link: 'data-source-and-collection-remote-fields' },
             { text: '数据源和Collection—mock数据', link: 'data-source-and-collection-mock-data' },
@@ -279,7 +277,7 @@ export default defineConfig({
             {
               text: '路由功能',
               collapsed: false,
-              base: '/tiny-engine/engines/route-capabilities/',
+              base: '/tiny-engine/guide/route-capabilities/',
               items: [
                 { text: '页面支持嵌套路由', link: 'page-support-nested-route' },
                 { text: '路由bar一键清除预览页面路径', link: 'route-bar-clear-preview-page' },
@@ -294,7 +292,7 @@ export default defineConfig({
         {
           text: '教程',
           collapsed: false,
-          base: '/tiny-engine/engines/',
+          base: '/tiny-engine/guide/',
           items: [{ text: '从零搭建一个页面', link: 'build-a-page-from-scratch' }]
         }
       ],
@@ -388,7 +386,9 @@ export default defineConfig({
                 { text: '全局布局API', link: 'global-layout-api' },
                 { text: '物料API', link: 'material-api' },
                 { text: '设置面板API', link: 'settings-panel-api' },
-                { text: '预览API', link: 'preview-api' }
+                { text: '预览API', link: 'preview-api' },
+                { text: '元服务API', link: 'globalService-api' },
+                { text: '注册表API', link: 'registry-api' }
               ]
             },
             {
