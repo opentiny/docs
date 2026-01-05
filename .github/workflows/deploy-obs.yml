@@ -70,10 +70,12 @@ jobs:
           fi
           echo "version: $VERSION"
           echo "value=$VERSION" >> $GITHUB_OUTPUT
+      - name: Build @opentiny/tiny-robot
+        run: pnpm -F robot-root build
       - name: Build site
         run: pnpm build
         env:
-          VITEPRESS_BASE: //res-static.opentiny.design/opentiny-docs/${{ steps.ver.outputs.value }}/
+          VITEPRESS_BASE: /
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
