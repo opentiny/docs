@@ -6,7 +6,7 @@
     "dev": "cross-env VP_MODE=development vitepress dev",
     "build": "cross-env VP_MODE=production vitepress build",
     "preview": "vitepress preview",
-    "postinstall": "pnpm -F root build"
+    "postinstall": "pnpm -F robot-root build"
   },
   "devDependencies": {
     "@opentiny/tiny-robot": "workspace:^",
