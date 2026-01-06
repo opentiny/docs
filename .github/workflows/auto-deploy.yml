@@ -50,10 +50,12 @@ jobs:
 
       - name: Install deps
         run: pnpm i
+      - name: Build @opentiny/tiny-robot
+        run: pnpm -F robot-root build
       - name: Build site
         run: pnpm build
         env:
-          VITEPRESS_BASE: /
+          VITEPRESS_BASE: /docs/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
