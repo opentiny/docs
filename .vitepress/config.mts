@@ -76,7 +76,7 @@ export default defineConfig({
     'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
-    'genui-sdk/docs/:path*': 'genui-sdk/guide/:path*',
+    'genui-sdk/docs/src/:section(guide|api)/:path*': 'genui-sdk/guide/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
       'tiny-engine/guide/:path*',
@@ -216,12 +216,17 @@ export default defineConfig({
       ],
       '/genui-sdk/guide/': [
         {
-          text: '指南',
+          text: '介绍',
           base: '/genui-sdk/guide/',
           items: [
-            { text: '首页', link: 'index' },
-            { text: 'Markdown 示例', link: 'markdown-examples' },
-            { text: 'API 示例', link: 'api-examples' }
+            { text: '安装指南', link: 'installation' },
+          ]
+        },
+        {
+          text: 'API文档',
+          base: '/genui-sdk/guide/',
+          items: [
+            { text: 'API文档', link: 'api' }
           ]
         }
       ],

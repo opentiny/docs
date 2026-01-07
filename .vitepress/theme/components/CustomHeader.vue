@@ -446,7 +446,7 @@ const productTabs = computed(() => [
   {
     key: "genui-sdk",
     name: "GenUI-SDK",
-    link: `${prefix}genui-sdk/guide/index`,
+    link: `${prefix}genui-sdk/guide/installation`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "genui-sdk" ? "active" : "normal"
     }-genui-sdk.svg`,
@@ -494,6 +494,8 @@ watch(
     const path = route.path.replace(new RegExp(`^${site.value.base}`), "/");
     if (path.includes("/next-sdk/")) {
       activeProductTab.value = "next-sdk";
+    } else if (path.includes("/genui-sdk/")) {
+      activeProductTab.value = "genui-sdk";
     } else if (path.includes("/tiny-robot/")) {
       activeProductTab.value = "tiny-robot";
     } else if (path.includes("/tiny-vue/")) {

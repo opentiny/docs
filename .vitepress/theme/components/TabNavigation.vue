@@ -189,6 +189,7 @@ onUnmounted(() => {
     height: 100%;
     display: flex;
     gap: 2rem;
+    white-space: nowrap;
   }
 
   &__item {

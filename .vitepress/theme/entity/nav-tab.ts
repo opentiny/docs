@@ -1,5 +1,3 @@
-import { useData, useRoute } from 'vitepress'
-
 interface TabItem {
   key: string
   name: string
@@ -95,7 +93,7 @@ class GenuiSdkNavTab extends NavTab {
   }
 
   getTabs(): TabItem[] {
-    return [{ key: 'guide', name: '使用文档', link: '/genui-sdk/guide/index' }]
+    return [{ key: 'guide', name: '使用文档', link: '/genui-sdk/guide/installation' }]
   }
 }
 
