@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 500px"
+              style="width: 540px"
             />
           </div>
         </div>
@@ -310,18 +310,6 @@ const getModalTabClasses = (tab: TabItem) => ({
   "modal-tab": true,
   "modal-tab-active": tab.key === activeProductTab.value,
 });
-
-class NavTab {
-  activeProductTab: string
-
-  constructor(activeProductTab: string) {
-    this.activeProductTab = activeProductTab;
-  }
-
-  getTabs() {
-    return 
-  }
-}
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
