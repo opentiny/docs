@@ -1,0 +1,51 @@
+name: Build docs
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+    paths:
+      - 'next-sdk/docs/**'
+      - 'tiny-robot/docs/**'
+      - 'tiny-vue/examples/sites/demos/pc/webdoc/**'
+      - 'tiny-engine/docs/**'  
+      - '.vitepress/**'
+  workflow_dispatch: {}  # 支持手动触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # 推荐完整历史以支持 lastUpdated 等
+          submodules: recursive # 检出子模块（递归）
+      - name: Ensure submodules are up-to-date (pull latest from their remote)
+        # 这一步会把子模块更新到各自远端的最新分支（通常是子模块配置的上游）
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive
+          # 拉取子模块的远端最新提交（合并到当前子模块工作树）
+          # 注意：这不会把变化提交回主仓库；仅用于构建时使用最新子模块内容
+          git submodule update --remote --merge --recursive
+          # 打印状态便于调试
+          git submodule status --recursive
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: Install deps
+        run: pnpm i
+      - name: Build @opentiny/tiny-robot
+        run: pnpm -F robot-root build
+      - name: Build site
+        run: pnpm build
