@@ -188,7 +188,7 @@ onUnmounted(() => {
   &__nav {
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    gap: 2rem;
   }
 
   &__item {

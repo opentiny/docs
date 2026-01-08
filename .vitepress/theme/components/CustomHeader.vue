@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 540px"
+              style="width: 610px"
             />
           </div>
         </div>
@@ -735,6 +735,7 @@ watch(
   align-items: center;
   padding-left: 3rem;
   padding-right: 3rem;
+  width: fit-content;
 }
 
 /* 响应式设计 */
