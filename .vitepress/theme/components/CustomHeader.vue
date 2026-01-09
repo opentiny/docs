@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 500px"
+              style="width: 610px"
             />
           </div>
         </div>
@@ -286,6 +286,7 @@ import { computed, ref, onMounted, watch } from "vue";
 import { useData, useRoute, useRouter } from "vitepress";
 import TabNavigation from "./TabNavigation.vue";
 import { normalizeLink, isActiveRoute, isHomePage } from "../utils/router";
+import { NavTabFactory } from "../entity";
 
 // 获取 VitePress 数据
 const { site, theme } = useData();
@@ -312,37 +313,8 @@ const getModalTabClasses = (tab: TabItem) => ({
 
 // 转换导航配置为TabNavigation所需格式
 const navigationTabs = computed(() => {
-  if (
-    activeProductTab.value === "next-sdk" &&
-    route.path.includes("/next-sdk/")
-  ) {
-    return [{ key: "guide", name: "使用文档", link: "/next-sdk/guide/" }];
-  } else if (
-    activeProductTab.value === "tiny-vue" &&
-    route.path.includes("/tiny-vue/")
-  ) {
-    return [{ key: "guide", name: "使用文档", link: "/tiny-vue/guide/introduce" }];
-  } else {
-    let configNav: configNavItem[] = [];
-    if (
-      activeProductTab.value === "tiny-engine" &&
-      route.path.includes("/tiny-engine/")
-    ) {
-      configNav = themeConfig.value.engineNav || [];
-    } else {
-      configNav = themeConfig.value.nav || [];
-    }
-    return (
-      configNav?.map((item: configNavItem) => ({
-        key:
-          getConfigKey(item.link) ||
-          item.text.toLowerCase().replace(/\s+/g, "-"),
-        name: item.text,
-        link: `${prefix}${item.link.slice(1)}`,
-        disabled: false,
-      })) || []
-    );
-  }
+  const navTab = NavTabFactory(activeProductTab.value, route, site, themeConfig.value);
+  return navTab.getTabs();
 });
 
 interface TabItem {
@@ -460,6 +432,14 @@ const productTabs = computed(() => [
     }-next-sdk.svg`,
   },
   {
+    key: "genui-sdk",
+    name: "GenUI-SDK",
+    link: `${prefix}genui-sdk/guide/installation`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "genui-sdk" ? "active" : "normal"
+    }-genui-sdk.svg`,
+  },
+  {
     key: "tiny-robot",
     name: "TinyRobot",
     link: `${prefix}tiny-robot/guide/quick-start`,
@@ -502,6 +482,8 @@ watch(
     const path = route.path.replace(new RegExp(`^${site.value.base}`), "/");
     if (path.includes("/next-sdk/")) {
       activeProductTab.value = "next-sdk";
+    } else if (path.includes("/genui-sdk/")) {
+      activeProductTab.value = "genui-sdk";
     } else if (path.includes("/tiny-robot/")) {
       activeProductTab.value = "tiny-robot";
     } else if (path.includes("/tiny-vue/")) {
@@ -753,6 +735,7 @@ watch(
   align-items: center;
   padding-left: 3rem;
   padding-right: 3rem;
+  width: fit-content;
 }
 
 /* 响应式设计 */

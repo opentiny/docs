@@ -85,6 +85,10 @@ const redirectMap = [
   { 
     patterns: ['/next-sdk.html', '/next-sdk/'],
     target: '/next-sdk/guide'
+  },
+  { 
+    patterns: ['/genui-sdk.html', '/genui-sdk/', '/genui-sdk/guide.html', '/genui-sdk/guide/'],
+    target: '/genui-sdk/guide/installation'
   }
 ];
 
