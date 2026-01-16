@@ -76,7 +76,7 @@ export default defineConfig({
     'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
-    'genui-sdk/docs/src/:section(guide|api)/:path*': 'genui-sdk/guide/:path*',
+    'genui/genui-sdk/docs/src/:path*': 'genui-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
     'tiny-engine/docs/:section(getting-started|basic-features|advanced-features|tutorials)/:path*':
       'tiny-engine/guide/:path*',
@@ -116,6 +116,28 @@ export default defineConfig({
         text: '网站文档',
         link: '/tiny-engine/portal/ecosystem-intro',
         activeMatch: '/portal/',
+      },
+    ],
+    genuiNav: [
+      {
+        text: '使用指南',
+        link: '/genui-sdk/guide/quick-start',
+        activeMatch: '/guide/',
+      },
+      {
+        text: '组件文档',
+        link: '/genui-sdk/components/renderer',
+        activeMatch: '/components/',
+      },
+      {
+        text: '特性示例',
+        link: '/genui-sdk/examples/renderer/custom-actions',
+        activeMatch: '/examples/',
+      },
+      {
+        text: '更多技术栈',
+        link: '/genui-sdk/advanced/angular-support',
+        activeMatch: '/advanced/',
       },
     ],
     sidebar: {
@@ -217,18 +239,69 @@ export default defineConfig({
       ],
       '/genui-sdk/guide/': [
         {
-          text: '介绍',
+          text: '指引',
           base: '/genui-sdk/guide/',
           items: [
-            { text: '安装指南', link: 'installation' },
+            { text: '快速开始', link: 'quick-start' },
+            { text: '使用 Renderer 组件', link: 'start-with-renderer' },
+            { text: '搭配 Tiny Robot 使用', link: 'renderer-with-tiny-robot' }
+          ]
+        }
+      ],
+      '/genui-sdk/components/': [
+        {
+          text: '组件文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'SchemaRenderer', link: 'renderer' },
+            { text: 'GenuiChat', link: 'chat' },
+            { text: 'ConfigProvider', link: 'config-provider' }
+          ]
+        }
+      ],
+      '/genui-sdk/examples/': [
+        {
+          text: 'Renderer 组件',
+          base: '/genui-sdk/examples/renderer/',
+          items: [
+            { text: '自定义 Actions', link: 'custom-actions' },
+            { text: '自定义 Components', link: 'custom-components' },
+            {
+              text: '配置缓冲字段',
+              link: 'required-complete-field-selectors'
+            },
+            { text: '传递合并 State', link: 'state' }
           ]
         },
         {
-          text: 'API文档',
-          base: '/genui-sdk/guide/',
+          text: 'Chat 组件',
+          base: '/genui-sdk/examples/chat/',
           items: [
-            { text: 'API文档', link: 'api' }
+            { text: '自定义 Actions', link: 'custom-actions' },
+            { text: '自定义 Components', link: 'custom-components' },
+            { text: '自定义 Snippets', link: 'custom-snippets' },
+            { text: '自定义 Examples', link: 'custom-examples' },
+            { text: '自定义底部工具栏', link: 'footer-toolbar' },
+            { text: '自定义思考过程', link: 'thinking-process' },
+            { text: '上传图片', link: 'image-upload' },
+            { text: '历史会话管理', link: 'history' },
+            { text: 'customFetch', link: 'custom-fetch' },
+          ],
+        },
+        {
+          text: 'ConfigProvider 组件',
+          base: '/genui-sdk/examples/config-provider/',
+          items: [
+            { text: '切换主题', link: 'theme' },
+            { text: '自定义主题', link: 'custom-theme' },
           ]
+        },
+      ],
+      '/genui-sdk/advanced/': [
+        {
+          text: '更多技术栈',
+          base: '/genui-sdk/advanced/',
+          items: [{ text: 'Angular 支持', link: 'angular-support' }]
         }
       ],
       '/tiny-vue/guide/': [
