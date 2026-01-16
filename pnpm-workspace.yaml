@@ -1,2 +1,3 @@
 packages:
   - tiny-robot/**
+  - genui
