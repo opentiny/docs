@@ -42,8 +42,8 @@ jobs:
       - name: Checkout repository (with submodules)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0        # 推荐完整历史以支持 lastUpdated 等
-          submodules: recursive # 检出子模块（递归）
+          fetch-depth: 0 # 推荐完整历史以支持 lastUpdated 等
+          submodules: false # 检出子模块（递归）
 
       - name: Ensure submodules are up-to-date (pull latest from their remote)
         # 这一步会把子模块更新到各自远端的最新分支（通常是子模块配置的上游）
