@@ -88,9 +88,44 @@ const redirectMap = [
   },
   { 
     patterns: ['/genui-sdk.html', '/genui-sdk/', '/genui-sdk/guide.html', '/genui-sdk/guide/'],
-    target: '/genui-sdk/guide/installation'
+    target: '/genui-sdk/guide/quick-start'
   }
 ];
+
+const updateMultipleDocTitle = (basePath: string, nav: any[]) => {
+  const base = site.value?.base || '/'
+  const path = route.path.replace(new RegExp(`^${base}`), '/')
+  const cfg = themeConfig.value || {}
+  if (path.includes(`/${basePath}/`)) {
+    const engineNavConfig = nav || []
+    if (!engineNavConfig.length) {
+      docTitle.value = ''
+      return
+    }
+
+    const activeNav = engineNavConfig.find((item: any) => item?.activeMatch && path.includes(item.activeMatch))
+    const engineSidebarConfig = cfg.sidebar?.[`/${basePath}${activeNav?.activeMatch}`] || []
+    if (!engineSidebarConfig.length) {
+      docTitle.value = ''
+      return
+    }
+    engineSidebarConfig.forEach((child: any, key: number) => {
+      child.items?.forEach((item: any, deepKey: number) => {
+        if (item?.items?.length) {
+          const foundDeep = item.items.find((deepItem: any) => deepItem?.link && path.includes(deepItem.link))
+          if (foundDeep) {
+            docTitle.value = engineSidebarConfig[key].items?.[deepKey]?.text || ''
+            return
+
+          }
+        } else if (item?.link && path.includes(item.link)) {
+          docTitle.value = engineSidebarConfig[key]?.text || ''
+          return
+        }
+      })
+    })
+  }
+}
 
 // 将文档标题更新逻辑提取为独立函数，便于维护和测试
 const updateDocTitle = () => {
@@ -138,48 +173,6 @@ const updateDocTitle = () => {
     docTitle.value = match?.text || ''
     return
   }
-
-  // tiny-engine: 需要先找到对应的 engineNav，然后查 sidebar 的二级或三级项
-  if (path.includes('/tiny-engine/')) {
-    const engineNavConfig = cfg.engineNav || []
-    if (!engineNavConfig.length) {
-      docTitle.value = ''
-      return
-    }
-
-    const activeNav = engineNavConfig.find((item: any) => item?.activeMatch && path.includes(item.activeMatch))
-    const engineSidebarConfig = cfg.sidebar?.[`/tiny-engine${activeNav?.activeMatch}`] || []
-    if (!engineSidebarConfig.length) {
-      docTitle.value = ''
-      return
-    }
-
-    let enginePathkey = 0
-    let engineDeepPathkey: number | null = null
-
-    engineSidebarConfig.forEach((child: any, key: number) => {
-      child.items?.forEach((item: any, deepKey: number) => {
-        if (item?.items?.length) {
-          const foundDeep = item.items.find((deepItem: any) => deepItem?.link && path.includes(deepItem.link))
-          if (foundDeep) {
-            enginePathkey = key
-            engineDeepPathkey = deepKey
-          }
-        } else if (item?.link && path.includes(item.link)) {
-          enginePathkey = key
-        }
-      })
-    })
-
-    if (engineDeepPathkey !== null) {
-      docTitle.value = engineSidebarConfig[enginePathkey].items?.[engineDeepPathkey]?.text || ''
-    } else {
-      docTitle.value = engineSidebarConfig[enginePathkey]?.text || ''
-    }
-
-    return
-  }
-
   // 默认情况：清空标题
   docTitle.value = ''
 }
@@ -187,7 +180,12 @@ const updateDocTitle = () => {
 // 监听路由变更，初始化并同步标题
 watch(
   () => route.path,
-  updateDocTitle,
+  () => {
+    updateDocTitle()
+    const cfg = themeConfig.value || {}
+    updateMultipleDocTitle('tiny-engine', cfg.engineNav)
+    updateMultipleDocTitle('genui-sdk', cfg.genuiNav)
+  },
   { deep: true, immediate: true }
 )
 </script>

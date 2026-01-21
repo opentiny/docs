@@ -434,7 +434,7 @@ const productTabs = computed(() => [
   {
     key: "genui-sdk",
     name: "GenUI-SDK",
-    link: `${prefix}genui-sdk/guide/installation`,
+    link: `${prefix}genui-sdk/guide/quick-start`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "genui-sdk" ? "active" : "normal"
     }-genui-sdk.svg`,

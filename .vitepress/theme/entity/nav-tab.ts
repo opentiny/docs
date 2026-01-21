@@ -10,22 +10,17 @@ interface configNavItem {
   activeMatch?: string
 }
 
-
-type NavTabConstructor = new (
-  activeProductTab: string,
-  site: any,
-  themeConfig?: any
-) => NavTab
+type NavTabConstructor = new (activeProductTab: string, site: any, themeConfig?: any) => NavTab
 
 class NavTab {
   activeProductTab: string
   site: any
-  themeConfig?: any
+  nav: any[]
 
   constructor(activeProductTab: string, site: any, themeConfig?: any) {
     this.activeProductTab = activeProductTab
     this.site = site
-    this.themeConfig = themeConfig
+    this.nav = themeConfig?.nav || []
   }
 
   getConfigKey(link: any) {
@@ -34,10 +29,9 @@ class NavTab {
 
   getTabs(): TabItem[] {
     const prefix = this.site.value.base || '/'
-    const { nav } = this.themeConfig
 
     return (
-      (nav || []).map((item: configNavItem) => ({
+      (this.nav || []).map((item: configNavItem) => ({
         key: this.getConfigKey(item.link) || item.text.toLowerCase().replace(/\s+/g, '-'),
         name: item.text,
         link: `${prefix}${item.link.slice(1)}`,
@@ -70,30 +64,14 @@ class TinyVueNavTab extends NavTab {
 class TinyEngineNavTab extends NavTab {
   constructor(activeProductTab: string, site: any, themeConfig?: any) {
     super(activeProductTab, site, themeConfig)
-  }
-
-  getTabs(): TabItem[] {
-    const prefix = this.site.value.base || '/'
-    const { engineNav } = this.themeConfig
-
-    return (
-      (engineNav || []).map((item: configNavItem) => ({
-        key: this.getConfigKey(item.link) || item.text.toLowerCase().replace(/\s+/g, '-'),
-        name: item.text,
-        link: `${prefix}${item.link.slice(1)}`,
-        disabled: false
-      })) || []
-    )
+    this.nav = themeConfig?.engineNav || []
   }
 }
 
 class GenuiSdkNavTab extends NavTab {
   constructor(activeProductTab: string, site: any, themeConfig?: any) {
     super(activeProductTab, site, themeConfig)
-  }
-
-  getTabs(): TabItem[] {
-    return [{ key: 'guide', name: '使用文档', link: '/genui-sdk/guide/installation' }]
+    this.nav = themeConfig?.genuiNav || []
   }
 }
 
@@ -101,14 +79,14 @@ const navTabClassMap: Record<string, NavTabConstructor> = {
   'next-sdk': NextSdkNavTab,
   'tiny-vue': TinyVueNavTab,
   'tiny-engine': TinyEngineNavTab,
-  'genui-sdk': GenuiSdkNavTab,
+  'genui-sdk': GenuiSdkNavTab
 }
 
 const navPathMap: Record<string, string> = {
   'next-sdk': '/next-sdk/',
   'tiny-vue': '/tiny-vue/',
   'tiny-engine': '/tiny-engine/',
-  'genui-sdk': '/genui-sdk/',
+  'genui-sdk': '/genui-sdk/'
 }
 
 const NavTabFactory = (activeProductTab: string, route: any, site: any, themeConfig: any) => {
