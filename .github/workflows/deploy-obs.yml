@@ -45,6 +45,11 @@ jobs:
           fetch-depth: 0 # 推荐完整历史以支持 lastUpdated 等
           submodules: false # 检出子模块（递归）
 
+      - name: Configure Git identity
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
       - name: Ensure submodules are up-to-date (pull latest from their remote)
         # 这一步会把子模块更新到各自远端的最新分支（通常是子模块配置的上游）
         run: |
