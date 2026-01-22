@@ -39,12 +39,12 @@ export default defineConfig({
   // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
   ignoreDeadLinks: true,
   outDir: 'dist',
-    srcExclude: [
-      '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
-      'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
-      'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
-      'genui-sdk/packages/**/*.md',
-    ],
+  srcExclude: [
+    '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
+    'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
+    'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
+    'genui-sdk/packages/**/*.md',
+  ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
@@ -253,9 +253,9 @@ export default defineConfig({
           text: '组件文档',
           base: '/genui-sdk/components/',
           items: [
-            { text: 'SchemaRenderer', link: 'renderer' },
+            { text: 'GenuiRenderer', link: 'renderer' },
             { text: 'GenuiChat', link: 'chat' },
-            { text: 'ConfigProvider', link: 'config-provider' }
+            { text: 'GenuiConfigProvider', link: 'config-provider' }
           ]
         }
       ],
@@ -294,6 +294,7 @@ export default defineConfig({
           items: [
             { text: '切换主题', link: 'theme' },
             { text: '自定义主题', link: 'custom-theme' },
+            { text: '国际化配置', link: 'i18n' },
           ]
         },
       ],
@@ -301,7 +302,10 @@ export default defineConfig({
         {
           text: '更多技术栈',
           base: '/genui-sdk/advanced/',
-          items: [{ text: 'Angular 支持', link: 'angular-support' }]
+          items: [
+            { text: 'Angular 支持', link: 'angular-support' },
+            { text: '自定义渲染器', link: 'custom-renderer' },
+          ]
         }
       ],
       '/tiny-vue/guide/': [
