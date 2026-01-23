@@ -755,8 +755,8 @@ watch(
 @media (max-width: 979px) {
   /* 移动端适配：窄屏时使用较小的 logo，避免溢出 */
   .mb-logo .logo-icon {
-    width: 120px;
-    height: 28px;
+    width: 160px;
+    height: 26px;
     max-width: none;
   }
   .header-top {
