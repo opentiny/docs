@@ -83,7 +83,7 @@ const redirectMap = [
     target: '/tiny-robot/components/container'
   },
   { 
-    patterns: [, '/tiny-robot/tools.html', '/tiny-robot/tools/'],
+    patterns: ['/tiny-robot/tools.html', '/tiny-robot/tools/'],
     target: '/tiny-robot/tools/ai-client'
   },
   { 
