@@ -341,8 +341,9 @@ const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined })
   );
+  const ifProductTab = (activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")) ||( activeProductTab.value === "tiny-robot" && route.path.includes("/components/"))|| (activeProductTab.value === "tiny-robot" && route.path.includes("/tools/"))
   activeNavTab.value =
-    activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")
+    ifProductTab
       ? "guide"
       : currentTab?.key || "";
 };
