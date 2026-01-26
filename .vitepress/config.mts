@@ -250,61 +250,60 @@ export default defineConfig({
       ],
       '/genui-sdk/components/': [
         {
-          text: '组件文档',
+          text: 'Vue组件文档',
           base: '/genui-sdk/components/',
           items: [
             { text: 'GenuiRenderer', link: 'renderer' },
             { text: 'GenuiChat', link: 'chat' },
             { text: 'GenuiConfigProvider', link: 'config-provider' }
           ]
-        }
+        },
+        {
+          text: 'Angular组件文档',
+          items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }],
+        },
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Renderer 组件',
-          base: '/genui-sdk/examples/renderer/',
+          text: 'Vue组件特性示例',
           items: [
-            { text: '自定义 Actions', link: 'custom-actions' },
-            { text: '自定义 Components', link: 'custom-components' },
             {
-              text: '配置缓冲字段',
-              link: 'required-complete-field-selectors'
+              text: 'Renderer 组件',
+              base: '/genui-sdk/examples/renderer/',
+              items: [
+                { text: '自定义 Actions', link: 'custom-actions' },
+                { text: '自定义 Components', link: 'custom-components' },
+                {
+                  text: '配置缓冲字段',
+                  link: 'required-complete-field-selectors'
+                },
+                { text: '传递合并 State', link: 'state' }
+              ]
             },
-            { text: '传递合并 State', link: 'state' }
-          ]
-        },
-        {
-          text: 'Chat 组件',
-          base: '/genui-sdk/examples/chat/',
-          items: [
-            { text: '自定义 Actions', link: 'custom-actions' },
-            { text: '自定义 Components', link: 'custom-components' },
-            { text: '自定义 Snippets', link: 'custom-snippets' },
-            { text: '自定义 Examples', link: 'custom-examples' },
-            { text: '自定义底部工具栏', link: 'footer-toolbar' },
-            { text: '自定义思考过程', link: 'thinking-process' },
-            { text: '上传图片', link: 'image-upload' },
-            { text: '历史会话管理', link: 'history' },
-            { text: 'customFetch', link: 'custom-fetch' },
-          ],
-        },
-        {
-          text: 'ConfigProvider 组件',
-          base: '/genui-sdk/examples/config-provider/',
-          items: [
-            { text: '切换主题', link: 'theme' },
-            { text: '自定义主题', link: 'custom-theme' },
-            { text: '国际化配置', link: 'i18n' },
-          ]
-        },
-      ],
-      '/genui-sdk/advanced/': [
-        {
-          text: '更多技术栈',
-          base: '/genui-sdk/advanced/',
-          items: [
-            { text: 'Angular 支持', link: 'angular-support' },
-            { text: '自定义渲染器', link: 'custom-renderer' },
+            {
+              text: 'Chat 组件',
+              base: '/genui-sdk/examples/chat/',
+              items: [
+                { text: '自定义 Actions', link: 'custom-actions' },
+                { text: '自定义 Components', link: 'custom-components' },
+                { text: '自定义 Snippets', link: 'custom-snippets' },
+                { text: '自定义 Examples', link: 'custom-examples' },
+                { text: '自定义底部工具栏', link: 'footer-toolbar' },
+                { text: '自定义思考过程', link: 'thinking-process' },
+                { text: '自定义 Fetch', link: 'custom-fetch' },
+                { text: '上传图片', link: 'image-upload' },
+                { text: '历史会话管理', link: 'history' },
+              ],
+            },
+            {
+              text: 'ConfigProvider 组件',
+              base: '/genui-sdk/examples/config-provider/',
+              items: [
+                { text: '切换主题', link: 'theme' },
+                { text: '自定义主题', link: 'custom-theme' },
+                { text: '国际化配置', link: 'i18n' },
+              ]
+            },
           ]
         }
       ],
