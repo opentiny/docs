@@ -261,6 +261,13 @@ export default defineConfig({
           base: '/genui-sdk/components/',
           items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }],
         },
+        {
+          text: 'Server包文档',
+          base: '/genui-sdk/components/server/',
+          items: [
+            { text: '使用文档', link: 'usage' }, 
+          ],
+        }
       ],
       '/genui-sdk/examples/': [
         {
