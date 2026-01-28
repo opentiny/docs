@@ -1,6 +1,7 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -39,12 +40,12 @@ export default defineConfig({
   // 忽略死链检查（true 会跳过 VitePress 的 dead link 报错）
   ignoreDeadLinks: true,
   outDir: 'dist',
-    srcExclude: [
-      '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
-      'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
-      'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
-      'genui-sdk/packages/**/*.md',
-    ],
+  srcExclude: [
+    '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
+    'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
+    'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
+    'genui-sdk/packages/**/*.md',
+  ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
   vite: {
@@ -70,6 +71,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(vitepressDemoPlugin)
+      md.use(tabsMarkdownPlugin)
     }
   },
   rewrites: {
@@ -89,6 +91,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/images/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
+    outline: 'deep',
     nav: [
       {
         text: '指南',
@@ -133,12 +136,7 @@ export default defineConfig({
         text: '特性示例',
         link: '/genui-sdk/examples/renderer/custom-actions',
         activeMatch: '/examples/',
-      },
-      {
-        text: '更多技术栈',
-        link: '/genui-sdk/advanced/angular-support',
-        activeMatch: '/advanced/',
-      },
+      }
     ],
     sidebar: {
       '/tiny-robot/guide/': [
@@ -244,24 +242,37 @@ export default defineConfig({
           items: [
             { text: '快速开始', link: 'quick-start' },
             { text: '使用 Renderer 组件', link: 'start-with-renderer' },
-            { text: '搭配 Tiny Robot 使用', link: 'renderer-with-tiny-robot' }
+            { text: '搭配 TinyRobot 使用', link: 'renderer-with-tiny-robot' }
           ]
         }
       ],
       '/genui-sdk/components/': [
         {
-          text: '组件文档',
+          text: 'Vue组件文档',
           base: '/genui-sdk/components/',
           items: [
-            { text: 'SchemaRenderer', link: 'renderer' },
+            { text: 'GenuiRenderer', link: 'renderer' },
             { text: 'GenuiChat', link: 'chat' },
-            { text: 'ConfigProvider', link: 'config-provider' }
+            { text: 'GenuiConfigProvider', link: 'config-provider' }
           ]
+        },
+        {
+          text: 'Angular组件文档',
+          base: '/genui-sdk/components/',
+          items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }],
+        },
+        {
+          text: 'Server包文档',
+          base: '/genui-sdk/components/server/',
+          items: [
+            { text: '使用文档', link: 'usage' }, 
+          ],
         }
       ],
       '/genui-sdk/examples/': [
         {
           text: 'Renderer 组件',
+          collapsed: false,
           base: '/genui-sdk/examples/renderer/',
           items: [
             { text: '自定义 Actions', link: 'custom-actions' },
@@ -275,6 +286,7 @@ export default defineConfig({
         },
         {
           text: 'Chat 组件',
+          collapsed: false,
           base: '/genui-sdk/examples/chat/',
           items: [
             { text: '自定义 Actions', link: 'custom-actions' },
@@ -283,26 +295,21 @@ export default defineConfig({
             { text: '自定义 Examples', link: 'custom-examples' },
             { text: '自定义底部工具栏', link: 'footer-toolbar' },
             { text: '自定义思考过程', link: 'thinking-process' },
+            { text: '自定义 Fetch', link: 'custom-fetch' },
             { text: '上传图片', link: 'image-upload' },
             { text: '历史会话管理', link: 'history' },
-            { text: 'customFetch', link: 'custom-fetch' },
           ],
         },
         {
           text: 'ConfigProvider 组件',
+          collapsed: false,
           base: '/genui-sdk/examples/config-provider/',
           items: [
             { text: '切换主题', link: 'theme' },
             { text: '自定义主题', link: 'custom-theme' },
+            { text: '国际化配置', link: 'i18n' },
           ]
         },
-      ],
-      '/genui-sdk/advanced/': [
-        {
-          text: '更多技术栈',
-          base: '/genui-sdk/advanced/',
-          items: [{ text: 'Angular 支持', link: 'angular-support' }]
-        }
       ],
       '/tiny-vue/guide/': [
         {

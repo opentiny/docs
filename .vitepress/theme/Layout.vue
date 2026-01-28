@@ -184,7 +184,6 @@ watch(
     updateDocTitle()
     const cfg = themeConfig.value || {}
     updateMultipleDocTitle('tiny-engine', cfg.engineNav)
-    updateMultipleDocTitle('genui-sdk', cfg.genuiNav)
   },
   { deep: true, immediate: true }
 )
