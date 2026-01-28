@@ -264,47 +264,45 @@ export default defineConfig({
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Vue组件特性示例',
+          text: 'Renderer 组件',
+          collapsed: false,
+          base: '/genui-sdk/examples/renderer/',
           items: [
+            { text: '自定义 Actions', link: 'custom-actions' },
+            { text: '自定义 Components', link: 'custom-components' },
             {
-              text: 'Renderer 组件',
-              base: '/genui-sdk/examples/renderer/',
-              items: [
-                { text: '自定义 Actions', link: 'custom-actions' },
-                { text: '自定义 Components', link: 'custom-components' },
-                {
-                  text: '配置缓冲字段',
-                  link: 'required-complete-field-selectors'
-                },
-                { text: '传递合并 State', link: 'state' }
-              ]
+              text: '配置缓冲字段',
+              link: 'required-complete-field-selectors'
             },
-            {
-              text: 'Chat 组件',
-              base: '/genui-sdk/examples/chat/',
-              items: [
-                { text: '自定义 Actions', link: 'custom-actions' },
-                { text: '自定义 Components', link: 'custom-components' },
-                { text: '自定义 Snippets', link: 'custom-snippets' },
-                { text: '自定义 Examples', link: 'custom-examples' },
-                { text: '自定义底部工具栏', link: 'footer-toolbar' },
-                { text: '自定义思考过程', link: 'thinking-process' },
-                { text: '自定义 Fetch', link: 'custom-fetch' },
-                { text: '上传图片', link: 'image-upload' },
-                { text: '历史会话管理', link: 'history' },
-              ],
-            },
-            {
-              text: 'ConfigProvider 组件',
-              base: '/genui-sdk/examples/config-provider/',
-              items: [
-                { text: '切换主题', link: 'theme' },
-                { text: '自定义主题', link: 'custom-theme' },
-                { text: '国际化配置', link: 'i18n' },
-              ]
-            },
+            { text: '传递合并 State', link: 'state' }
           ]
-        }
+        },
+        {
+          text: 'Chat 组件',
+          collapsed: false,
+          base: '/genui-sdk/examples/chat/',
+          items: [
+            { text: '自定义 Actions', link: 'custom-actions' },
+            { text: '自定义 Components', link: 'custom-components' },
+            { text: '自定义 Snippets', link: 'custom-snippets' },
+            { text: '自定义 Examples', link: 'custom-examples' },
+            { text: '自定义底部工具栏', link: 'footer-toolbar' },
+            { text: '自定义思考过程', link: 'thinking-process' },
+            { text: '自定义 Fetch', link: 'custom-fetch' },
+            { text: '上传图片', link: 'image-upload' },
+            { text: '历史会话管理', link: 'history' },
+          ],
+        },
+        {
+          text: 'ConfigProvider 组件',
+          collapsed: false,
+          base: '/genui-sdk/examples/config-provider/',
+          items: [
+            { text: '切换主题', link: 'theme' },
+            { text: '自定义主题', link: 'custom-theme' },
+            { text: '国际化配置', link: 'i18n' },
+          ]
+        },
       ],
       '/tiny-vue/guide/': [
         {
