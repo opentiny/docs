@@ -91,6 +91,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/images/logo-mini.svg',
     siteTitle: 'OpenTiny NEXT',
+    outline: 'deep',
     nav: [
       {
         text: '指南',
