@@ -1,6 +1,7 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -70,6 +71,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(vitepressDemoPlugin)
+      md.use(tabsMarkdownPlugin)
     }
   },
   rewrites: {
@@ -133,12 +135,7 @@ export default defineConfig({
         text: '特性示例',
         link: '/genui-sdk/examples/renderer/custom-actions',
         activeMatch: '/examples/',
-      },
-      {
-        text: '更多技术栈',
-        link: '/genui-sdk/advanced/angular-support',
-        activeMatch: '/advanced/',
-      },
+      }
     ],
     sidebar: {
       '/tiny-robot/guide/': [
@@ -244,7 +241,7 @@ export default defineConfig({
           items: [
             { text: '快速开始', link: 'quick-start' },
             { text: '使用 Renderer 组件', link: 'start-with-renderer' },
-            { text: '搭配 Tiny Robot 使用', link: 'renderer-with-tiny-robot' }
+            { text: '搭配 TinyRobot 使用', link: 'renderer-with-tiny-robot' }
           ]
         }
       ],
@@ -260,6 +257,7 @@ export default defineConfig({
         },
         {
           text: 'Angular组件文档',
+          base: '/genui-sdk/components/',
           items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }],
         },
       ],

@@ -1,4 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
+import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
@@ -30,6 +31,7 @@ export default {
     })
     app.component('HomePage', HomePage)
     app.component('CustomTable', CustomTable)
+    enhanceAppWithTabs(app)
   },
   Layout,
   setup() {
