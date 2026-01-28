@@ -13,3 +13,6 @@
 [submodule "genui/genui-sdk"]
 	path = genui/genui-sdk
 	url = git@github.com:opentiny/genui-sdk.git
+[submodule "tiny-editor"]
+	path = tiny-editor
+	url = git@github.com:opentiny/tiny-editor.git
