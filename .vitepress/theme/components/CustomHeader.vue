@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 610px"
+              style="width: 810px"
             />
           </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="tools-section">
           <!-- 中央搜索栏 -->
           <div class="search-section">
-            <div class="search-container">
+            <!-- <div class="search-container">
               <div class="search-icon">
                 <svg
                   width="16"
@@ -58,7 +58,7 @@
               <div class="search-shortcut">
                 <kbd class="kbd">Ctrl K</kbd>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- OpenTiny 链接 -->
           <a href="https://opentiny.design" title="OpenTiny" class="home-link">
@@ -463,6 +463,14 @@ const productTabs = computed(() => [
       activeProductTab.value === "tiny-engine" ? "active" : "normal"
     }-tiny-engine.svg`,
   },
+  {
+    key: "tiny-editor",
+    name: "TinyEditor",
+    link: `${prefix}tiny-editor/guide/quick-start`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-editor" ? "active" : "normal"
+    }-tiny-engine.svg`,
+  },
 ]);
 
 // 切换tab时路由跳转
@@ -490,7 +498,9 @@ watch(
       activeProductTab.value = "tiny-vue";
     } else if (path.includes("/tiny-engine/")) {
       activeProductTab.value = "tiny-engine";
-    } else {
+    } else if (path.includes("/tiny-editor/")) {
+      activeProductTab.value = "tiny-editor";
+    }else {
       activeProductTab.value = "";
     }
   },
