@@ -341,8 +341,9 @@ const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined })
   );
+  const ifProductTab = (activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")) ||( activeProductTab.value === "tiny-robot" && route.path.includes("/components/"))|| (activeProductTab.value === "tiny-robot" && route.path.includes("/tools/"))
   activeNavTab.value =
-    activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")
+    ifProductTab
       ? "guide"
       : currentTab?.key || "";
 };
@@ -587,6 +588,10 @@ watch(
 
 .logo-icon {
   height: 32px;
+  /* 避免全局 img { max-width: 100% } 导致 logo 在窄屏时被压缩 */
+  max-width: none;
+  /* 保证在某些布局下不会被最小宽度约束影响 */
+  min-width: 0;
 }
 
 .logo-text {
@@ -759,6 +764,12 @@ watch(
 }
 
 @media (max-width: 979px) {
+  /* 移动端适配：窄屏时使用较小的 logo，避免溢出 */
+  .mb-logo .logo-icon {
+    width: 160px;
+    height: 26px;
+    max-width: none;
+  }
   .header-top {
     display: none;
   }

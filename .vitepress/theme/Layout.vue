@@ -79,6 +79,14 @@ const redirectMap = [
     target: '/tiny-robot/guide/quick-start'
   },
   { 
+    patterns: ['/tiny-robot/components.html', '/tiny-robot/components/'],
+    target: '/tiny-robot/components/container'
+  },
+  { 
+    patterns: ['/tiny-robot/tools.html', '/tiny-robot/tools/'],
+    target: '/tiny-robot/tools/ai-client'
+  },
+  { 
     patterns: ['/tiny-robot/examples/', '/tiny-robot/examples.html'],
     target: '/tiny-robot/examples/assistant'
   },
@@ -184,7 +192,6 @@ watch(
     updateDocTitle()
     const cfg = themeConfig.value || {}
     updateMultipleDocTitle('tiny-engine', cfg.engineNav)
-    updateMultipleDocTitle('genui-sdk', cfg.genuiNav)
   },
   { deep: true, immediate: true }
 )
