@@ -33,6 +33,50 @@ const resolveSubmoduleRelativePathsPlugin = (options: { source: string; target: 
   }
 })
 
+const robotSidebarItems = [
+  {
+    text: '指南',
+    base: '/tiny-robot/guide/',
+    items: [
+      { text: '快速开始', link: 'quick-start' },
+      { text: '主题配置', link: 'theme-config' },
+      { text: '更新日志', link: 'update-log' },
+    ],
+  },
+  {
+    text: '组件',
+    base: '/tiny-robot/components/',
+    items: [
+      { text: 'Container 容器', link: 'container' },
+      { text: 'Bubble 气泡', link: 'bubble' },
+      { text: 'Sender 消息输入框', link: 'sender' },
+      { text: 'Prompts 提示集', link: 'prompts' },
+      { text: 'Welcome 欢迎', link: 'welcome' },
+      { text: 'Feedback 气泡反馈', link: 'feedback' },
+      { text: 'History 历史', link: 'history' },
+      { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
+      {
+        text: 'SuggestionPopover 建议弹出框',
+        link: 'suggestion-popover',
+      },
+      { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
+      { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
+      { text: 'Attachments 附件卡片', link: 'attachments' },
+      { text: 'McpServerPicker 插件选择器', link: 'mcp-server-picker' },
+      { text: 'Theme 主题', link: 'theme' },
+    ],
+  },
+  {
+    text: '工具',
+    base: '/tiny-robot/tools/',
+    items: [
+      { text: 'AI模型交互工具类', link: 'ai-client' },
+      { text: '消息数据管理', link: 'message' },
+      { text: '会话数据管理', link: 'conversation' }
+    ]
+  }
+]
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OpenTiny NEXT',
@@ -75,7 +119,9 @@ export default defineConfig({
     }
   },
   rewrites: {
-    'tiny-robot/docs/src/:section(guide|components|tools)/:path*': 'tiny-robot/guide/:path*',
+    'tiny-robot/docs/src/guide/:path*': 'tiny-robot/guide/:path*',
+    'tiny-robot/docs/src/components/:path*': 'tiny-robot/components/:path*',
+    'tiny-robot/docs/src/tools/:path*': 'tiny-robot/tools/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'genui/genui-sdk/docs/src/:path*': 'genui-sdk/:path*',
@@ -139,49 +185,9 @@ export default defineConfig({
       }
     ],
     sidebar: {
-      '/tiny-robot/guide/': [
-        {
-          text: '指南',
-          base: '/tiny-robot/guide/',
-          items: [
-            { text: '快速开始', link: 'quick-start' },
-            { text: '主题配置', link: 'theme-config' },
-            { text: '更新日志', link: 'update-log' },
-          ],
-        },
-        {
-          text: '组件',
-          base: '/tiny-robot/guide/',
-          items: [
-            { text: 'Container 容器', link: 'container' },
-            { text: 'Bubble 气泡', link: 'bubble' },
-            { text: 'Sender 消息输入框', link: 'sender' },
-            { text: 'Prompts 提示集', link: 'prompts' },
-            { text: 'Welcome 欢迎', link: 'welcome' },
-            { text: 'Feedback 气泡反馈', link: 'feedback' },
-            { text: 'History 历史', link: 'history' },
-            { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
-            {
-              text: 'SuggestionPopover 建议弹出框',
-              link: 'suggestion-popover',
-            },
-            { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
-            { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
-            { text: 'Attachments 附件卡片', link: 'attachments' },
-            { text: 'McpServerPicker 插件选择器', link: 'mcp-server-picker' },
-            { text: 'Theme 主题', link: 'theme' },
-          ],
-        },
-        {
-          text: '工具',
-          base: '/tiny-robot/guide/',
-          items: [
-            { text: 'AI模型交互工具类', link: 'ai-client' },
-            { text: '消息数据管理', link: 'message' },
-            { text: '会话数据管理', link: 'conversation' }
-          ]
-        }
-      ],
+      '/tiny-robot/guide/': robotSidebarItems,
+      '/tiny-robot/components/': robotSidebarItems,
+      '/tiny-robot/tools/': robotSidebarItems,
       '/tiny-robot/examples/': [
         {
           text: '演示',
