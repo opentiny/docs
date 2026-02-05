@@ -116,6 +116,20 @@ export default defineConfig({
     config: (md) => {
       md.use(vitepressDemoPlugin)
       md.use(tabsMarkdownPlugin)
+      // map unsupported languages to supported ones for highlighter
+      const _fence = md.renderer.rules.fence
+      const langMap: Record<string, string> = { env: 'bash', vue3: 'vue' }
+      md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        if (token && token.info) {
+          const info = token.info.trim()
+          const lang = info.split(/\s+/)[0]
+          if (langMap[lang]) {
+            token.info = info.replace(new RegExp('^' + lang + '\\b'), langMap[lang])
+          }
+        }
+        return _fence ? _fence(tokens, idx, options, env, self) : self.renderToken(tokens, idx, options)
+      }
     }
   },
   rewrites: {
