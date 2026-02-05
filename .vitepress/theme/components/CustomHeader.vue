@@ -31,35 +31,16 @@
         <!-- 右侧工具栏 -->
         <div class="tools-section">
           <!-- 中央搜索栏 -->
-          <div class="search-section">
-            <!-- <div class="search-container">
-              <div class="search-icon">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search..."
-                class="search-input"
-                @click="openSearch"
+          <button @click="openSearch" class="tool-button" title="Toggle theme">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
-              <div class="search-shortcut">
-                <kbd class="kbd">Ctrl K</kbd>
-              </div>
-            </div> -->
-          </div>
+            </svg>
+          </button>
           <!-- OpenTiny 链接 -->
           <a href="https://opentiny.design" title="OpenTiny" class="home-link">
             <span>OpenTiny</span>
