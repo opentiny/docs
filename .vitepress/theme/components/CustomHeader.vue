@@ -341,11 +341,17 @@ const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined })
   );
-  const ifProductTab = (activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")) ||( activeProductTab.value === "tiny-robot" && route.path.includes("/components/"))|| (activeProductTab.value === "tiny-robot" && route.path.includes("/tools/"))
-  activeNavTab.value =
-    ifProductTab
-      ? "guide"
-      : currentTab?.key || "";
+
+  const productPathMap: Record<string, string[]> = {
+    "next-sdk": ["/next-sdk/"],
+    "tiny-robot": ["/components/", "/tools/"],
+    "tiny-editor": ["/demo/", "/api/", "/modules/"],
+  };
+
+  const segments = productPathMap[activeProductTab.value] || [];
+  const isProductRoute = segments.some((seg) => route.path.includes(seg));
+
+  activeNavTab.value = isProductRoute ? "guide" : currentTab?.key || "";
 };
 
 // 处理导航标签变化
