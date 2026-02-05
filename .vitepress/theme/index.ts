@@ -44,7 +44,9 @@ export default {
         if (zomm) {
           zomm.detach();
         }
-        zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+        if (typeof window !== 'undefined'){
+          zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+        }
       }),
       {immediate: true}
     )
