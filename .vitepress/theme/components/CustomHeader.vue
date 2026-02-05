@@ -457,7 +457,7 @@ const productTabs = computed(() => [
     link: `${prefix}tiny-editor/guide/quick-start`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "tiny-editor" ? "active" : "normal"
-    }-tiny-engine.svg`,
+    }-tiny-editor.svg`,
   },
 ]);
 
