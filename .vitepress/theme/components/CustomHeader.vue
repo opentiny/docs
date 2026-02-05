@@ -488,7 +488,7 @@ watch(
       activeProductTab.value = "tiny-engine";
     } else if (path.includes("/tiny-editor/")) {
       activeProductTab.value = "tiny-editor";
-    }else {
+    } else {
       activeProductTab.value = "";
     }
   },
