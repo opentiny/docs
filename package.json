@@ -10,16 +10,22 @@
   },
   "devDependencies": {
     "@opentiny/tiny-robot": "workspace:^",
+    "@opentiny/tiny-robot-playground": "workspace:^",
     "@vitejs/plugin-vue-jsx": "^4.1.2",
     "cross-env": "^7.0.3",
     "gh-pages": "^2.1.1",
     "less": "^4.4.1",
     "medium-zoom": "^1.1.0",
     "vitepress": "^1.6.3",
-    "vitepress-demo-plugin": "^1.4.2",
+    "vitepress-demo-plugin": "1.5.0",
     "vitepress-plugin-tabs": "^0.7.3"
   },
   "dependencies": {
     "vue": "^3.5.13"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "vitepress-demo-plugin@1.5.0": "patches/vitepress-demo-plugin@1.5.0.patch"
+    }
   }
 }
