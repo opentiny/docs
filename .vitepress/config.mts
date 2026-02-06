@@ -40,8 +40,8 @@ const robotSidebarItems = [
     items: [
       { text: '快速开始', link: 'quick-start' },
       { text: '主题配置', link: 'theme-config' },
-      { text: '更新日志', link: 'update-log' },
-    ],
+      { text: '更新日志', link: 'update-log' }
+    ]
   },
   {
     text: '组件',
@@ -57,14 +57,14 @@ const robotSidebarItems = [
       { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
       {
         text: 'SuggestionPopover 建议弹出框',
-        link: 'suggestion-popover',
+        link: 'suggestion-popover'
       },
       { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
       { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
       { text: 'Attachments 附件卡片', link: 'attachments' },
       { text: 'McpServerPicker 插件选择器', link: 'mcp-server-picker' },
-      { text: 'Theme 主题', link: 'theme' },
-    ],
+      { text: 'Theme 主题', link: 'theme' }
+    ]
   },
   {
     text: '工具',
@@ -85,10 +85,14 @@ export default defineConfig({
   ignoreDeadLinks: true,
   outDir: 'dist',
   srcExclude: [
-    '**/README*.md', '**/develop-demo-en.md', '**/theme-en.md',
-    'tiny-vue/packages/**/*.md', 'tiny-engine/packages/**/*.md',
-    'tiny-robot/packages/**/*.md', 'next-sdk/packages/**/*.md',
-    'genui-sdk/packages/**/*.md',
+    '**/README*.md',
+    '**/develop-demo-en.md',
+    '**/theme-en.md',
+    'tiny-vue/packages/**/*.md',
+    'tiny-engine/packages/**/*.md',
+    'tiny-robot/packages/**/*.md',
+    'next-sdk/packages/**/*.md',
+    'genui-sdk/packages/**/*.md'
   ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
@@ -118,7 +122,7 @@ export default defineConfig({
         playground: { show: true },
         codeTransformer: (code) => {
           return code.replace(/import\.meta\.env\.BASE_URL/g, `'${process.env.VITEPRESS_BASE || '/'}'`)
-        },
+        }
       })
       md.use(tabsMarkdownPlugin)
       // map unsupported languages to supported ones for highlighter
@@ -161,46 +165,46 @@ export default defineConfig({
       {
         text: '指南',
         link: '/tiny-robot/guide/quick-start',
-        activeMatch: '/guide/',
+        activeMatch: '/guide/'
       },
       {
         text: '演示',
         link: '/tiny-robot/examples/assistant',
-        activeMatch: '/examples/',
-      },
+        activeMatch: '/examples/'
+      }
     ],
     engineNav: [
       {
         text: '使用指南',
         link: '/tiny-engine/guide/introduction',
-        activeMatch: '/guide/',
+        activeMatch: '/guide/'
       },
       {
         text: '平台开发指南',
         link: '/tiny-engine/dev/dev-intro',
-        activeMatch: '/dev/',
+        activeMatch: '/dev/'
       },
       {
         text: '网站文档',
         link: '/tiny-engine/portal/ecosystem-intro',
-        activeMatch: '/portal/',
-      },
+        activeMatch: '/portal/'
+      }
     ],
     genuiNav: [
       {
         text: '使用指南',
         link: '/genui-sdk/guide/quick-start',
-        activeMatch: '/guide/',
+        activeMatch: '/guide/'
       },
       {
         text: '组件文档',
         link: '/genui-sdk/components/renderer',
-        activeMatch: '/components/',
+        activeMatch: '/components/'
       },
       {
         text: '特性示例',
         link: '/genui-sdk/examples/renderer/custom-actions',
-        activeMatch: '/examples/',
+        activeMatch: '/examples/'
       }
     ],
     sidebar: {
@@ -246,6 +250,7 @@ export default defineConfig({
           base: '/next-sdk/guide/',
           items: [
             { text: 'TinyRobot 版本', link: 'tiny-robot-remoter' },
+            { text: 'custom llm 自定义大模型', link: 'custom-llm' },
             { text: 'useNextAgent 函数', link: 'use-next-agent' }
           ]
         },
@@ -284,14 +289,12 @@ export default defineConfig({
         {
           text: 'Angular组件文档',
           base: '/genui-sdk/components/',
-          items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }],
+          items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }]
         },
         {
           text: 'Server包文档',
           base: '/genui-sdk/components/server/',
-          items: [
-            { text: '使用文档', link: 'usage' }, 
-          ],
+          items: [{ text: '使用文档', link: 'usage' }]
         }
       ],
       '/genui-sdk/examples/': [
@@ -322,8 +325,8 @@ export default defineConfig({
             { text: '自定义思考过程', link: 'thinking-process' },
             { text: '自定义 Fetch', link: 'custom-fetch' },
             { text: '上传图片', link: 'image-upload' },
-            { text: '历史会话管理', link: 'history' },
-          ],
+            { text: '历史会话管理', link: 'history' }
+          ]
         },
         {
           text: 'ConfigProvider 组件',
@@ -332,9 +335,9 @@ export default defineConfig({
           items: [
             { text: '切换主题', link: 'theme' },
             { text: '自定义主题', link: 'custom-theme' },
-            { text: '国际化配置', link: 'i18n' },
+            { text: '国际化配置', link: 'i18n' }
           ]
-        },
+        }
       ],
       '/tiny-vue/guide/': [
         {
