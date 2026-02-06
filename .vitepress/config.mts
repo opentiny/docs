@@ -114,7 +114,12 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      md.use(vitepressDemoPlugin)
+      md.use(vitepressDemoPlugin, {
+        playground: { show: true },
+        codeTransformer: (code) => {
+          return code.replace(/import\.meta\.env\.BASE_URL/g, `'${process.env.VITEPRESS_BASE || '/'}'`)
+        },
+      })
       md.use(tabsMarkdownPlugin)
       // map unsupported languages to supported ones for highlighter
       const _fence = md.renderer.rules.fence
