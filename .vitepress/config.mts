@@ -7,7 +7,63 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
-
+const TinyEditorSidebar = [
+    {
+      text: '基础',
+      base: '/tiny-editor/guide/',
+      items: [
+        { text: '快速开始', link: 'quick-start' },
+        { text: '在前端框架中使用', link: 'used-in-framework' },
+        { text: '封装成组件', link: 'componentize' },
+      ],
+    },
+    {
+      text: '使用示例',
+      base: '/tiny-editor/demo/',
+      items: [
+        { text: '基本用法', link: 'basic-usage' },
+        { text: '内容初始化', link: 'set-content' },
+        { text: '获取内容', link: 'get-content' },
+        { text: '自定义工具栏', link: 'custom-toolbar' },
+        { text: '增加工具栏', link: 'add-toolbar-item' },
+        { text: '文件上传', link: 'file-upload' },
+        { text: '代码块高亮', link: 'code-block-highlight' },
+        { text: '表格', link: 'table-up' },
+        { text: '@提醒', link: 'mention' },
+        { text: '快捷菜单', link: 'shortcut-key' },
+        { text: '插入表情', link: 'emoji' },
+        { text: '格式刷', link: 'format-painter' },
+        { text: '公式', link: 'formula' },
+        { text: 'Markdown', link: 'markdown' },
+        { text: '字符统计', link: 'counter' },
+        { text: '截屏', link: 'screenshot' },
+        { text: '国际化', link: 'i18n' },
+        { text: '标题列表', link: 'header-list' },
+        { text: '工具栏提示', link: 'toolbar-tip' },
+        { text: '只读模式', link: 'readonly' },
+        { text: '模拟语雀文档', link: 'https://opentiny.github.io/tiny-editor/projects' },
+        { text: '图片工具栏', link: 'image-tool' },
+        { text: '协同编辑', link: 'collaborative-editing' },
+      ],
+    },
+    {
+      text: 'API 参考',
+      base: '/tiny-editor/api/',
+      items: [
+        { text: '配置项', link: 'options' },
+        { text: 'TinyEditor 实例', link: 'fluent-editor-instance' },
+        { text: 'TinyEditor 类', link: 'fluent-editor-class' },
+      ],
+    },
+    {
+      text: '模块生态',
+      base: '/tiny-editor/modules/',
+      items: [
+        { text: '工具栏提示', link: 'toolbar-tip' },
+        { text: '标题列表', link: 'header-list' },
+      ],
+    },
+  ]
 const normalizePath = (path: string, targetStyle: 'windows' | 'linux' = 'linux') => {
   if (targetStyle === 'windows') {
     return path.replace(/\//g, '\\')
@@ -154,7 +210,11 @@ export default defineConfig({
     'tiny-engine/docs/:section(practical-cases|api|extension-capabilities-tutorial|development-getting-started|changelog|solutions|extension-capabilities-overview)/:path*':
       'tiny-engine/dev/:path*',
     'tiny-engine/docs/:section(ecosystem-center|about-applications|about-materials|about-designer)/:path*':
-      'tiny-engine/portal/:path*'
+      'tiny-engine/portal/:path*',
+    'tiny-editor/packages/docs/fluent-editor/docs/guide/:path*': 'tiny-editor/guide/:path*',
+    'tiny-editor/packages/docs/fluent-editor/docs/demo/:path*': 'tiny-editor/demo/:path*',
+    'tiny-editor/packages/docs/fluent-editor/docs/api/:path*': 'tiny-editor/api/:path*',
+    'tiny-editor/packages/docs/fluent-editor/docs/modules/:path*': 'tiny-editor/modules/:path*',
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -600,7 +660,11 @@ export default defineConfig({
             { text: '定制设计器', link: 'customize-designer' }
           ]
         }
-      ]
+      ],
+      '/tiny-editor/guide/':TinyEditorSidebar,
+      '/tiny-editor/demo/': TinyEditorSidebar,
+      '/tiny-editor/api/': TinyEditorSidebar,
+      '/tiny-editor/modules/': TinyEditorSidebar,
     },
     search: {
       provider: 'local'

@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 610px"
+              style="width: 810px"
             />
           </div>
         </div>
@@ -31,35 +31,16 @@
         <!-- 右侧工具栏 -->
         <div class="tools-section">
           <!-- 中央搜索栏 -->
-          <div class="search-section">
-            <div class="search-container">
-              <div class="search-icon">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search..."
-                class="search-input"
-                @click="openSearch"
+          <button @click="openSearch" class="tool-button" title="Toggle theme">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
-              <div class="search-shortcut">
-                <kbd class="kbd">Ctrl K</kbd>
-              </div>
-            </div>
-          </div>
+            </svg>
+          </button>
           <!-- OpenTiny 链接 -->
           <a href="https://opentiny.design" title="OpenTiny" class="home-link">
             <span>OpenTiny</span>
@@ -341,11 +322,17 @@ const getActiveNavTab = () => {
   const currentTab = navigationTabs.value.find((tab: TabItem) =>
     isActiveNav({ text: tab.name, link: tab.key, activeMatch: undefined })
   );
-  const ifProductTab = (activeProductTab.value === "next-sdk" && route.path.includes("/next-sdk/")) ||( activeProductTab.value === "tiny-robot" && route.path.includes("/components/"))|| (activeProductTab.value === "tiny-robot" && route.path.includes("/tools/"))
-  activeNavTab.value =
-    ifProductTab
-      ? "guide"
-      : currentTab?.key || "";
+
+  const productPathMap: Record<string, string[]> = {
+    "next-sdk": ["/next-sdk/"],
+    "tiny-robot": ["/components/", "/tools/"],
+    "tiny-editor": ["/demo/", "/api/", "/modules/"],
+  };
+
+  const segments = productPathMap[activeProductTab.value] || [];
+  const isProductRoute = segments.some((seg) => route.path.includes(seg));
+
+  activeNavTab.value = isProductRoute ? "guide" : currentTab?.key || "";
 };
 
 // 处理导航标签变化
@@ -464,6 +451,14 @@ const productTabs = computed(() => [
       activeProductTab.value === "tiny-engine" ? "active" : "normal"
     }-tiny-engine.svg`,
   },
+  {
+    key: "tiny-editor",
+    name: "TinyEditor",
+    link: `${prefix}tiny-editor/guide/quick-start`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-editor" ? "active" : "normal"
+    }-tiny-editor.svg`,
+  },
 ]);
 
 // 切换tab时路由跳转
@@ -491,6 +486,8 @@ watch(
       activeProductTab.value = "tiny-vue";
     } else if (path.includes("/tiny-engine/")) {
       activeProductTab.value = "tiny-engine";
+    } else if (path.includes("/tiny-editor/")) {
+      activeProductTab.value = "tiny-editor";
     } else {
       activeProductTab.value = "";
     }
