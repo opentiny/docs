@@ -420,7 +420,10 @@ export default defineConfig({
           text: '教程',
           collapsed: false,
           base: '/tiny-engine/guide/',
-          items: [{ text: '从零搭建一个页面', link: 'build-a-page-from-scratch' }]
+          items: [
+            { text: '从零搭建一个页面', link: 'build-a-page-from-scratch' },
+            { text: '第一期2023.10.27', link: 'issue-1-2023.10.27' }
+          ]
         }
       ],
       '/tiny-engine/dev/': [
