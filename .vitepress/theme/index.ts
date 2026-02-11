@@ -9,6 +9,7 @@ import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
 import mediumZoom from 'medium-zoom';
+import { insertFurion } from './insert-furion'
 // 引入样式文件
 import './medium-zoom.css';
 import './style.css'
@@ -25,6 +26,8 @@ export default {
   enhanceApp({ app }) {
     // 监听暗黑模式变化
     setupDarkModeListener()
+    // 添加 furion 监控埋点
+    insertFurion()
 
     app.mixin({
       mounted() {
