@@ -201,6 +201,7 @@ export default defineConfig({
     'tiny-robot/docs/src/guide/:path*': 'tiny-robot/guide/:path*',
     'tiny-robot/docs/src/components/:path*': 'tiny-robot/components/:path*',
     'tiny-robot/docs/src/tools/:path*': 'tiny-robot/tools/:path*',
+    'tiny-robot/docs/src/migration/:path*': 'tiny-robot/migration/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'genui/genui-sdk/docs/src/:path*': 'genui-sdk/:path*',
@@ -231,6 +232,11 @@ export default defineConfig({
         text: '演示',
         link: '/tiny-robot/examples/assistant',
         activeMatch: '/examples/'
+      },
+      {
+        text: '迁移指南',
+        link: '/tiny-robot/migration/bubble-migration',
+        activeMatch: '/migration/'
       }
     ],
     engineNav: [
@@ -276,6 +282,17 @@ export default defineConfig({
           text: '演示',
           base: '/tiny-robot/examples/',
           items: [{ text: '综合示例', link: 'assistant' }]
+        }
+      ],
+      '/tiny-robot/migration/': [
+        {
+          text: '迁移指南',
+          base: '/tiny-robot/migration/',
+          items: [
+            { text: 'Bubble 迁移指南', link: 'bubble-migration' },
+            { text: 'useMessage 迁移指南', link: 'use-message-migration' },
+            { text: 'useConversation 迁移指南', link: 'use-conversation-migration' }
+          ]
         }
       ],
       '/next-sdk/guide/': [
