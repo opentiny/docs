@@ -2,6 +2,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { isMermaidFence, renderMermaidFence } from './theme/markdown/mermaid'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -197,6 +198,9 @@ export default defineConfig({
       const langMap: Record<string, string> = { env: 'bash', vue3: 'vue' }
       md.renderer.rules.fence = (tokens, idx, options, env, self) => {
         const token = tokens[idx]
+        if (token && isMermaidFence(token)) {
+          return renderMermaidFence(token, idx, env || {})
+        }
         if (token && token.info) {
           const info = token.info.trim()
           const lang = info.split(/\s+/)[0]
