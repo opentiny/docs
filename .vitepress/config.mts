@@ -7,6 +7,17 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
+const WebAgentSidebar = [
+  {
+    text: '使用文档',
+    base: '/web-agent/guide/',
+    items: [
+      { text: '快速开始', link: 'getting-started' },
+      { text: '架构设计', link: 'architecture' },
+      { text: 'API 参考', link: 'api-reference' }
+    ]
+  }
+]
 const TinyEditorSidebar = [
     {
       text: '基础',
@@ -216,6 +227,7 @@ export default defineConfig({
     'tiny-editor/packages/docs/fluent-editor/docs/demo/:path*': 'tiny-editor/demo/:path*',
     'tiny-editor/packages/docs/fluent-editor/docs/api/:path*': 'tiny-editor/api/:path*',
     'tiny-editor/packages/docs/fluent-editor/docs/modules/:path*': 'tiny-editor/modules/:path*',
+    'web-agent/docs/:path*': 'web-agent/guide/:path*'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -682,6 +694,7 @@ export default defineConfig({
       '/tiny-editor/demo/': TinyEditorSidebar,
       '/tiny-editor/api/': TinyEditorSidebar,
       '/tiny-editor/modules/': TinyEditorSidebar,
+      '/web-agent/guide/': WebAgentSidebar,
     },
     search: {
       provider: 'local'
