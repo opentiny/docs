@@ -17,3 +17,6 @@
 [submodule "tiny-editor"]
 	path = tiny-editor
 	url = git@github.com:opentiny/tiny-editor.git
+[submodule "web-agent"]
+	path = web-agent
+	url = git@github.com:opentiny/web-agent.git

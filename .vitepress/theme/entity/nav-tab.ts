@@ -85,12 +85,23 @@ class TinyEditorNavTab extends NavTab {
   }
 }
 
+class WebAgentNavTab extends NavTab {
+  constructor(activeProductTab: string, site: any, themeConfig?: any) {
+    super(activeProductTab, site, themeConfig)
+  }
+
+  getTabs(): TabItem[] {
+    return [{ key: 'guide', name: '使用文档', link: '/web-agent/guide/getting-started' }]
+  }
+}
+
 const navTabClassMap: Record<string, NavTabConstructor> = {
   'next-sdk': NextSdkNavTab,
   'tiny-vue': TinyVueNavTab,
   'tiny-engine': TinyEngineNavTab,
   'genui-sdk': GenuiSdkNavTab,
-  'tiny-editor': TinyEditorNavTab
+  'tiny-editor': TinyEditorNavTab,
+  'web-agent': WebAgentNavTab
 }
 
 const navPathMap: Record<string, string> = {
@@ -98,7 +109,8 @@ const navPathMap: Record<string, string> = {
   'tiny-vue': '/tiny-vue/',
   'tiny-engine': '/tiny-engine/',
   'genui-sdk': '/genui-sdk/',
-  'tiny-editor': '/tiny-editor/'
+  'tiny-editor': '/tiny-editor/',
+  'web-agent': '/web-agent/'
 }
 
 const NavTabFactory = (activeProductTab: string, route: any, site: any, themeConfig: any) => {
@@ -113,6 +125,5 @@ const NavTabFactory = (activeProductTab: string, route: any, site: any, themeCon
 
   return new NavTab(activeProductTab, site, themeConfig)
 }
-
 
 export { NavTabFactory }
