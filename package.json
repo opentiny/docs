@@ -16,6 +16,7 @@
     "gh-pages": "^2.1.1",
     "less": "^4.4.1",
     "medium-zoom": "^1.1.0",
+    "mermaid": "^11.12.2",
     "vitepress": "^1.6.3",
     "vitepress-demo-plugin": "1.5.0",
     "vitepress-plugin-tabs": "^0.7.3"

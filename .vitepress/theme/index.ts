@@ -5,6 +5,7 @@ import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
+import MermaidBlock from './components/MermaidBlock.vue'
 import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
@@ -37,6 +38,7 @@ export default {
     })
     app.component('HomePage', HomePage)
     app.component('CustomTable', CustomTable)
+    app.component('MermaidBlock', MermaidBlock)
     enhanceAppWithTabs(app)
   },
   Layout,
