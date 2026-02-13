@@ -23,7 +23,7 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 810px"
+              style="width: 980px"
             />
           </div>
         </div>
@@ -327,6 +327,7 @@ const getActiveNavTab = () => {
     "next-sdk": ["/next-sdk/"],
     "tiny-robot": ["/components/", "/tools/"],
     "tiny-editor": ["/demo/", "/api/", "/modules/"],
+    "web-agent": ["/web-agent/"],
   };
 
   const segments = productPathMap[activeProductTab.value] || [];
@@ -459,6 +460,14 @@ const productTabs = computed(() => [
       activeProductTab.value === "tiny-editor" ? "active" : "normal"
     }-tiny-editor.svg`,
   },
+  {
+    key: "web-agent",
+    name: "WebAgent",
+    link: `${prefix}web-agent/guide/getting-started`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "web-agent" ? "active" : "normal"
+    }-web-agent.svg`,
+  },
 ]);
 
 // 切换tab时路由跳转
@@ -488,6 +497,8 @@ watch(
       activeProductTab.value = "tiny-engine";
     } else if (path.includes("/tiny-editor/")) {
       activeProductTab.value = "tiny-editor";
+    } else if (path.includes("/web-agent/")) {
+      activeProductTab.value = "web-agent";
     } else {
       activeProductTab.value = "";
     }
