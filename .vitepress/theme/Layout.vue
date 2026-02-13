@@ -97,6 +97,10 @@ const redirectMap = [
   { 
     patterns: ['/genui-sdk.html', '/genui-sdk/', '/genui-sdk/guide.html', '/genui-sdk/guide/'],
     target: '/genui-sdk/guide/quick-start'
+  },
+  {
+    patterns: ['/web-agent.html', '/web-agent/', '/web-agent/guide.html', '/web-agent/guide/'],
+    target: '/web-agent/guide/getting-started'
   }
 ];
 
@@ -148,13 +152,15 @@ const updateDocTitle = () => {
     }
   }
 
-  // next-sdk / tiny-vue: 从对应 sidebar 的 guide 中寻找匹配项
-  if (path.includes('/next-sdk/') || path.includes('/tiny-vue/')) {
+  // next-sdk / tiny-vue / web-agent: 从对应 sidebar 的 guide 中寻找匹配项
+  if (path.includes('/next-sdk/') || path.includes('/tiny-vue/') || path.includes('/web-agent/')) {
     let sidebarConfig: any[] = []
     if (path.includes('/next-sdk/')) {
       sidebarConfig = cfg.sidebar?.['/next-sdk/guide/'] || []
     } else if (path.includes('/tiny-vue/')) {
       sidebarConfig = cfg.sidebar?.['/tiny-vue/guide/'] || []
+    } else if (path.includes('/web-agent/')) {
+      sidebarConfig = cfg.sidebar?.['/web-agent/guide/'] || []
     }
 
     if (!sidebarConfig || !sidebarConfig.length) {
