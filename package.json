@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env VP_MODE=development vitepress dev",
     "prebuild": "pnpm -F @opentiny/genui-sdk-core build && pnpm -F @opentiny/genui-sdk-angular build:element",
-    "build": "cross-env VP_MODE=production NODE_OPTIONS=\"--max-old-space-size=5120\" vitepress build",
+    "build": "cross-env VP_MODE=production NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build",
     "preview": "vitepress preview",
     "postinstall": "pnpm -F robot-root build"
   },

@@ -274,7 +274,7 @@ export default defineConfig({
     ],
     genuiNav: [
       {
-        text: '使用指南',
+        text: '快速开始',
         link: '/genui-sdk/guide/quick-start',
         activeMatch: '/guide/'
       },
@@ -287,6 +287,11 @@ export default defineConfig({
         text: '特性示例',
         link: '/genui-sdk/examples/renderer/custom-actions',
         activeMatch: '/examples/'
+      },
+      { 
+        text: '协议规范',
+        link: '/genui-sdk/schema/protocol',
+        activeMatch: '/schema/'
       }
     ],
     sidebar: {
@@ -398,9 +403,12 @@ export default defineConfig({
           items: [{ text: 'GenuiRenderer', link: 'angular/renderer' }]
         },
         {
-          text: 'Server包文档',
-          base: '/genui-sdk/components/server/',
-          items: [{ text: '使用文档', link: 'usage' }]
+          text: 'Server 库文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'API 参考', link: 'server/api' },
+            { text: 'CLI', link: 'server/cli' }
+          ]
         }
       ],
       '/genui-sdk/examples/': [
