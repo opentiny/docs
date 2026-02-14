@@ -452,14 +452,14 @@ const productTabs = computed(() => [
       activeProductTab.value === "tiny-engine" ? "active" : "normal"
     }-tiny-engine.svg`,
   },
-  {
-    key: "tiny-editor",
-    name: "TinyEditor",
-    link: `${prefix}tiny-editor/guide/quick-start`,
-    src: `${prefix}images/logo-${
-      activeProductTab.value === "tiny-editor" ? "active" : "normal"
-    }-tiny-editor.svg`,
-  },
+  // {
+  //   key: "tiny-editor",
+  //   name: "TinyEditor",
+  //   link: `${prefix}tiny-editor/guide/quick-start`,
+  //   src: `${prefix}images/logo-${
+  //     activeProductTab.value === "tiny-editor" ? "active" : "normal"
+  //   }-tiny-editor.svg`,
+  // },
   {
     key: "web-agent",
     name: "WebAgent",
