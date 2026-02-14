@@ -9,8 +9,8 @@
             <img
               :src="
                 isDark
-                  ? '/images/logo-opentiny-next-text-dark.svg'
-                  : '/images/logo-opentiny-next-text.svg'
+                  ? `${prefix}images/logo-opentiny-next-text-dark.svg`
+                  : `${prefix}images/logo-opentiny-next-text.svg`
               "
               alt="OpenTiny NEXT"
               class="logo-icon"
@@ -119,8 +119,8 @@
               <img
                 :src="
                   isDark
-                    ? '/images/logo-opentiny-next-text-dark.svg'
-                    : '/images/logo-opentiny-next-text.svg'
+                    ? `${prefix}logo-opentiny-next-text-dark.svg`
+                    : `${prefix}logo-opentiny-next-text.svg`
                 "
                 alt="OpenTiny NEXT"
                 class="logo-icon"
