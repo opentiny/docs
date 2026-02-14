@@ -20,62 +20,62 @@ const WebAgentSidebar = [
   }
 ]
 const TinyEditorSidebar = [
-    {
-      text: '基础',
-      base: '/tiny-editor/guide/',
-      items: [
-        { text: '快速开始', link: 'quick-start' },
-        { text: '在前端框架中使用', link: 'used-in-framework' },
-        { text: '封装成组件', link: 'componentize' },
-      ],
-    },
-    {
-      text: '使用示例',
-      base: '/tiny-editor/demo/',
-      items: [
-        { text: '基本用法', link: 'basic-usage' },
-        { text: '内容初始化', link: 'set-content' },
-        { text: '获取内容', link: 'get-content' },
-        { text: '自定义工具栏', link: 'custom-toolbar' },
-        { text: '增加工具栏', link: 'add-toolbar-item' },
-        { text: '文件上传', link: 'file-upload' },
-        { text: '代码块高亮', link: 'code-block-highlight' },
-        { text: '表格', link: 'table-up' },
-        { text: '@提醒', link: 'mention' },
-        { text: '快捷菜单', link: 'shortcut-key' },
-        { text: '插入表情', link: 'emoji' },
-        { text: '格式刷', link: 'format-painter' },
-        { text: '公式', link: 'formula' },
-        { text: 'Markdown', link: 'markdown' },
-        { text: '字符统计', link: 'counter' },
-        { text: '截屏', link: 'screenshot' },
-        { text: '国际化', link: 'i18n' },
-        { text: '标题列表', link: 'header-list' },
-        { text: '工具栏提示', link: 'toolbar-tip' },
-        { text: '只读模式', link: 'readonly' },
-        { text: '模拟语雀文档', link: 'https://opentiny.github.io/tiny-editor/projects' },
-        { text: '图片工具栏', link: 'image-tool' },
-        { text: '协同编辑', link: 'collaborative-editing' },
-      ],
-    },
-    {
-      text: 'API 参考',
-      base: '/tiny-editor/api/',
-      items: [
-        { text: '配置项', link: 'options' },
-        { text: 'TinyEditor 实例', link: 'fluent-editor-instance' },
-        { text: 'TinyEditor 类', link: 'fluent-editor-class' },
-      ],
-    },
-    {
-      text: '模块生态',
-      base: '/tiny-editor/modules/',
-      items: [
-        { text: '工具栏提示', link: 'toolbar-tip' },
-        { text: '标题列表', link: 'header-list' },
-      ],
-    },
-  ]
+  {
+    text: '基础',
+    base: '/tiny-editor/guide/',
+    items: [
+      { text: '快速开始', link: 'quick-start' },
+      { text: '在前端框架中使用', link: 'used-in-framework' },
+      { text: '封装成组件', link: 'componentize' }
+    ]
+  },
+  {
+    text: '使用示例',
+    base: '/tiny-editor/demo/',
+    items: [
+      { text: '基本用法', link: 'basic-usage' },
+      { text: '内容初始化', link: 'set-content' },
+      { text: '获取内容', link: 'get-content' },
+      { text: '自定义工具栏', link: 'custom-toolbar' },
+      { text: '增加工具栏', link: 'add-toolbar-item' },
+      { text: '文件上传', link: 'file-upload' },
+      { text: '代码块高亮', link: 'code-block-highlight' },
+      { text: '表格', link: 'table-up' },
+      { text: '@提醒', link: 'mention' },
+      { text: '快捷菜单', link: 'shortcut-key' },
+      { text: '插入表情', link: 'emoji' },
+      { text: '格式刷', link: 'format-painter' },
+      { text: '公式', link: 'formula' },
+      { text: 'Markdown', link: 'markdown' },
+      { text: '字符统计', link: 'counter' },
+      { text: '截屏', link: 'screenshot' },
+      { text: '国际化', link: 'i18n' },
+      { text: '标题列表', link: 'header-list' },
+      { text: '工具栏提示', link: 'toolbar-tip' },
+      { text: '只读模式', link: 'readonly' },
+      { text: '模拟语雀文档', link: 'https://opentiny.github.io/tiny-editor/projects' },
+      { text: '图片工具栏', link: 'image-tool' },
+      { text: '协同编辑', link: 'collaborative-editing' }
+    ]
+  },
+  {
+    text: 'API 参考',
+    base: '/tiny-editor/api/',
+    items: [
+      { text: '配置项', link: 'options' },
+      { text: 'TinyEditor 实例', link: 'fluent-editor-instance' },
+      { text: 'TinyEditor 类', link: 'fluent-editor-class' }
+    ]
+  },
+  {
+    text: '模块生态',
+    base: '/tiny-editor/modules/',
+    items: [
+      { text: '工具栏提示', link: 'toolbar-tip' },
+      { text: '标题列表', link: 'header-list' }
+    ]
+  }
+]
 const normalizePath = (path: string, targetStyle: 'windows' | 'linux' = 'linux') => {
   if (targetStyle === 'windows') {
     return path.replace(/\//g, '\\')
@@ -274,7 +274,7 @@ export default defineConfig({
     ],
     genuiNav: [
       {
-        text: '使用指南',
+        text: '快速开始',
         link: '/genui-sdk/guide/quick-start',
         activeMatch: '/guide/'
       },
@@ -287,6 +287,11 @@ export default defineConfig({
         text: '特性示例',
         link: '/genui-sdk/examples/renderer/custom-actions',
         activeMatch: '/examples/'
+      },
+      { 
+        text: '协议规范',
+        link: '/genui-sdk/schema/protocol',
+        activeMatch: '/schema/'
       }
     ],
     sidebar: {
@@ -360,13 +365,26 @@ export default defineConfig({
       ],
       '/genui-sdk/guide/': [
         {
-          text: '指引',
+          text: 'GenUI SDK Vue 指引',
           base: '/genui-sdk/guide/',
           items: [
             { text: '快速开始', link: 'quick-start' },
             { text: '使用 Renderer 组件', link: 'start-with-renderer' },
             { text: '搭配 TinyRobot 使用', link: 'renderer-with-tiny-robot' }
           ]
+        },
+        {
+          text: 'GenUI SDK Angular 指引',
+          base: '/genui-sdk/',
+          items: [
+            { text: '安装与配置', link: 'guide/angular/install' },
+            { text: '使用 Renderer 组件', link: 'guide/angular/start-with-renderer' }
+          ]
+        },
+        {
+          text: 'GenUI SDK Server 指引',
+          base: '/genui-sdk',
+          items: [{ text: 'Server 包使用文档', link: '/guide/server-usage' }]
         }
       ],
       '/genui-sdk/components/': [
@@ -382,53 +400,80 @@ export default defineConfig({
         {
           text: 'Angular组件文档',
           base: '/genui-sdk/components/',
-          items: [{ text: 'GenuiRenderer(未开放)', link: 'angular-renderer' }]
+          items: [{ text: 'GenuiRenderer', link: 'angular/renderer' }]
         },
         {
-          text: 'Server包文档',
-          base: '/genui-sdk/components/server/',
-          items: [{ text: '使用文档', link: 'usage' }]
+          text: 'Server 库文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'API 参考', link: 'server/api' },
+            { text: 'CLI', link: 'server/cli' }
+          ]
         }
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Renderer 组件',
+          text: 'Vue 组件特性示例',
           collapsed: false,
-          base: '/genui-sdk/examples/renderer/',
           items: [
-            { text: '自定义 Actions', link: 'custom-actions' },
-            { text: '自定义 Components', link: 'custom-components' },
             {
-              text: '配置缓冲字段',
-              link: 'required-complete-field-selectors'
+              text: 'Renderer 组件',
+              collapsed: false,
+              base: '/genui-sdk/examples/renderer/',
+              items: [
+                { text: '自定义 Actions', link: 'custom-actions' },
+                { text: '自定义 Components', link: 'custom-components' },
+                {
+                  text: '配置缓冲字段',
+                  link: 'required-complete-field-selectors'
+                },
+                { text: '传递合并 State', link: 'state' }
+              ]
             },
-            { text: '传递合并 State', link: 'state' }
+            {
+              text: 'Chat 组件',
+              collapsed: false,
+              base: '/genui-sdk/examples/chat/',
+              items: [
+                { text: '自定义 Actions', link: 'custom-actions' },
+                { text: '自定义 Components', link: 'custom-components' },
+                { text: '自定义 Snippets', link: 'custom-snippets' },
+                { text: '自定义 Examples', link: 'custom-examples' },
+                { text: '自定义底部工具栏', link: 'footer-toolbar' },
+                { text: '自定义思考过程', link: 'thinking-process' },
+                { text: '自定义 Fetch', link: 'custom-fetch' },
+                { text: '上传图片', link: 'image-upload' },
+                { text: '历史会话管理', link: 'history' }
+              ]
+            },
+            {
+              text: 'ConfigProvider 组件',
+              collapsed: false,
+              base: '/genui-sdk/examples/config-provider/',
+              items: [
+                { text: '切换主题', link: 'theme' },
+                { text: '自定义主题', link: 'custom-theme' },
+                { text: '国际化配置', link: 'i18n' }
+              ]
+            }
           ]
         },
         {
-          text: 'Chat 组件',
+          text: 'Angular 组件特性示例',
           collapsed: false,
-          base: '/genui-sdk/examples/chat/',
           items: [
-            { text: '自定义 Actions', link: 'custom-actions' },
-            { text: '自定义 Components', link: 'custom-components' },
-            { text: '自定义 Snippets', link: 'custom-snippets' },
-            { text: '自定义 Examples', link: 'custom-examples' },
-            { text: '自定义底部工具栏', link: 'footer-toolbar' },
-            { text: '自定义思考过程', link: 'thinking-process' },
-            { text: '自定义 Fetch', link: 'custom-fetch' },
-            { text: '上传图片', link: 'image-upload' },
-            { text: '历史会话管理', link: 'history' }
-          ]
-        },
-        {
-          text: 'ConfigProvider 组件',
-          collapsed: false,
-          base: '/genui-sdk/examples/config-provider/',
-          items: [
-            { text: '切换主题', link: 'theme' },
-            { text: '自定义主题', link: 'custom-theme' },
-            { text: '国际化配置', link: 'i18n' }
+            {
+              text: 'Renderer 组件',
+              base: '/genui-sdk',
+              items: [
+                { text: '自定义 Actions', link: '/examples/angular/renderer/custom-actions' },
+                {
+                  text: '配置缓冲字段',
+                  link: '/examples/angular/renderer/required-complete-field-selectors'
+                },
+                { text: '传递合并 State', link: '/examples/angular/renderer/state' }
+              ]
+            }
           ]
         }
       ],
@@ -694,7 +739,7 @@ export default defineConfig({
           ]
         }
       ],
-      '/tiny-editor/guide/':TinyEditorSidebar,
+      '/tiny-editor/guide/': TinyEditorSidebar,
       '/tiny-editor/demo/': TinyEditorSidebar,
       '/tiny-editor/api/': TinyEditorSidebar,
       '/tiny-editor/modules/': TinyEditorSidebar,
