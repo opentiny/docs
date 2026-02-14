@@ -86,6 +86,7 @@ function listenCodePlaygroundEvent() {
   if (typeof window === 'undefined' || window.__CODE_PLAYGROUND_LISTENED__) {
     return
   }
+  const route = useRoute();
 
   window.__CODE_PLAYGROUND_LISTENED__ = true
   document.addEventListener('code-playground', (event) => {
@@ -136,7 +137,8 @@ function listenCodePlaygroundEvent() {
       files,
       extraImports,
     })
-
-    window.open(`https://playground.opentiny.design/tiny-robot.html` + store.serialize(), '_blank')
+    if(route.path.includes('tiny-robot')){
+      window.open(`https://playground.opentiny.design/tiny-robot.html` + store.serialize(), '_blank')
+    }
   })
 }
