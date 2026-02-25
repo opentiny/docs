@@ -288,7 +288,7 @@ export default defineConfig({
         link: '/genui-sdk/examples/renderer/custom-actions',
         activeMatch: '/examples/'
       },
-      { 
+      {
         text: '协议规范',
         link: '/genui-sdk/schema/protocol',
         activeMatch: '/schema/'
@@ -490,7 +490,7 @@ export default defineConfig({
             { text: '国际化', link: 'i18n' },
             { text: '主题配置', link: 'theme' },
             { text: '深色模式', link: 'theme-dark' },
-            { text: '智能化', link: 'mcp' },
+            { text: 'Skills 使用指南', link: 'skills' },
             { text: '表单校验配置', link: 'form-valid' },
             { text: '常见问题', link: 'faq' }
           ]
@@ -743,7 +743,7 @@ export default defineConfig({
       '/tiny-editor/demo/': TinyEditorSidebar,
       '/tiny-editor/api/': TinyEditorSidebar,
       '/tiny-editor/modules/': TinyEditorSidebar,
-      '/web-agent/guide/': WebAgentSidebar,
+      '/web-agent/guide/': WebAgentSidebar
     },
     search: {
       provider: 'local'
