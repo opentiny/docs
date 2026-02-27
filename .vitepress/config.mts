@@ -348,8 +348,9 @@ export default defineConfig({
           base: '/next-sdk/guide/',
           items: [
             { text: 'TinyRobot 版本', link: 'tiny-robot-remoter' },
+            { text: 'Skills 技能配置指南', link: 'tiny-remoter-skills' },
             { text: 'custom llm 自定义大模型', link: 'custom-llm' },
-            { text: 'useNextAgent 函数', link: 'use-next-agent' }
+            { text: '自定义AI对话框组件', link: 'use-next-agent' }
           ]
         },
         {
