@@ -333,6 +333,14 @@ export default defineConfig({
           ]
         },
         {
+          text: 'webMCP&WebSkills 最佳实践',
+          base: '/next-sdk/guide/',
+          items: [
+            { text: 'Vue 工程最佳实践', link: '/vue-webmcp-best-practice' },
+            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' }
+          ]
+        },
+        {
           text: 'NEXT-SDKs API',
           base: '/next-sdk/guide/',
           items: [
@@ -360,7 +368,8 @@ export default defineConfig({
             { text: 'architecture 技术架构', link: 'ai-extension-architecture' },
             { text: 'mcp-servers 工具开发指南', link: 'ai-extension-next-wxt' },
             { text: 'skills 技能开发指南', link: 'ai-extension-skills' },
-            { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' }
+            { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' },
+            { text: '大模型配置', link: 'ai-extension-model-config' }
           ]
         }
       ],
