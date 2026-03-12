@@ -43,7 +43,7 @@ export default {
   },
   Layout,
   setup() {
-    // 为img元素添加点击放大功能
+    // 为img元素添加点击放大功能并根据路由隐藏 playground 图标
     const route = useRoute();
     let zomm: any = null;
     watch(
@@ -54,6 +54,11 @@ export default {
         }
         if (typeof window !== 'undefined'){
           zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+          if (route.path.includes('tiny-robot')) {
+            document.body.classList.remove('hide-code-playground');
+          } else {
+            document.body.classList.add('hide-code-playground');
+          }
         }
       }),
       {immediate: true}
