@@ -333,9 +333,10 @@ export default defineConfig({
           ]
         },
         {
-          text: 'webMCP&WebSkills 最佳实践',
+          text: 'WebMCP&WebSkills 最佳实践',
           base: '/next-sdk/guide/',
           items: [
+            { text: '总览', link: '/webmcp-webskills' },
             { text: 'Vue 工程最佳实践', link: '/vue-webmcp-best-practice' },
             { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' }
           ]
@@ -352,12 +353,12 @@ export default defineConfig({
           ]
         },
         {
-          text: 'TinyRemoter for Vue',
+          text: 'TinyRemoter',
           base: '/next-sdk/guide/',
           items: [
             { text: 'TinyRobot 版本', link: 'tiny-robot-remoter' },
             { text: 'Skills 技能配置指南', link: 'tiny-remoter-skills' },
-            { text: 'custom llm 自定义大模型', link: 'custom-llm' },
+            { text: 'Custom llm 自定义大模型', link: 'custom-llm' },
             { text: '自定义AI对话框组件', link: 'use-next-agent' }
           ]
         },
@@ -365,11 +366,11 @@ export default defineConfig({
           text: 'AI Extension',
           base: '/next-sdk/guide/',
           items: [
-            { text: 'architecture 技术架构', link: 'ai-extension-architecture' },
-            { text: 'mcp-servers 工具开发指南', link: 'ai-extension-next-wxt' },
-            { text: 'skills 技能开发指南', link: 'ai-extension-skills' },
+            { text: '技术架构', link: 'ai-extension-architecture' },
+            { text: 'MCP Servers 工具开发指南', link: 'ai-extension-next-wxt' },
+            { text: 'Skills 技能开发指南', link: 'ai-extension-skills' },
             { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' },
-            { text: '大模型配置', link: 'ai-extension-model-config' }
+            { text: '配置大模型', link: 'ai-extension-model-config' }
           ]
         }
       ],
