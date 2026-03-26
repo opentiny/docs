@@ -826,3 +826,10 @@ img.image-inline {
   font-size: 13px;
   font-family: var(--vp-font-family-mono);
 }
+
+@media (max-width: 360px) {
+  /* 第二行样式 */
+  .custom-tabs__header .custom-tabs__nav {
+    gap: 1rem;
+  }
+}
