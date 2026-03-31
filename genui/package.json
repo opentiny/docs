@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@opentiny/genui-sdk-angular": "workspace:*",
-    "@opentiny/genui-sdk-vue": "1.0.0"
+    "@opentiny/genui-sdk-vue": "1.1.0"
   },
   "devDependencies": {
     "vitepress": "^1.6.3",
