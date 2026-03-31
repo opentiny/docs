@@ -487,7 +487,6 @@ info {
   display: none;
 }
 .vp-doc .custom-block {
-  display: flex;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
   margin-top: 1rem;
@@ -497,6 +496,15 @@ info {
 .vp-doc .custom-block p {
   margin: 0;
   line-height: 20px;
+}
+.vp-doc .custom-block.info ol,
+.vp-doc .custom-block.warning ol,
+.vp-doc .custom-block.danger ol,
+.vp-doc .custom-block.tip ol {
+  margin-left: 32px;
+}
+.vp-doc .custom-block .custom-block-content {
+  margin-left: 32px;
 }
 .vp-doc .custom-block.info {
   background: #f5faff;
@@ -519,7 +527,7 @@ info {
   color: #5cb300;
 }
 .vp-doc .custom-block::before {
-  display: inline-block;
+  float: left;
   width: 20px;
   height: 20px;
   margin-top: 2px;
