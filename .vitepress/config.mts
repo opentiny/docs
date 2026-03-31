@@ -337,7 +337,9 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/webmcp-webskills' },
             { text: 'Vue 工程最佳实践', link: '/vue-webmcp-best-practice' },
-            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' }
+            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' },
+            { text: 'React 工程最佳实践', link: '/react-webmcp-best-practice' },
+            { text: '浏览器内置 WebMCP', link: '/webmcp-article' }
           ]
         },
         {
