@@ -177,6 +177,11 @@ body,
 .VPContent {
   padding-top: 0 !important;
 }
+
+/* 隐藏代码 playground 图标，在除了 tiny-robot 路由下启用 */
+body.hide-code-playground .lucide.lucide-play-icon.lucide-play {
+  display: none !important;
+}
 .VPHome .container {
   max-width: 92rem;
 }

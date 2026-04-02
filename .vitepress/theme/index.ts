@@ -9,7 +9,7 @@ import MermaidBlock from './components/MermaidBlock.vue'
 import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
-import mediumZoom from 'medium-zoom';
+import mediumZoom, { Zoom } from 'medium-zoom';
 import { insertFurion } from './insert-furion'
 // 引入样式文件
 import './medium-zoom.css';
@@ -43,17 +43,22 @@ export default {
   },
   Layout,
   setup() {
-    // 为img元素添加点击放大功能
+    // 为img元素添加点击放大功能并根据路由隐藏 playground 图标
     const route = useRoute();
-    let zomm: any = null;
+    let zoom: Zoom | null = null;
     watch(
       () => route.path,
       () => nextTick(() => {
-        if (zomm) {
-          zomm.detach();
+        if (zoom) {
+          zoom.detach();
         }
         if (typeof window !== 'undefined'){
-          zomm = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+          zoom = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+          if (route.path.includes('tiny-robot')) {
+            document.body.classList.remove('hide-code-playground');
+          } else {
+            document.body.classList.add('hide-code-playground');
+          }
         }
       }),
       {immediate: true}

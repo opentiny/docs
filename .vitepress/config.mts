@@ -31,31 +31,30 @@ const TinyEditorSidebar = [
   },
   {
     text: '使用示例',
-    base: '/tiny-editor/demo/',
     items: [
-      { text: '基本用法', link: 'basic-usage' },
-      { text: '内容初始化', link: 'set-content' },
-      { text: '获取内容', link: 'get-content' },
-      { text: '自定义工具栏', link: 'custom-toolbar' },
-      { text: '增加工具栏', link: 'add-toolbar-item' },
-      { text: '文件上传', link: 'file-upload' },
-      { text: '代码块高亮', link: 'code-block-highlight' },
-      { text: '表格', link: 'table-up' },
-      { text: '@提醒', link: 'mention' },
-      { text: '快捷菜单', link: 'shortcut-key' },
-      { text: '插入表情', link: 'emoji' },
-      { text: '格式刷', link: 'format-painter' },
-      { text: '公式', link: 'formula' },
-      { text: 'Markdown', link: 'markdown' },
-      { text: '字符统计', link: 'counter' },
-      { text: '截屏', link: 'screenshot' },
-      { text: '国际化', link: 'i18n' },
-      { text: '标题列表', link: 'header-list' },
-      { text: '工具栏提示', link: 'toolbar-tip' },
-      { text: '只读模式', link: 'readonly' },
+      { text: '基本用法', link: '/tiny-editor/demo/basic-usage' },
+      { text: '内容初始化', link: '/tiny-editor/demo/set-content' },
+      { text: '获取内容', link: '/tiny-editor/demo/get-content' },
+      { text: '自定义工具栏', link: '/tiny-editor/demo/custom-toolbar' },
+      { text: '增加工具栏', link: '/tiny-editor/demo/add-toolbar-item' },
+      { text: '文件上传', link: '/tiny-editor/demo/file-upload' },
+      { text: '代码块高亮', link: '/tiny-editor/demo/code-block-highlight' },
+      { text: '表格', link: '/tiny-editor/demo/table-up' },
+      { text: '@提醒', link: '/tiny-editor/demo/mention' },
+      { text: '快捷菜单', link: '/tiny-editor/demo/shortcut-key' },
+      { text: '插入表情', link: '/tiny-editor/demo/emoji' },
+      { text: '格式刷', link: '/tiny-editor/demo/format-painter' },
+      { text: '公式', link: '/tiny-editor/demo/formula' },
+      { text: 'Markdown', link: '/tiny-editor/demo/markdown' },
+      { text: '字符统计', link: '/tiny-editor/demo/counter' },
+      { text: '截屏', link: '/tiny-editor/demo/screenshot' },
+      { text: '国际化', link: '/tiny-editor/demo/i18n' },
+      { text: '标题列表', link: '/tiny-editor/demo/header-list' },
+      { text: '工具栏提示', link: '/tiny-editor/demo/toolbar-tip' },
+      { text: '只读模式', link: '/tiny-editor/demo/readonly' },
       { text: '模拟语雀文档', link: 'https://opentiny.github.io/tiny-editor/projects' },
-      { text: '图片工具栏', link: 'image-tool' },
-      { text: '协同编辑', link: 'collaborative-editing' }
+      { text: '图片工具栏', link: '/tiny-editor/demo/image-tool' },
+      { text: '协同编辑', link: '/tiny-editor/demo/collaborative-editing' }
     ]
   },
   {
@@ -338,7 +337,9 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/webmcp-webskills' },
             { text: 'Vue 工程最佳实践', link: '/vue-webmcp-best-practice' },
-            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' }
+            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' },
+            { text: 'React 工程最佳实践', link: '/react-webmcp-best-practice' },
+            { text: '浏览器内置 WebMCP', link: '/webmcp-article' }
           ]
         },
         {
