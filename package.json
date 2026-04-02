@@ -52,7 +52,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "vitepress-demo-plugin@1.5.0": "patches/vitepress-demo-plugin@1.5.0.patch"
+      "vitepress-demo-plugin@1.5.0": "patches/vitepress-demo-plugin@1.5.0.patch",
+      "ai@6.0.116": "genui/genui-sdk/patches/ai@6.0.116.patch"
     }
   }
 }
