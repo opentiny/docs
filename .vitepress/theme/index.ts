@@ -143,7 +143,7 @@ function listenCodePlaygroundEvent() {
       extraImports,
     })
     if(route.path.includes('tiny-robot')){
-      window.open(`https://playground.opentiny.design/tiny-robot.html` + store.serialize(), '_blank')
+      window.open(`${import.meta.env.BASE_URL}/tiny-robot/playground/`.replace(/(?<!:)\/\/+/g, '/') + store.serialize(), '_blank')
     }
   })
 }
