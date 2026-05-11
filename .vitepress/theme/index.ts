@@ -142,8 +142,10 @@ function listenCodePlaygroundEvent() {
       files,
       extraImports,
     })
-    if(route.path.includes('tiny-robot')){
-      window.open(`${import.meta.env.BASE_URL}/tiny-robot/playground/`.replace(/(?<!:)\/\/+/g, '/') + store.serialize(), '_blank')
+    if (route.path.includes('tiny-robot')) {
+      const playgroundUrl =
+        import.meta.env.VITE_TINY_ROBOT_PLAYGROUND_URL || `${import.meta.env.BASE_URL}/tiny-robot/playground/`
+      window.open(playgroundUrl.replace(/(?<!:)\/\/+/g, '/') + store.serialize(), '_blank')
     }
   })
 }
