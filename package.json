@@ -6,7 +6,7 @@
     "dev": "cross-env VP_MODE=development vitepress dev",
     "prebuild": "pnpm -F @opentiny/genui-sdk-core build && pnpm -F @opentiny/genui-sdk-angular build:element && pnpm build:playground",
     "build": "cross-env VP_MODE=production NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build",
-    "build:playground": "cross-env PLAYGROUND_BASE=\"/tiny-robot/playground\" VITE_PLAYGROUND_SHARE_PATH=\"/tiny-robot/playground/\" pnpm -F robot-root build:playground",
+    "build:playground": "node scripts/build-playground.js",
     "postbuild": "node scripts/copy-playground.js tiny-robot/packages/playground/dist dist/tiny-robot/playground",
     "preview": "vitepress preview",
     "postinstall": "pnpm -F robot-root build"
