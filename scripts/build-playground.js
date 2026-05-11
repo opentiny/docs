@@ -7,7 +7,6 @@ const child = spawn('pnpm', ['-F', 'robot-root', 'build:playground'], {
   stdio: 'inherit',
   shell: true,
   env: {
-    ...process.env,
     PLAYGROUND_BASE: playgroundBase,
     VITE_PLAYGROUND_SHARE_PATH: process.env.VITE_PLAYGROUND_SHARE_PATH || `${playgroundBase}/`
   }
