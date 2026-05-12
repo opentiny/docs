@@ -826,3 +826,79 @@ img.image-inline {
   font-size: 13px;
   font-family: var(--vp-font-family-mono);
 }
+
+.vp-doc[class*="_components_feedback"] .tr-feedback__source-list a.pill {
+    color: var(--tr-feedback-source-pill-color);
+    font-weight: var(--tr-font-weight-regular, 400);
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.vp-doc[class*="_components_feedback"] .tr-feedback__source-list a.pill:hover {
+    text-decoration: underline;
+}
+
+.vp-doc[class*="_components_feedback"] .tr-feedback .tr-action-group__dropdown {
+    list-style: none !important;
+    padding: 4px !important;
+    margin: 0 !important;
+}
+
+
+.vp-doc[class*="_components_attachments"] .tr-file-card__picture-img,
+.vp-doc[class*="_components_attachments"] .tr-image-preview img {
+    margin: 0;
+}
+
+.vp-doc[class*="_components_attachments"] .tr-file-card a.tr-file-card__action-btn--download {
+    color: #1476ff;
+    font-weight: var(--tr-font-weight-regular, 400);
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.vp-doc[class*="_components_attachments"] .tr-file-card a.tr-file-card__action-btn--download:hover {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.vp-doc[class*="_components_history"] .tr-history__menu-list {
+  list-style: none !important;
+  padding: 8px 0 !important;
+  margin: 0 !important;
+}
+
+/* custom-block layout fix */
+.vp-doc[class*="_tiny-robot_"] .custom-block {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: start;
+}
+
+.vp-doc[class*="_tiny-robot_"] .custom-block > * {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.vp-doc[class*="_tiny-robot_"] .custom-block ul,
+.vp-doc[class*="_tiny-robot_"] .custom-block ol {
+  margin: 0 !important;
+  padding-left: 1rem !important;
+}
+
+.vp-doc[class*="_tiny-robot_"] .custom-block li {
+  line-height: 20px;
+}
+
+.vp-doc[class*="_tiny-robot_"] .custom-block li + li {
+  margin-top: 8px;
+}
+
+.vp-doc[class*="_tiny-robot_"] .custom-block::before {
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 0;
+}
