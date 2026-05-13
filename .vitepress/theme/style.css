@@ -682,6 +682,12 @@ img.image-inline {
   border: 1px solid rgba(82, 145, 255, 0.2);
   color: #317af7;
 }
+
+.dark .vp-doc .custom-block.info code {
+  color: var(--vp-code-color);
+  background-color: var(--vp-code-bg);
+}
+
 .dark .vp-doc .custom-block.warning {
   background: rgba(255, 183, 0, 0.1);
   border: 1px solid rgba(255, 183, 0, 0.2);
