@@ -868,6 +868,20 @@ img.image-inline {
   margin: 0 !important;
 }
 
+.vp-doc[class*="_components_history"] .tr-history__menu-list__item {
+  line-height: normal;
+}
+
+.vp-doc[class*="_components_history"] .tr-history__menu-list__item + .tr-history__menu-list__item {
+  margin-top: 0;
+}
+
+.vp-doc[class*="_components_mcp-add-form"] .form-editor__file-upload > img,
+.vp-doc[class*="_components_mcp-server-picker"] .form-editor__file-upload > img {
+  margin: 0;
+  display: block;
+}
+
 /* custom-block layout fix */
 .vp-doc[class*="_tiny-robot_"] .custom-block {
   display: grid;
