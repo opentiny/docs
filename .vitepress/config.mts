@@ -335,11 +335,19 @@ export default defineConfig({
           text: 'WebMCP&WebSkills 最佳实践',
           base: '/next-sdk/guide/',
           items: [
-            { text: '总览', link: '/webmcp-webskills' },
-            { text: 'Vue 工程最佳实践', link: '/vue-webmcp-best-practice' },
-            { text: 'Angular 工程最佳实践', link: '/angular-webmcp-best-practice' },
-            { text: 'React 工程最佳实践', link: '/react-webmcp-best-practice' },
-            { text: '浏览器内置 WebMCP', link: '/webmcp-article' }
+            { text: '总览', link: 'webmcp-webskills' },
+            { text: 'Vue 工程最佳实践', link: 'vue-webmcp-best-practice' },
+            { text: 'Angular 工程最佳实践', link: 'angular-webmcp-best-practice' },
+            { text: 'React 工程最佳实践', link: 'react-webmcp-best-practice' },
+            { text: '浏览器内置 WebMCP', link: 'webmcp-article' }
+          ]
+        },
+        {
+          text: 'WebMCP CLI & Skills',
+          base: '/next-sdk/guide/',
+          items: [
+            { text: 'WebMCP CLI 工具介绍', link: 'webmcp-cli' },
+            { text: '第三方 Agent 接入指南', link: 'webmcp-agent-integration' }
           ]
         },
         {
