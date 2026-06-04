@@ -107,7 +107,8 @@ const robotSidebarItems = [
     items: [
       { text: '快速开始', link: 'quick-start' },
       { text: '主题配置', link: 'theme-config' },
-      { text: '更新日志', link: 'update-log' }
+      { text: '更新日志', link: 'update-log' },
+      { text: 'CLI 接入', link: 'cli-integration' }
     ]
   },
   {
@@ -137,9 +138,10 @@ const robotSidebarItems = [
     text: '工具',
     base: '/tiny-robot/tools/',
     items: [
-      { text: 'AI模型交互工具类', link: 'ai-client' },
-      { text: '消息数据管理', link: 'message' },
-      { text: '会话数据管理', link: 'conversation' }
+      { text: 'useMessage 消息数据管理', link: 'message' },
+      { text: 'useConversation 会话数据管理', link: 'conversation' },
+      { text: 'AIClient 模型交互工具类', link: 'ai-client' },
+      { text: '工具函数', link: 'utils' }
     ]
   }
 ]
