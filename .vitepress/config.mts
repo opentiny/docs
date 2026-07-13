@@ -320,17 +320,9 @@ export default defineConfig({
       '/next-sdk/guide/': [
         {
           text: '介绍',
-          items: [{ text: '开始', link: '/next-sdk/guide/' }]
-        },
-        {
-          text: '指引',
-          base: '/next-sdk/guide/',
           items: [
-            { text: '接入三方 AI 应用', link: 'mcp-host' },
-            { text: 'Electron 应用接入', link: 'electron' },
-            { text: 'uni-app 应用接入', link: 'uni-app' },
-            { text: '本地连接', link: 'connect-local' },
-            { text: 'WebAgent 私有化部署', link: 'web-agent-private-deployment' }
+            { text: '快速开始', link: '/next-sdk/guide/' },
+            { text: '浏览器内置 WebMCP', link: '/next-sdk/guide/webmcp-article' }
           ]
         },
         {
@@ -340,48 +332,47 @@ export default defineConfig({
             { text: '总览', link: 'webmcp-webskills' },
             { text: 'Vue 工程最佳实践', link: 'vue-webmcp-best-practice' },
             { text: 'Angular 工程最佳实践', link: 'angular-webmcp-best-practice' },
-            { text: 'React 工程最佳实践', link: 'react-webmcp-best-practice' },
-            { text: '浏览器内置 WebMCP', link: 'webmcp-article' }
+            { text: 'React 工程最佳实践', link: 'react-webmcp-best-practice' }
           ]
         },
         {
           text: 'WebMCP CLI & Skills',
           base: '/next-sdk/guide/',
           items: [
-            { text: 'WebMCP CLI 工具介绍', link: 'webmcp-cli' },
-            { text: '第三方 Agent 接入指南', link: 'webmcp-agent-integration' }
+            { text: 'CLI 使用指南', link: 'webmcp-cli' },
+            { text: 'Skill 使用指南', link: 'webmcp-agent-integration' }
           ]
         },
         {
           text: 'NEXT-SDKs API',
           base: '/next-sdk/guide/',
           items: [
-            { text: 'WebMcpClient 类', link: 'api-client' },
+            { text: '全局 API', link: 'api-tools' },
             { text: 'WebMcpServer 类', link: 'api-server' },
-            { text: 'AgentModelProvider 类', link: 'api-agentModelProvider' },
-            { text: 'createRemoter 函数', link: 'api-createRemoter' },
-            { text: '工具函数', link: 'api-tools' }
+            { text: 'WebMcpClient 类', link: 'api-client' },
+            { text: 'createRemoter 函数', link: 'api-createRemoter' }
           ]
         },
         {
-          text: 'TinyRemoter',
+          text: 'TinyRemoter 组件',
           base: '/next-sdk/guide/',
           items: [
-            { text: 'TinyRobot 版本', link: 'tiny-robot-remoter' },
-            { text: 'Skills 技能配置指南', link: 'tiny-remoter-skills' },
-            { text: 'Custom llm 自定义大模型', link: 'custom-llm' },
-            { text: '自定义AI对话框组件', link: 'use-next-agent' }
+            { text: '基本用法', link: 'remoter/basic' },
+            { text: '自定义LLM大模型指南', link: 'remoter/custom-llm' },
+            { text: '远程遥控模式指南', link: 'remoter/remoter-mode' },
+            { text: 'Mcp Server与工具指南', link: 'remoter/mcp-server-tool' },
+            { text: 'Skills 技能配置指南', link: 'remoter/skills' }
           ]
         },
         {
           text: 'AI Extension',
           base: '/next-sdk/guide/',
           items: [
-            { text: '技术架构', link: 'ai-extension-architecture' },
-            { text: 'MCP Servers 工具开发指南', link: 'ai-extension-next-wxt' },
+            { text: '快速入门', link: 'ai-extension-install' },
+            { text: '配置大模型', link: 'ai-extension-model-config' },
+            { text: 'MCP工具开发指南', link: 'ai-extension-next-wxt' },
             { text: 'Skills 技能开发指南', link: 'ai-extension-skills' },
-            { text: 'AI Extension 插件安装指南', link: 'ai-extension-install' },
-            { text: '配置大模型', link: 'ai-extension-model-config' }
+            { text: '工作原理', link: 'ai-extension-architecture' }
           ]
         }
       ],
