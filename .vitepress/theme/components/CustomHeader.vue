@@ -415,7 +415,7 @@ const productTabs = computed(() => [
   {
     key: "next-sdk",
     name: "NEXT-SDKs",
-    link: `${prefix}next-sdk/guide`,
+    link: `${prefix}next-sdk/guide/quick-start`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "next-sdk" ? "active" : "normal"
     }-next-sdk.svg`,
