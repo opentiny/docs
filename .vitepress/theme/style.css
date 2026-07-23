@@ -24,6 +24,18 @@ body,
   scrollbar-width: thin;
 }
 
+/* ===== TinyEditor Demo：避免 VitePress 文档样式覆盖编辑器 ===== */
+.vp-doc[class*="_tiny-editor_"] .vitepress-demo-plugin-preview .ql-editor ul,
+.vp-doc[class*="_tiny-editor_"] .vitepress-demo-plugin-preview .ql-editor ol {
+  list-style: revert;
+  padding: revert;
+  margin: revert;
+}
+
+.vp-doc[class*="_tiny-editor_"] .vitepress-demo-plugin-preview .ql-editor li + li {
+  margin: revert;
+}
+
 /* ===== VitePress Demo 插件样式 ===== */
 .vitepress-demo-plugin__container {
   background-color: #fafafa;
