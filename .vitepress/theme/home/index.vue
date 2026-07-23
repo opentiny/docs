@@ -76,17 +76,16 @@ const nextDates = [
     nextDateLeft: [
       {
         icon: `${prefix}images/logo-active-next-sdk.svg`,
-        title: 'NEXT-SDKs',
-        desc: 'OpenTiny NEXT-SDKs 是一套前端智能应用开发工具包，旨在简化 WebAgent 的集成与使用，支持多种编程语言和前端框架，帮助开发者快速实现智能化功能。'
+        title: 'WebMCP-SDKs',
+        desc: 'OpenTiny WebMCP-SDKs 是一套前端智能应用开发工具包，旨在简化 WebAgent 的集成与使用，支持多种编程语言和前端框架，帮助开发者快速实现网页智能化功能。'
       },
       {
-        title: 'NEXT-SDKs API',
+        title: 'WebMCP-SDKs API',
         links: [
-            { text: 'WebMcpClient 类', url: '/next-sdk/guide/api-client' },
-            { text: 'WebMcpServer 类', url: '/next-sdk/guide/api-server' },
-            { text: 'AgentModelProvider 类', url: '/next-sdk/guide/api-agentModelProvider' },
-            { text: 'createRemoter 函数', url: '/next-sdk/guide/api-createRemoter' },
-            { text: '工具函数', url: '/next-sdk/guide/api-tools' }
+            { text: 'WebMcpClient 类', url: '/next-sdk/webmcp-sdk/webmcp-client' },
+            { text: 'WebMcpServer 类', url: '/next-sdk/webmcp-sdk/webmcp-server' },
+            { text: 'registerPageAgentTool 函数', url: '/next-sdk/webmcp-sdk/page-agent-tool' },
+            { text: '全局函数', url: '/next-sdk/webmcp-sdk/global-tools' }
           ]
       },
 
@@ -94,21 +93,13 @@ const nextDates = [
     nextDateRight: [
       {
         title: '快速开始',
-        desc: '使用 OpenTiny NEXT-SDKs，只需要以下四步，就可以把你的前端应用变成智能应用。',
+        desc: '使用 OpenTiny WebMCP-SDKs，可以快速把你的前端应用变成智能应用。',
         links: [
-          { text: '让你的应用智能化',icon: `${prefix}images/icon-app.svg`,  url: '/next-sdk/guide/#让你的应用智能化' },
-          { text: '浏览器直接引入',icon: `${prefix}images/icon-browser.svg`,  url: '/next-sdk/guide/#浏览器直接引入' },
+          { text: '让你的应用智能化',icon: `${prefix}images/icon-app.svg`,  url: '/next-sdk/guide/quick-start' },
+          { text: 'WebMCP API 文档',icon: `${prefix}images/icon-browser.svg`,  url: '/next-sdk/guide/webmcp-article' },
+          { text: 'WebMCP-SDKs适配场景',icon: `${prefix}images/icon-browser.svg`,  url: '/next-sdk/guide/choose-scene' },
         ]
       },
-      {
-        title: '指引',
-        links:[
-        { text: '接入三方 AI 应用', url: '/next-sdk/guide/mcp-host' },
-        { text: 'Electron 应用接入', url: '/next-sdk/guide/electron' },
-        { text: 'uni-app 应用接入', url: '/next-sdk/guide/uni-app' },
-        { text: '本地连接', url: '/next-sdk/guide/connect-local' },
-        ]
-      }
     ]
   },
   {

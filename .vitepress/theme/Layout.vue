@@ -92,7 +92,7 @@ const redirectMap = [
   },
   { 
     patterns: ['/next-sdk.html', '/next-sdk/'],
-    target: '/next-sdk/guide'
+    target: '/next-sdk/guide/quick-start'
   },
   { 
     patterns: ['/genui-sdk.html', '/genui-sdk/', '/genui-sdk/guide.html', '/genui-sdk/guide/'],
