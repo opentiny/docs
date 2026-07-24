@@ -935,6 +935,11 @@ watch(
   .header-top {
     display: none;
   }
+  /* 第二行样式 */
+  .header-bottom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 /* 可访问性支持 */
 @media (prefers-contrast: high) {

@@ -935,3 +935,10 @@ img.image-inline {
   grid-row: 1;
   margin-right: 0;
 }
+
+@media (max-width: 360px) {
+  /* 第二行样式 */
+  .custom-tabs__header .custom-tabs__nav {
+    gap: 1rem;
+  }
+}
