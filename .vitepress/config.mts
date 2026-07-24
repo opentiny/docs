@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { isMermaidFence, renderMermaidFence } from './theme/markdown/mermaid'
+import { tinyEditorDemoPlugin } from './theme/markdown/tiny-editor-demo'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -187,6 +188,8 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
+      // tiny-editor 的 :::demo src=... 转成 <demo vue="..." />，再交给 vitepress-demo-plugin
+      md.use(tinyEditorDemoPlugin)
       md.use(vitepressDemoPlugin, {
         playground: { show: true },
         codeTransformer: (code) => {

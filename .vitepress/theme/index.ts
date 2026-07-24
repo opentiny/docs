@@ -7,6 +7,7 @@ import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
 import MermaidBlock from './components/MermaidBlock.vue'
 import '@opentiny/tiny-robot-style'
+import '@opentiny/fluent-editor/style.css'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
 import mediumZoom, { Zoom } from 'medium-zoom';
