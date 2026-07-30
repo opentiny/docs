@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "cross-env VP_MODE=development vitepress dev",
-    "prebuild": "pnpm -F @opentiny/genui-sdk-core build && pnpm -F @opentiny/genui-sdk-angular build:element && pnpm build:playground",
+    "prebuild": "pnpm -F @opentiny/genui-sdk-core build && pnpm -F @opentiny/genui-sdk-materials-angular-opentiny-ng build && pnpm -F @opentiny/tiny-schema-renderer-ng build && pnpm -F @opentiny/genui-sdk-angular build:element",
     "build": "cross-env VP_MODE=production NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build",
     "build:playground": "node scripts/build-playground.js",
     "postbuild": "node scripts/copy-playground.js tiny-robot/packages/playground/dist dist/tiny-robot/playground",
