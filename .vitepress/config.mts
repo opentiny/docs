@@ -388,8 +388,7 @@ export default defineConfig({
           base: '/genui-sdk/guide/',
           items: [
             { text: '快速开始', link: 'quick-start' },
-            { text: '使用 Renderer 组件', link: 'start-with-renderer' },
-            { text: '搭配 TinyRobot 使用', link: 'renderer-with-tiny-robot' }
+            { text: '使用 Renderer 组件', link: 'start-with-renderer' }
           ]
         },
         {
@@ -408,7 +407,7 @@ export default defineConfig({
       ],
       '/genui-sdk/components/': [
         {
-          text: 'Vue组件文档',
+          text: 'Vue 组件文档',
           base: '/genui-sdk/components/',
           items: [
             { text: 'GenuiRenderer', link: 'renderer' },
@@ -417,7 +416,7 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Angular组件文档',
+          text: 'Angular 组件文档',
           base: '/genui-sdk/components/',
           items: [{ text: 'GenuiRenderer', link: 'angular/renderer' }]
         },
@@ -427,6 +426,20 @@ export default defineConfig({
           items: [
             { text: 'API 参考', link: 'server/api' },
             { text: 'CLI', link: 'server/cli' }
+          ]
+        },
+        {
+          text: 'Core 库文档',
+          base: '/genui-sdk/components/',
+          items: [{ text: 'API 文档', link: 'core/api' }]
+        },
+        {
+          text: '物料包文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'Vue OpenTiny Vue', link: 'materials/vue-opentiny-vue' },
+            { text: 'Vue Element Plus', link: 'materials/vue-element-plus' },
+            { text: 'Angular OpenTiny NG', link: 'materials/angular-opentiny-ng' }
           ]
         }
       ],
