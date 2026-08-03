@@ -117,17 +117,16 @@ const robotSidebarItems = [
     base: '/tiny-robot/components/',
     items: [
       { text: 'Container 容器', link: 'container' },
+      { text: 'Layout 布局', link: 'layout' },
       { text: 'Bubble 气泡', link: 'bubble' },
       { text: 'Sender 消息输入框', link: 'sender' },
       { text: 'Prompts 提示集', link: 'prompts' },
       { text: 'Welcome 欢迎', link: 'welcome' },
       { text: 'Feedback 气泡反馈', link: 'feedback' },
       { text: 'History 历史', link: 'history' },
+      { text: 'Anchor 锚点', link: 'anchor' },
       { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
-      {
-        text: 'SuggestionPopover 建议弹出框',
-        link: 'suggestion-popover'
-      },
+      { text: 'SuggestionPopover 建议弹出框', link: 'suggestion-popover' },
       { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
       { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
       { text: 'Attachments 附件卡片', link: 'attachments' },
@@ -141,6 +140,7 @@ const robotSidebarItems = [
     items: [
       { text: 'useMessage 消息数据管理', link: 'message' },
       { text: 'useConversation 会话数据管理', link: 'conversation' },
+      { text: 'Skill 技能接入', link: 'skill' },
       { text: 'AIClient 模型交互工具类', link: 'ai-client' },
       { text: '工具函数', link: 'utils' }
     ]
