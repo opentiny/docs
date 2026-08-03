@@ -113,11 +113,13 @@ const nextDates = [
         title: '组件',
         links:[
             { text: 'Container 容器', url: '/tiny-robot/components/container' },
+            { text: 'Layout 布局', url: '/tiny-robot/components/layout' },
             { text: 'Bubble 气泡', url: '/tiny-robot/components/bubble' },
             { text: 'Sender 消息输入框', url: '/tiny-robot/components/sender' },
             { text: 'Prompts 提示集', url: '/tiny-robot/components/prompts' },
             { text: 'Welcome 欢迎', url: '/tiny-robot/components/welcome' },
             { text: 'Feedback 气泡反馈', url: '/tiny-robot/components/feedback' },
+            { text: 'Anchor 锚点', url: '/tiny-robot/components/anchor' },
             { text: 'History 历史', url: '/tiny-robot/components/history' },
             { text: 'DropdownMenu 下拉菜单', url: '/tiny-robot/components/dropdown-menu' },
             { text: 'SuggestionPopover 建议弹出框', url: '/tiny-robot/components/suggestion-popover' },
@@ -142,9 +144,11 @@ const nextDates = [
       {
         title: '工具',
         links: [
-            { text: 'AI模型交互工具类', url: '/tiny-robot/tools/ai-client' },
-            { text: '消息数据管理', url: '/tiny-robot/tools/message' },
-            { text: '会话数据管理', url: '/tiny-robot/tools/conversation' },
+            { text: 'useMessage 消息数据管理', url: '/tiny-robot/tools/message' },
+            { text: 'useConversation 会话数据管理', url: '/tiny-robot/tools/conversation' },
+            { text: 'Skill 技能接入', url: '/tiny-robot/tools/skill' },
+            { text: 'AIClient 模型交互工具类', url: '/tiny-robot/tools/ai-client' },
+            { text: '工具函数', url: '/tiny-robot/tools/utils' }
         ],
       },
       {
