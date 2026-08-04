@@ -445,7 +445,7 @@ export default defineConfig({
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Vue组件 特性示例',
+          text: 'Vue 组件特性示例',
           collapsed: false,
           items: [
             {
