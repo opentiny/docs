@@ -20,10 +20,40 @@ body,
   background: #000000;
 }
 
-* {
-  scrollbar-width: thin;
+/* 全局滚动条美化：圆角滑块、透明背景、隐藏上下箭头（WebKit）+ Firefox 细滚动条 */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(144, 147, 153, 0.3);
+  border-radius: 8px;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(144, 147, 153, 0.5);
+}
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button:start,
+*::-webkit-scrollbar-button:end,
+*::-webkit-scrollbar-button:vertical:start,
+*::-webkit-scrollbar-button:vertical:end {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
+*::-webkit-scrollbar-corner {
+  background: 0 0;
+}
 /* ===== TinyEditor Demo：避免 VitePress 文档样式覆盖编辑器 ===== */
 .vp-doc[class*="_tiny-editor_"] .vitepress-demo-plugin-preview .ql-editor ul,
 .vp-doc[class*="_tiny-editor_"] .vitepress-demo-plugin-preview .ql-editor ol {
@@ -75,6 +105,8 @@ body,
   scrollbar-color: var(--vp-c-brand-soft) transparent;
   background-color: var(--vp-c-bg) !important;
   border-right: 1px solid var(--vp-c-divider);
+  padding: 0 24px !important;
+  width: 260px !important;
 }
 
 .dark .VPSidebar {
@@ -195,7 +227,7 @@ body.hide-code-playground .lucide.lucide-play-icon.lucide-play {
   display: none !important;
 }
 .VPHome .container {
-  max-width: 92rem;
+  max-width: 100%;
 }
 .VPDoc {
   padding-top: 2rem;
@@ -326,18 +358,10 @@ a.result:hover .titles .title .text mark {
 }
 .vp-doc img {
   border-radius: 8px;
-  margin: 10px 0;
 }
 
 .vp-doc a:not(.header-anchor):not(.VPButton) {
-  color: #191919;
-  font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid #1476ff;
-}
-
-.vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  border-bottom-width: 2px;
 }
 
 .VPFeatures .items .item {
@@ -641,12 +665,8 @@ img.image-inline {
 .dark .vp-doc a:not(.header-anchor):not(.VPButton) {
   color: #e6e6e6;
   text-decoration: none;
-  border-bottom: 1px solid #1476ff;
 }
 
-.dark .vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  border-bottom-width: 2px;
-}
 .dark .vp-doc button.copy {
   background-color: #000000 !important;
 }
@@ -741,7 +761,8 @@ img.image-inline {
     padding-top: var(--vp-sidebar-nav-padding-top) !important;
   }
   .VPHome .container {
-    padding: 0 48px;
+    padding: 0;
+    margin: 0;
   }
 }
 @media (min-width: 960px) and (max-width: 1440px) {
@@ -940,5 +961,24 @@ img.image-inline {
   /* 第二行样式 */
   .custom-tabs__header .custom-tabs__nav {
     gap: 1rem;
+  }
+}
+
+.custom-header .header-container{
+  max-width: 100%;
+}
+
+.custom-header .header-container .header-bottom{
+  padding: 0 24px;
+}
+
+.VPDoc.has-aside .content .content-container {
+  max-width: 55vw;
+}
+
+@media (min-width: 1440px) {
+  .VPContent.has-sidebar[data-v-e31b95cc] {
+    padding-right: 24px;
+    padding-left: var(--vp-sidebar-width);
   }
 }
