@@ -16,6 +16,7 @@
   --hot-badge-bg: #FCE3E0;
   --hot-badge-color: #F23030;
   --update-card-bg: #f5f6f9;
+
   overflow: hidden;
 }
 
@@ -61,9 +62,8 @@
 }
 /* 首屏背景图层：铺满、贴底、放大覆盖，置于内容之下 */
 .hero-bg {
-  height: 115%;
-  width: 160%;
-  margin: -10% 0 0 -30%;
+  transform: scale(1.4);
+  margin: -10% 0 0 -10%;
   position: absolute;
   inset: 0;
   background-position: center;
@@ -71,6 +71,11 @@
   background-repeat: no-repeat;
   z-index: 0;
 }
+
+.dark .hero-bg {
+  display: none;
+}
+
 .dark .hero-section::after {
   content: "";
   position: absolute;
@@ -257,7 +262,7 @@
   padding: 32px 40px;
   border-radius: 19px;
   background: var(--card-bg);
-  box-shadow: 0 0 0 0 rgba(129, 154, 188, 0.2);
+  box-shadow: 0 0 2px 0 rgba(129, 154, 188, 0.2);
   transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
 }
@@ -316,7 +321,7 @@
 .category-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
   justify-content: flex-start;
   padding-top: 22px;
 }
@@ -509,15 +514,14 @@
 }
 .component-links {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 .home-root .component-links .component-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 22px;
-  padding: 0px 8px;
+  padding: 2px 8px;
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
@@ -560,7 +564,11 @@
   display: block;
 }
 .update-card:hover {
-  box-shadow: var(--card-hover-shadow);
+  /* 渐变边框：border-box 铺渐变、padding-box 铺实色底，border 透明只露出边框区域 */
+  border-color: transparent;
+  background:
+    linear-gradient(var(--update-card-bg), var(--update-card-bg)) padding-box,
+    linear-gradient(90deg, #e2efff 0%, #aabeff 57%, #e2efff 100%) border-box;
 }
 .update-card-title {
   font-size: 16px;

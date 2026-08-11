@@ -44,7 +44,7 @@
                 <a
                   v-for="link in comp.links"
                   :key="link.text"
-                  :href="link.url"
+                  :href="normalizeLink(link.url, prefix)"
                   class="component-link"
                 >{{ link.text }}</a>
               </div>
@@ -59,6 +59,7 @@
 
 <script setup>
 import { useData } from "vitepress";
+import { normalizeLink } from "../../utils/router";
 const { site } = useData();
 const prefix = site.value.base || "/";
 
