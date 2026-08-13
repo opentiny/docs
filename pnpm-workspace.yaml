@@ -3,4 +3,5 @@ packages:
   - genui
   - genui/genui-sdk/packages/frameworks/angular
   - genui/genui-sdk/packages/core
+  - genui/genui-sdk/packages/materials/angular-opentiny-ng
   - genui/genui-sdk/projects/tiny-schema-renderer-ng

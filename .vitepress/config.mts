@@ -117,17 +117,16 @@ const robotSidebarItems = [
     base: '/tiny-robot/components/',
     items: [
       { text: 'Container 容器', link: 'container' },
+      { text: 'Layout 布局', link: 'layout' },
       { text: 'Bubble 气泡', link: 'bubble' },
       { text: 'Sender 消息输入框', link: 'sender' },
       { text: 'Prompts 提示集', link: 'prompts' },
       { text: 'Welcome 欢迎', link: 'welcome' },
       { text: 'Feedback 气泡反馈', link: 'feedback' },
       { text: 'History 历史', link: 'history' },
+      { text: 'Anchor 锚点', link: 'anchor' },
       { text: 'DropdownMenu 下拉菜单', link: 'dropdown-menu' },
-      {
-        text: 'SuggestionPopover 建议弹出框',
-        link: 'suggestion-popover'
-      },
+      { text: 'SuggestionPopover 建议弹出框', link: 'suggestion-popover' },
       { text: 'SuggestionPills 建议按钮组', link: 'suggestion-pills' },
       { text: 'DragOverlay 拖拽浮层', link: 'drag-overlay' },
       { text: 'Attachments 附件卡片', link: 'attachments' },
@@ -141,6 +140,7 @@ const robotSidebarItems = [
     items: [
       { text: 'useMessage 消息数据管理', link: 'message' },
       { text: 'useConversation 会话数据管理', link: 'conversation' },
+      { text: 'Skill 技能接入', link: 'skill' },
       { text: 'AIClient 模型交互工具类', link: 'ai-client' },
       { text: '工具函数', link: 'utils' }
     ]
@@ -388,8 +388,7 @@ export default defineConfig({
           base: '/genui-sdk/guide/',
           items: [
             { text: '快速开始', link: 'quick-start' },
-            { text: '使用 Renderer 组件', link: 'start-with-renderer' },
-            { text: '搭配 TinyRobot 使用', link: 'renderer-with-tiny-robot' }
+            { text: '使用 Renderer 组件', link: 'start-with-renderer' }
           ]
         },
         {
@@ -408,7 +407,7 @@ export default defineConfig({
       ],
       '/genui-sdk/components/': [
         {
-          text: 'Vue组件文档',
+          text: 'Vue 组件文档',
           base: '/genui-sdk/components/',
           items: [
             { text: 'GenuiRenderer', link: 'renderer' },
@@ -417,7 +416,7 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Angular组件文档',
+          text: 'Angular 组件文档',
           base: '/genui-sdk/components/',
           items: [{ text: 'GenuiRenderer', link: 'angular/renderer' }]
         },
@@ -428,11 +427,25 @@ export default defineConfig({
             { text: 'API 参考', link: 'server/api' },
             { text: 'CLI', link: 'server/cli' }
           ]
+        },
+        {
+          text: 'Core 库文档',
+          base: '/genui-sdk/components/',
+          items: [{ text: 'API 文档', link: 'core/api' }]
+        },
+        {
+          text: '物料包文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'Vue OpenTiny Vue', link: 'materials/vue-opentiny-vue' },
+            { text: 'Vue Element Plus', link: 'materials/vue-element-plus' },
+            { text: 'Angular OpenTiny NG', link: 'materials/angular-opentiny-ng' }
+          ]
         }
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Vue 组件特性示例',
+          text: 'Vue组件 特性示例',
           collapsed: false,
           items: [
             {
