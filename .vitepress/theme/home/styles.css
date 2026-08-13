@@ -10,12 +10,13 @@
   --card-hover-border: #1476ff;
   --card-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   --tag-bg: #f0f5ff;
-  --tag-color: #1476ff;
+  --tag-color: #191919;
   --tag-hover-bg: #1476ff;
   --tag-hover-color: #ffffff;
   --hot-badge-bg: #FCE3E0;
   --hot-badge-color: #F23030;
   --update-card-bg: #f5f6f9;
+  --search-shadow: 0px 0px 20px 12px rgba(157, 181, 221, 0.1);
 
   overflow: hidden;
 }
@@ -38,6 +39,7 @@
   --hot-badge-bg: rgba(242, 48, 48, 0.15);
   --hot-badge-color: #ff6b6b;
   --update-card-bg: rgba(255, 255, 255, 0.04);
+  --search-shadow: 0px 0px 20px 12px rgba(255, 255, 255, 0.05);
 }
 
 .home-page {
@@ -84,17 +86,23 @@
   z-index: 0;
 }
 .hero-title {
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--title-color);
-  line-height: 1.5;
-  padding-bottom: 20px;
-  padding-top: 100px;
+  position: relative;
+  z-index: 2;
+  width: 763px;
+  max-width: 100%;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 100px;
 }
 .hero-subtitle {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--desc-color);
-  line-height: 1.6;
+  line-height: 24px;
+  letter-spacing: 1px;
   margin-bottom: 80px;
 }
 
@@ -112,11 +120,11 @@
   gap: 12px;
   height: 60px;
   padding: 0 28px;
-  border: 1px solid var(--card-border);
   border-radius: 999px;
   background: var(--card-bg);
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: var(--search-shadow);
 }
 .search-box:hover {
   border-color: var(--card-hover-border);
@@ -240,9 +248,13 @@
   padding: 4px 14px;
   color: var(--tag-color);
   font-size: 16px;
-  text-decoration: none;
   white-space: nowrap;
   transition: background 0.2s, color 0.2s;
+}
+
+.hot-tag:hover {
+  color: var(--tag-color) !important;
+  text-decoration: underline !important;
 }
 
 .hero-entries {
@@ -259,7 +271,7 @@
   align-items: flex-start;
   text-align: center;
   gap: 4px;
-  padding: 32px 40px;
+  padding: 40px 30px 40px 32px;
   border-radius: 19px;
   background: var(--card-bg);
   box-shadow: 0 0 2px 0 rgba(129, 154, 188, 0.2);
@@ -304,7 +316,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
 }
 .category-title {
   padding-top: 12px;
@@ -521,11 +532,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 8px;
+  padding: 0px 8px;
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
-  line-height: 22px;
   color: #1476ff;
   background: #deecff;
   text-decoration: none;
@@ -597,7 +607,7 @@
     min-height: auto;
   }
   .hero-title {
-    font-size: 26px;
+    height: 40px;
   }
   .hero-subtitle {
     font-size: 15px;

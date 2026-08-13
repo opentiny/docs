@@ -4,9 +4,14 @@
     
   >
     <div class="hero-bg" :style="{ backgroundImage: `url(${prefix}images/img-bg.webp)` }"></div>
-    <div class="hero-title">欢迎来到 OpenTiny 文档中心</div>
+    <div
+      class="hero-title"
+      :style="{ backgroundImage: `url(${titleSrc})` }"
+      role="img"
+      aria-label="欢迎来到 OpenTiny 文档中心"
+    ></div>
     <div class="hero-subtitle">
-      在这里你可以了解 NEXT 全家桶的功能，API 使用指南，以及相关资料。快速找到你想要的文档。
+      OpenTiny官方文档， 可查阅产品介绍、快速入门、用户指南、开发指南、API参考、SDK参考、视频帮助等信息。
     </div>
     <div class="hero-search" ref="searchContainer">
       <div class="search-box">
@@ -73,7 +78,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useData } from "vitepress";
 import MiniSearch from "minisearch";
 import localSearchIndex from "@localSearchIndex";
@@ -81,6 +86,9 @@ import { normalizeLink } from "../../utils/router";
 
 const { site } = useData();
 const prefix = site.value.base || "/";
+const isDarkMode = ref(false);
+const titleSrc = computed(() => `${prefix}images/header-title${isDarkMode.value ? "-dark" : ""}.svg`);
+let darkObserver = null;
 
 // 内联搜索（与 VitePress 头部搜索使用同一索引）
 const searchQuery = ref("");
@@ -109,10 +117,19 @@ onMounted(async () => {
 
   // 点击空白关闭搜索结果
   document.addEventListener("click", onClickOutside);
+
+  // 监听暗色模式切换（VitePress 在 <html> 上 toggle .dark class）
+  const updateDark = () => {
+    isDarkMode.value = document.documentElement.classList.contains("dark");
+  };
+  updateDark();
+  darkObserver = new MutationObserver(updateDark);
+  darkObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 });
 
 onUnmounted(() => {
   document.removeEventListener("click", onClickOutside);
+  if (darkObserver) darkObserver.disconnect();
 });
 
 const onClickOutside = (e) => {
