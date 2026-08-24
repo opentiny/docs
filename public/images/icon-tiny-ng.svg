@@ -1,0 +1,28 @@
+<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28.000000" height="28.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_59" x1="6.93595505" x2="0.810217381" y1="4.0416317" y2="8.31622314" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_60" x1="5.13331127" x2="1.02922535" y1="1.81185329" y2="3.59925032" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_61" x1="23.2879887" x2="7.87114334" y1="21.0363522" y2="16.9129429" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.697115064" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="ico10 1" width="28.000000" height="28.000000" x="0.000000" y="0.000000" />
+	<g id="ico10">
+		<rect id="矩形备份 3" width="28.000000" height="28.000000" x="0.000000" y="0.000000" rx="6.000000" fill="rgb(20,118,255)" />
+		<g id="组合 36373" style="mix-blend-mode:soft-light">
+			<path id="路径 41" d="M0 7.98826C1.60696 11.3403 4.02959 11.9169 5.75692 8.44979C6.0396 7.88241 7.39789 5.19706 7.78624 4.39303C11.2246 -2.72561 5.17786 0.132285 3.38936 3.70928C3.06748 4.35304 1.52995 7.51859 1.26583 8.01151C0.950949 8.59917 0.209785 8.45816 0 7.98826Z" fill="url(#paint_linear_59)" fill-rule="evenodd" transform="matrix(1,0,0,-1,12.6641,18.8562)" />
+		</g>
+		<g id="组合 36374" style="mix-blend-mode:soft-light">
+			<path id="路径 41备份 2" d="M0 2.83349C1.13641 4.67716 3.64233 7.48008 5.53088 3.71679C5.81626 3.14811 6.99107 0.788303 7.3838 0C5.79519 0.00265252 3.77144 0.0108082 2.68423 0.0116681C2.36235 0.655432 1.55228 2.29001 1.29041 2.80817C0.986986 3.40857 0.289354 3.33148 0 2.83349Z" fill="url(#paint_linear_60)" fill-rule="evenodd" transform="matrix(0.446198,0.894934,-0.894934,0.446198,12.1055,15.7932)" />
+		</g>
+		<path id="减去顶层" d="M10.1767 6.45599L4.7373 17.3348C3.57372 19.662 5.26596 22.4001 7.8678 22.4001L15.4019 22.4001L15.4025 22.4L13.3025 18.2001L10.133 18.2001C9.61261 18.2001 9.27416 17.6524 9.50687 17.187L12.6779 10.845C12.9356 10.3296 13.6709 10.329 13.9295 10.8439L19.7336 22.4L24.4335 22.4L16.4358 6.45227C15.1438 3.87585 11.4657 3.87804 10.1767 6.45599Z" fill="url(#paint_linear_61)" fill-rule="evenodd" />
+	</g>
+</svg>

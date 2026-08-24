@@ -1,0 +1,36 @@
+<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28.000000" height="28.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_62" x1="21.9970303" x2="10.5539408" y1="16.8513451" y2="14.0945797" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.708702862" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_63" x1="19.9242191" x2="6.42035389" y1="19.9530411" y2="13.7250195" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.727614522" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_64" x1="17.9296608" x2="15.1432571" y1="13.5097218" y2="12.9692116" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_65" x1="14.1804914" x2="10.3290119" y1="20.2787476" y2="19.4132767" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="ico11 1" width="28.000000" height="28.000000" x="0.000000" y="0.000000" />
+	<g id="ico11">
+		<rect id="矩形备份 11" width="28.000000" height="28.000000" x="0.000000" y="0.000000" rx="6.000000" fill="rgb(20,118,255)" />
+		<path id="路径" d="M7.84766 16.058L11.4547 11.0439C12.7636 9.22452 15.5407 9.4619 16.5218 11.477C16.8509 12.153 17.7848 12.2277 18.2172 11.6125L21.3613 7.13867L23.6522 8.74868L19.7109 14.3566C18.4104 16.207 15.6012 15.9825 14.6112 13.949C14.2833 13.2755 13.355 13.1962 12.9175 13.8043L10.1206 17.6931L7.84766 16.058Z" fill="url(#paint_linear_62)" fill-rule="evenodd" />
+		<rect id="矩形备份 10" width="2.800000" height="6.299999" x="7.699219" y="11.899902" rx="1.400000" fill="rgb(20,118,255)" />
+		<path id="路径" d="M8.40156 6.30005L8.40156 17.9C8.40156 18.4523 8.84928 18.9 9.40156 18.9L22.4016 18.9L22.4016 21.7L10.6016 21.7C7.84014 21.7 5.60156 19.4615 5.60156 16.7L5.60156 6.30005L8.40156 6.30005Z" fill="url(#paint_linear_63)" fill-rule="evenodd" />
+		<rect id="矩形备份 13" width="2.799999" height="7.000000" x="21.000000" y="6.300049" rx="1.400000" fill="rgb(20,118,255)" />
+		<g id="组合 36375" style="mix-blend-mode:soft-light">
+			<path id="路径 45" d="M13.2109 13.3969C14.7019 11.4086 16.4247 11.404 16.886 12.1258C17.0076 12.3161 17.6017 12.5049 17.9803 11.9554C18.5335 11.1526 20.0206 14.1578 18.6517 15.8448C17.8024 16.8915 15.9735 16.7897 15.3529 15.4763C15.0413 14.8168 14.5547 13.804 14.3934 13.5059C14.0622 12.8939 13.3582 13.1373 13.2109 13.3969Z" fill="url(#paint_linear_64)" fill-rule="evenodd" />
+		</g>
+		<g id="组合 36376" style="mix-blend-mode:soft-light">
+			<path id="路径 46" d="M8.40625 18.2C8.40625 18.653 8.78784 18.9018 9.10185 18.9018C9.41586 18.9018 12.7871 18.9018 13.6401 18.9018C14.4932 18.9018 15.7437 21.7 13.6401 21.7C11.5366 21.7 14.0991 21.7 11.6005 21.7C9.10185 21.7 8.40625 19.5795 8.40625 18.2Z" fill="url(#paint_linear_65)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>

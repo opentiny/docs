@@ -1,0 +1,24 @@
+<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28.000000" height="28.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_57" x1="23.8167553" x2="8.67895889" y1="19.5645103" y2="17.5301857" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.583060503" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_58" x1="20.5557365" x2="14.3863192" y1="11.028059" y2="15.4473505" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="ico09 1" width="28.000000" height="28.000000" x="0.000000" y="0.000000" />
+	<g id="ico09">
+		<rect id="矩形备份 5" width="28.000000" height="27.999996" x="0.000000" y="0.000000" rx="6.000000" fill="rgb(20,118,255)" />
+		<g id="编组">
+			<path id="减去顶层" d="M11.108 19.2951L4.66016 6.39954L8.41675 4.52124L13.6124 14.9126C13.8703 15.4285 14.6066 15.4285 14.8646 14.9126L20.0602 4.52124L23.8167 6.39954L17.3689 19.2951C16.0791 21.8748 12.3978 21.8748 11.108 19.2951Z" fill="url(#paint_linear_57)" fill-rule="evenodd" />
+			<g id="组合 36372" style="mix-blend-mode:soft-light">
+				<path id="路径 41" d="M13.5703 14.8344C14.6216 16.9998 16.9438 20.2185 19.1177 15.7896C19.3975 15.2197 21.0311 12.0467 21.4195 11.2426C24.8578 4.124 18.8111 6.9819 17.0226 10.5589C16.7007 11.2027 15.1548 14.3989 14.8748 14.8881C14.4917 15.5575 13.7999 15.3251 13.5703 14.8344Z" fill="url(#paint_linear_58)" fill-rule="evenodd" />
+			</g>
+		</g>
+		<rect id="矩形备份 2" width="23.799997" height="3.500000" x="2.335938" y="2.916992" rx="1.750000" fill="rgb(20,118,255)" />
+	</g>
+</svg>
