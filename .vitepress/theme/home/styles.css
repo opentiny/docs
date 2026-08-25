@@ -337,12 +337,13 @@
   padding-top: 22px;
 }
 .home-root .category-links a.category-link{
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 3px 12px;
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
-  line-height: 22px;
   color: #1476ff;
   background: #deecff;
   text-decoration: none;
@@ -454,15 +455,14 @@
   color: var(--title-color);
 }
 .product-card-subtitle {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--desc-color);
   margin: 0;
 }
 
 /* 渐变分割线：两端透明到中间 #1476ff */
 .product-card-divider {
-  height: 1px;
-  margin-bottom: 60px;
+  height: 2px;
   background: linear-gradient(to right, rgba(179,214,255,0.2) 0%, rgba(179,214,255,1) 50%, rgba(179,214,255,0.2) 100%);
 }
 
@@ -475,6 +475,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  margin-top: 40px;
 }
 .product-component {
   flex: 1 1 auto;
@@ -497,10 +498,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--title-color);
-  margin-bottom: 4px;
   width: fit-content;
 }
 /* 组件标题 NEW 标签（紧凑药丸，复用更新区绿色变量） */
@@ -519,7 +519,7 @@
   right: -40px;
 }
 .component-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--desc-color);
   margin-bottom: 10px;
 }
@@ -532,7 +532,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 8px;
+  padding: 3px 12px;
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
@@ -574,18 +574,16 @@
   display: block;
 }
 .update-card:hover {
-  /* 渐变边框：border-box 铺渐变、padding-box 铺实色底，border 透明只露出边框区域 */
-  border-color: transparent;
-  background:
-    linear-gradient(var(--update-card-bg), var(--update-card-bg)) padding-box,
-    linear-gradient(90deg, #e2efff 0%, #aabeff 57%, #e2efff 100%) border-box;
+  box-shadow: var(--card-hover-shadow);
+  background: var(--bg-color);
+  transform: translateY(-10px);
 }
 .update-card-title {
   font-size: 16px;
   font-weight: 600;
   color: var(--title-color);
   line-height: 30px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
