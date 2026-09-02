@@ -64,8 +64,6 @@
 }
 /* 首屏背景图层：铺满、贴底、放大覆盖，置于内容之下 */
 .hero-bg {
-  transform: scale(1.4);
-  margin: -10% 0 0 -10%;
   position: absolute;
   inset: 0;
   background-position: center;
@@ -74,15 +72,10 @@
   z-index: 0;
 }
 
-.dark .hero-bg {
-  display: none;
-}
-
 .dark .hero-section::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
   z-index: 0;
 }
 .hero-title {

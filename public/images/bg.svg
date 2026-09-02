@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1924 964" width="1924.000000" height="964.000000" fill="none">
+	<defs>
+		<g id="pixso_custom_effect_0">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="300"/>
+		</g>
+		<filter id="filter_0" width="2026.000000" height="985.000000" x="49.000000" y="-38.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_0)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal"/>
+			<feGaussianBlur stdDeviation="100" result="effect_layerBlur_1"/>
+		</filter>
+		<g id="pixso_custom_effect_1">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="300"/>
+		</g>
+		<filter id="filter_1" width="1589.513672" height="1095.235840" x="598.000000" y="22.949219" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal"/>
+			<feGaussianBlur stdDeviation="100" result="effect_layerBlur_1"/>
+		</filter>
+		<g id="pixso_custom_effect_2">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="300"/>
+		</g>
+		<filter id="filter_2" width="1388.000000" height="1060.000000" x="-249.000000" y="83.500000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_2)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal"/>
+			<feGaussianBlur stdDeviation="100" result="effect_layerBlur_1"/>
+		</filter>
+	</defs>
+	<rect id="bg" width="1924.000000" height="964.000000" x="0.000000" y="0.000000"/>
+	<g filter="url(#filter_0)">
+		<path id="椭圆 9" d="M356.064 599.285C303.947 535.894 549.394 278.955 789.664 278.955C1029.93 278.955 1273.75 376.731 1659.52 278.955C2045.3 181.178 1363.88 535.438 1086.34 599.285C808.8 663.133 408.182 662.676 356.064 599.285Z" fill="rgb(204,0,255)" fill-opacity="0.100000001" fill-rule="evenodd"/>
+	</g>
+	<g filter="url(#filter_1)">
+		<path id="椭圆 10" d="M898 601.568C898 526.077 1287.38 383 1505.5 383C1757.84 196.958 2002.31 479.171 1829.5 739C1537.78 910.284 1334.44 750.352 1116.31 750.352C898.187 750.352 898 677.059 898 601.568Z" fill="rgb(0,104,255)" fill-opacity="0.150000006" fill-rule="evenodd"/>
+	</g>
+	<g filter="url(#filter_2)">
+		<path id="椭圆 11" d="M51 689.5C51 604.037 141.697 383.5 296.999 383.5C452.301 383.5 839 474.887 839 560.35C839 645.814 582.803 843.5 427.501 843.5C272.199 843.5 51 774.964 51 689.5Z" fill="rgb(0,104,255)" fill-opacity="0.150000006" fill-rule="evenodd"/>
+	</g>
+</svg>
