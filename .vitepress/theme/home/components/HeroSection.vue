@@ -3,7 +3,7 @@
     class="hero-section"
     
   >
-    <div class="hero-bg" :style="{ backgroundImage: `url(${prefix}images/img-bg.webp)` }"></div>
+    <div class="hero-bg" :style="{ backgroundImage: `url(${prefix}images/bg.svg)` }"></div>
     <div
       class="hero-title"
       :style="{ backgroundImage: `url(${titleSrc})` }"

@@ -182,7 +182,7 @@ onUnmounted(() => {
   &__header {
     position: relative;
     flex-shrink: 0;
-    height: var(--vp-nav-bottom-height, 48px);
+    height: 40px;
   }
 
   &__nav {
@@ -199,7 +199,7 @@ onUnmounted(() => {
     height: 100%;
     position: relative;
     font-size: 0.875rem;
-    line-height: 48px;
+    line-height: 40px;
     display: flex;
 
     &-icon {
@@ -268,6 +268,53 @@ onUnmounted(() => {
     }
   }
 }
+.product-section {
+  .custom-tabs {
+    .custom-tabs__nav {
+      gap: 0;
+    }
+    &__header {
+      .custom-tabs__item {
+        height: 40px;
+        padding: 0px 20px;
+        &--active {
+          color: #191919;
+          font-weight: 600;
+          background: #f0f0f0;
+          border-radius: 33px;
+        }
+      }
+    }
+  }
+  
+  .custom-tabs__item-underline {
+    background: transparent;
+  }
+   .custom-tabs__item-underline--active {
+    background: transparent !important;
+  }
+}
+
+.dark .product-section {
+  .custom-tabs {
+    .custom-tabs__nav {
+      gap: 0;
+    }
+    &__header {
+      .custom-tabs__item {
+        &--active {
+          color: #e6e6e6;
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+  }
+  
+  .custom-tabs__item-underline {
+    background: transparent;
+  }
+}
+
 
 /* 暗色模式适配 */
 .dark .custom-tabs {
