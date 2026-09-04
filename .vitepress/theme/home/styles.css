@@ -337,22 +337,20 @@
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
-  color: #1476ff;
-  background: #deecff;
+  color: #595959;
+  background: #f0f0f0;
   text-decoration: none;
   transition: all 0.15s;
 }
 .home-root .category-links .category-link:hover {
-  background: #1476ff;
-  color: #ffffff;
+  text-decoration: underline;
 }
 .dark .home-root .category-links .category-link {
-  color: #4d9fff;
-  background: rgba(20, 118, 255, 0.15);
+  color: #cccccc;
+  background: rgba(255, 255, 255, 0.08);
 }
 .dark .home-root .category-links .category-link:hover {
-  background: #4d9fff;
-  color: #000000;
+  text-decoration: underline;
 }
 
 /* 第二屏：项目导航 */
@@ -386,7 +384,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-bottom: 100px;
 }
 .product-cards-row {
   display: flex;
@@ -529,22 +526,20 @@
   border-radius: 4px;
   word-break: keep-all;
   font-size: 14px;
-  color: #1476ff;
-  background: #deecff;
+  color: #595959;
+  background: #f0f0f0;
   text-decoration: none;
   transition: all 0.15s;
 }
 .home-root .component-links .component-link:hover {
-  background: #1476ff;
-  color: #ffffff;
+  text-decoration: underline;
 }
 .dark .home-root .component-links .component-link {
-  color: #4d9fff;
-  background: rgba(20, 118, 255, 0.15);
+  color: #cccccc;
+  background: rgba(255, 255, 255, 0.08);
 }
 .dark .home-root .component-links .component-link:hover {
-  background: #4d9fff;
-  color: #000000;
+  text-decoration: underline;
 }
 
 /* 第三屏：最新更新 */

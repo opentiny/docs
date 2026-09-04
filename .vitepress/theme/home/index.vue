@@ -3,7 +3,8 @@
     <HeroSection />
     <div class="home-page">
       <ProductSection />
-      <UpdateSection />
+      <!-- 暂时隐藏最近更新模块，暂停 GitHub API 调用 -->
+      <!-- <UpdateSection /> -->
     </div>
   </div>
 </template>
