@@ -47,7 +47,7 @@ class NextSdkNavTab extends NavTab {
   }
 
   getTabs(): TabItem[] {
-    return [{ key: 'guide', name: '使用文档', link: '/next-sdk/guide/' }]
+    return [{ key: 'guide', name: '使用文档', link: '/next-sdk/guide/quick-start' }]
   }
 }
 
