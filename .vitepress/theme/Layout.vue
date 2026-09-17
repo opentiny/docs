@@ -91,7 +91,7 @@ const redirectMap = [
     target: '/tiny-robot/examples/assistant'
   },
   { 
-    patterns: ['/next-sdk.html', '/next-sdk/'],
+    patterns: ['/next-sdk.html', '/next-sdk/', '/next-sdk/guide.html', '/next-sdk/guide/'],
     target: '/next-sdk/guide/quick-start'
   },
   { 

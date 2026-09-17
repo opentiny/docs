@@ -222,6 +222,8 @@ export default defineConfig({
     'tiny-robot/docs/src/tools/:path*': 'tiny-robot/tools/:path*',
     'tiny-robot/docs/src/migration/:path*': 'tiny-robot/migration/:path*',
     'tiny-robot/docs/src/examples/:path*': 'tiny-robot/examples/:path*',
+    // next-sdk 子模块目录为 best-pratice（拼写错误），站点 URL 使用正确拼写 best-practice
+    'next-sdk/docs/best-pratice/:path*': 'next-sdk/best-practice/:path*',
     'next-sdk/docs/:path*': 'next-sdk/:path*',
     'genui/genui-sdk/docs/src/:path*': 'genui-sdk/:path*',
     'tiny-vue/examples/sites/demos/pc/webdoc/:path*': 'tiny-vue/guide/:path*',
@@ -552,7 +554,7 @@ export default defineConfig({
             { text: '行内样式绑定状态变量', link: 'inline-style-variable-binding' },
             { text: '查看大纲树', link: 'outline-tree' },
             { text: '国际化', link: 'internationalization' },
-            { text: '页面和区块预览', link: 'page-and-block-preview' }
+            { text: '页面和区块预览', link: 'page-app-and-block-preview' }
           ]
         },
         {
