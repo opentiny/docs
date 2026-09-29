@@ -19,3 +19,8 @@
 [submodule "web-agent"]
 	path = web-agent
 	url = git@github.com:opentiny/web-agent.git
+[submodule "opentiny.design"]
+	path = opentiny.design
+	url = git@github.com:opentiny/opentiny.design.git
+	branch = dev
+	shallow = true

@@ -143,7 +143,7 @@ const productCards = [
         desc: "中后台应用开发模板",
         icon: `${prefix}images/icon-tiny-pro.svg`,
         links: [
-          { text: "使用指南", url: "https://opentiny.design/vue-pro/docs/introduce" },
+          { text: "使用指南", url: "/tiny-pro/guide/start" },
           { text: "Pro套件", url: "https://opentiny.design/tiny-cli/docs/toolkits/pro" },
         ],
       },

@@ -101,6 +101,10 @@ const redirectMap = [
   {
     patterns: ['/web-agent.html', '/web-agent/', '/web-agent/guide.html', '/web-agent/guide/'],
     target: '/web-agent/guide/getting-started'
+  },
+  {
+    patterns: ['/tiny-pro.html', '/tiny-pro/', '/tiny-pro/guide.html', '/tiny-pro/guide/'],
+    target: '/tiny-pro/guide/start'
   }
 ];
 
@@ -150,6 +154,11 @@ const updateDocTitle = () => {
       router.go(target);
       break;
     }
+  }
+
+  if (path.includes('/tiny-pro/')) {
+    docTitle.value = '使用文档'
+    return
   }
 
   // next-sdk / tiny-vue / web-agent: 从对应 sidebar 的 guide 中寻找匹配项

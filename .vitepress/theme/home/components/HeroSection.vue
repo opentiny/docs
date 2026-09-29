@@ -221,6 +221,7 @@ const categoryCards = [
       { text: "TinyVue", url: "/tiny-vue/guide/installation.html" },
       { text: "TinyEditor", url: "/tiny-editor/guide/quick-start.html" },
       { text: "TinyEngine", url: "/tiny-engine/guide/quick-start.html" },
+      { text: "TinyPro", url: "/tiny-pro/guide/start.html" },
       { text: "WebAgent", url: "/web-agent/guide/getting-started.html" },
     ],
   },
