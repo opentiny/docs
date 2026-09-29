@@ -186,6 +186,9 @@ export default defineConfig({
     'genui-sdk/packages/**/*.md',
     // tinyglobby 的 ignore 会丢掉 ! 反选，不能用「整仓排除再放行」。
     // 只排除 TinyPro Vue 中文文档以外的 markdown。
+    // opentiny.design 自带一份 genui-sdk 子模块。站点已用 genui/genui-sdk，
+    // 这份文档的 demo 解析不到物料包，不能编进本站。
+    'opentiny.design/genui-sdk/**',
     'opentiny.design/packages/common/**',
     'opentiny.design/packages/home/**',
     'opentiny.design/packages/tech-college/**',
