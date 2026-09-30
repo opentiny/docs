@@ -23,7 +23,6 @@
               :tabs="productTabs"
               :activeTab="activeProductTab"
               @tab-change="handleProductTabChange"
-              style="width: 980px"
             />
           </div>
         </div>
@@ -566,11 +565,13 @@ watch(
 .logo-section {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .product-section {
   padding-left: 48px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .product-section:before {
@@ -589,6 +590,7 @@ watch(
 .logo-link {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 8px;
   text-decoration: none;
   color: var(--vp-c-text-1);
@@ -673,6 +675,7 @@ watch(
 .tools-section {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 8px;
 }
 
