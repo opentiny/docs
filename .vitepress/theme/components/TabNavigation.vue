@@ -201,15 +201,19 @@ onUnmounted(() => {
     font-size: 0.875rem;
     line-height: 40px;
     display: flex;
+    flex-shrink: 0;
 
     &-icon {
       height: 20px;
       width: 20px;
+      flex-shrink: 0;
     }
 
     &-title {
       transition: color 0.2s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     &-underline {
@@ -270,6 +274,7 @@ onUnmounted(() => {
 }
 .product-section {
   .custom-tabs {
+    width: max-content;
     .custom-tabs__nav {
       gap: 0;
     }
