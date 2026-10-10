@@ -5,6 +5,9 @@ body,
   height: 100%;
   --vp-nav-bottom-height: 48px;
   --vp-sidebar-nav-padding-top: calc(var(--vp-nav-bottom-height) + var(--vp-nav-height));
+  /* 侧边栏实际宽度为 260px（见下方 .VPSidebar 宽度覆盖），
+     同步该变量避免 VPContent 左侧留白与侧边栏之间出现 12px 空隙 */
+  --vp-sidebar-width: 260px;
 
   --rainbow-prev: #009ff7;
   --rainbow-next: #c76dd1;
@@ -972,15 +975,21 @@ img.image-inline {
   padding: 0 24px;
 }
 
-.header-bottom 
-
 .VPDoc.has-aside .content .content-container {
-  max-width: 55vw;
+  max-width: 55vw !important;
+}
+
+/* 2) 右侧大纲导航贴边：≥1280px 大纲显示后，去掉 VPDoc 右侧内边距，
+   让固定定位的大纲容器（aside-container）右边缘与视口右边缘齐平 */
+@media (min-width: 1280px) {
+  .VPDoc.has-aside {
+    padding-right: 0;
+  }
 }
 
 @media (min-width: 1440px) {
   .VPContent.has-sidebar[data-v-e31b95cc] {
-    padding-right: 24px;
+    padding-right: 0;
     padding-left: var(--vp-sidebar-width);
   }
 }
