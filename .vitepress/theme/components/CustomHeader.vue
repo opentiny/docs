@@ -17,15 +17,15 @@
             />
             <span v-if="false" class="logo-text">{{ site.title }}</span>
           </a>
-          <!-- 产品区域 -->
-          <div class="product-section">
-            <TabNavigation
-              :tabs="productTabs"
-              :activeTab="activeProductTab"
-              @tab-change="handleProductTabChange"
-              style="width: 980px"
-            />
-          </div>
+        </div>
+
+        <!-- 中间：产品导航 Tab（独立列，保证相对视口严格居中） -->
+        <div class="nav-section">
+          <TabNavigation
+            :tabs="productTabs"
+            :activeTab="activeProductTab"
+            @tab-change="handleProductTabChange"
+          />
         </div>
 
         <!-- 右侧工具栏 -->
@@ -536,43 +536,28 @@ watch(
 }
 
 .header-container {
-  max-width: 92rem;
+  max-width: 100%;
   margin: 0 auto;
   width: 100%;
 }
 
 /* 第一行样式 */
 .header-top {
-  display: flex;
-  height: 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  height: 4rem;
   border-bottom: 1px solid var(--vp-c-divider);
-  margin-left: 3rem;
-  margin-right: 3rem;
+  padding: 0 3rem;
 }
 
+/* 左右两列不允许压缩到内容宽度以下（1fr 轨道最小值 = min-content），
+   避免中窄屏下 Logo/工具栏与中间导航重叠；
+   空间不足时由中间导航（min-width: 0 + overflow-x: auto）自行横向滚动 */
 .logo-section {
   display: flex;
   align-items: center;
-}
-
-.product-section {
-  padding-left: 48px;
-  position: relative;
-}
-
-.product-section:before {
-  content: "";
-  border-left: 1px solid #f0f0f0;
-  position: absolute;
-  top: 12px;
-  left: 0;
-  height: 50%;
-  z-index: 2;
-}
-.dark .product-section:before {
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  justify-self: start;
 }
 
 .logo-link {
@@ -581,7 +566,63 @@ watch(
   gap: 8px;
   text-decoration: none;
   color: var(--vp-c-text-1);
-  margin-right: 48px;
+}
+
+/* 中间导航区：严格相对视口居中 */
+.nav-section {
+  justify-self: center;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-section::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-section :deep(.custom-tabs__nav) {
+  gap: 0;
+}
+.nav-section :deep(.custom-tabs__item) {
+  height: 40px;
+  padding: 0 20px;
+}
+.nav-section :deep(.custom-tabs__item--active) {
+  color: #191919;
+  font-weight: 600;
+  background: #f0f0f0;
+  border-radius: 33px;
+}
+.nav-section :deep(.custom-tabs__item-underline) {
+  background: transparent;
+}
+.nav-section :deep(.custom-tabs__item-underline--active) {
+  background: transparent !important;
+}
+
+.dark .nav-section :deep(.custom-tabs__item--active) {
+  color: #e6e6e6;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 中窄屏（980–1479px）：压缩 Tab 密度与两侧留白，
+   保证 1280–1440 常见笔记本宽度下中间导航完整放下；
+   更窄时中间导航横向滚动（无重叠） */
+@media (max-width: 1479px) {
+  .header-top {
+    padding: 0 1.5rem;
+  }
+
+  .nav-section :deep(.custom-tabs__item) {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+}
+
+.tools-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
 }
 
 .logo-icon {
@@ -663,6 +704,9 @@ watch(
   display: flex;
   align-items: center;
   gap: 8px;
+  justify-self: end;
+  /* 按钮文字不折行 */
+  white-space: nowrap;
 }
 
 .home-link {
@@ -742,20 +786,22 @@ watch(
   background: #000000;
   border-radius: 50%;
 }
-/* 第二行样式 */
+/* 第二行样式：页面导航居左显示，不跟随 header-top 居中 */
 .header-bottom {
   height: var(--vp-nav-bottom-height);
+  display: flex;
   align-items: center;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  width: fit-content;
+  padding: 0 3rem;
+  /* 空间不足时横向滚动而非折行/溢出 */
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.header-bottom::-webkit-scrollbar {
+  display: none;
 }
 
 /* 响应式设计 */
 @media (min-width: 980px) {
-  .header-top {
-    display: flex;
-  }
   .mb-container {
     display: none;
   }
