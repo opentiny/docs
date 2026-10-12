@@ -1,5 +1,5 @@
 /**
- * 子模块里的 TinyPro 文档沿用 opentiny.design 的写法。
+ * TinyPro 文档来自 tiny-pro 仓库的 docs 目录，图片在 docs/public/images。
  * 这里只在渲染时改链接、图片路径和 HTML 标题，不复制源文件。
  */
 
@@ -18,7 +18,7 @@ const slugify = (str: string) =>
     .replace(/^(\d)/, '_$1')
     .toLowerCase()
 
-const isVueProDoc = (filePath = '') => filePath.replace(/\\/g, '/').includes('/views/vue-pro/')
+const isTinyProDoc = (filePath = '') => filePath.replace(/\\/g, '/').includes('/tiny-pro/docs/')
 
 const mapOutsideFences = (src: string, transform: (part: string) => string) => {
   const re = /(^|\n)(```[\s\S]*?\n```)/g
@@ -37,9 +37,7 @@ const mapOutsideFences = (src: string, transform: (part: string) => string) => {
 
 const inlineHeading = (inner: string) =>
   inner
-    .replace(/<a\s+[^>]*href\s*=\s*['"]([^'"]+)['"][^>]*>([\s\S]*?)<\/a>/gi, '[$2]($1)')
     .replace(/<code>([\s\S]*?)<\/code>/gi, '`$1`')
-    .replace(/<br\s*\/?>/gi, ' ')
     .replace(/<[^>]+>/g, '')
     .replace(/\s+/g, ' ')
     .trim()
@@ -54,21 +52,45 @@ const convertHtmlHeadings = (src: string) =>
     return `${heading} {#${id}}`
   })
 
-const rewriteVueProUrls = (src: string) =>
-  src
-    // 高级章节已不在本站发布，总览里的入口回到上游文档
-    .replaceAll('](/vue-pro/docs/advanced/', '](https://opentiny.design/vue-pro/docs/advanced/')
-    .replaceAll('/src/assets/images/vue-pro/', '../../assets/images/vue-pro/')
-    .replaceAll('](/tiny-vue)', '](/tiny-vue/guide/introduce)')
-    .replaceAll('](/tiny-cli/', '](https://opentiny.design/tiny-cli/')
-    .replaceAll('](./tiny-pro.md)', '](./quick-start)')
-    .replace(/!\[([^\]]*)\]\(([^)\s]*?%20[^)\s]*)\)/g, (_match, alt: string, url: string) => {
-      const decoded = decodeURIComponent(url)
-      return /\s/.test(decoded) ? `![${alt}](<${decoded}>)` : `![${alt}](${decoded})`
-    })
+const rewriteImageDestination = (url: string) => {
+  const trimmed = url.trim()
+  const wrapped = trimmed.startsWith('<') && trimmed.endsWith('>')
+  const raw = wrapped ? trimmed.slice(1, -1).trim() : trimmed
+  if (!raw.startsWith('/images/')) return null
+  let next = `./public/images/${raw.slice('/images/'.length)}`
+  try {
+    next = decodeURIComponent(next)
+  } catch {
+    // 保留原始编码
+  }
+  return /\s/.test(next) ? `<${next}>` : next
+}
 
-function transformVueProMarkdown(src: string) {
-  return rewriteVueProUrls(mapOutsideFences(src, convertHtmlHeadings))
+const rewriteTinyProBody = (part: string) =>
+  part
+    .replace(/!\[([^\]]*)\]\(([^)\n]+)\)/g, (match, alt: string, url: string) => {
+      const next = rewriteImageDestination(url)
+      return next ? `![${alt}](${next})` : match
+    })
+    .replaceAll('](/quick-start)', '](/tiny-pro/guide/quick-start)')
+
+function transformTinyProMarkdown(src: string) {
+  return mapOutsideFences(src, (part) => rewriteTinyProBody(convertHtmlHeadings(part)))
+}
+
+type MarkdownToken = {
+  attrs?: [string, string][] | null
+  children?: MarkdownToken[] | null
+}
+
+const stripHeadingAttrFromLabel = (tokens: MarkdownToken[]) => {
+  for (const token of tokens) {
+    for (const attr of token.attrs || []) {
+      // 锚点文案在解析时就已经写进 aria-label，这里只清掉 {#id}
+      if (attr[0] === 'aria-label') attr[1] = attr[1].replace(/ \{#[^{}]+\}/g, '')
+    }
+    if (token.children?.length) stripHeadingAttrFromLabel(token.children)
+  }
 }
 
 export function tinyproDocsPlugin(md: { parse: (src: string, env: Record<string, unknown>) => unknown }) {
@@ -76,7 +98,9 @@ export function tinyproDocsPlugin(md: { parse: (src: string, env: Record<string,
   md.parse = (src: string, env: Record<string, unknown>) => {
     // VitePress 会把 env.path 改成重写后的 tiny-pro/guide/*.md，源文件在 realPath
     const filePath = String(env?.realPath || env?.path || '')
-    const next = isVueProDoc(filePath) ? transformVueProMarkdown(src) : src
-    return parse(next, env)
+    if (!isTinyProDoc(filePath)) return parse(src, env)
+    const tokens = parse(transformTinyProMarkdown(src), env)
+    if (Array.isArray(tokens)) stripHeadingAttrFromLabel(tokens)
+    return tokens
   }
 }
