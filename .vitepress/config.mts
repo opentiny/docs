@@ -19,14 +19,14 @@ const TinyProSidebar = [
       { text: '后端指南', link: '/tiny-pro/guide/back-end-guide' },
       { text: '前端指南', link: '/tiny-pro/guide/front-end-guide' },
       { text: '目录结构', link: '/tiny-pro/guide/directory' },
-      { text: '路由与菜单', link: '/tiny-pro/guide/menus' },
+      { text: '路由与菜单', link: '/tiny-pro/guide/menu' },
       { text: '新增页面', link: '/tiny-pro/guide/newpage' },
-      { text: 'Mock数据', link: '/tiny-pro/guide/mock' },
+      { text: 'Mock数据', link: '/tiny-pro/guide/request' },
       { text: '国际化', link: '/tiny-pro/guide/international' },
       { text: '个性化主题', link: '/tiny-pro/guide/theme' },
       { text: '布局', link: '/tiny-pro/guide/layout' },
       { text: '状态管理', link: '/tiny-pro/guide/status' },
-      { text: '权限控制', link: '/tiny-pro/guide/role' }
+      { text: '权限控制', link: '/tiny-pro/guide/permissions' }
     ]
   }
 ]
@@ -185,27 +185,11 @@ export default defineConfig({
     'next-sdk/packages/**/*.md',
     'genui-sdk/packages/**/*.md',
     // tinyglobby 的 ignore 会丢掉 ! 反选，不能用「整仓排除再放行」。
-    // 只排除 TinyPro Vue 中文文档以外的 markdown。
-    // opentiny.design 自带一份 genui-sdk 子模块。站点已用 genui/genui-sdk，
-    // 这份文档的 demo 解析不到物料包，不能编进本站。
-    'opentiny.design/genui-sdk/**',
-    'opentiny.design/packages/common/**',
-    'opentiny.design/packages/home/**',
-    'opentiny.design/packages/tech-college/**',
-    'opentiny.design/packages/tiny-engine-portal/**',
-    'opentiny.design/packages/opentiny-docs/src/views/ng-pro/**',
-    'opentiny.design/packages/opentiny-docs/src/views/theme/**',
-    'opentiny.design/packages/opentiny-docs/src/views/tiny-cli/**',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/*-us.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/quick.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/plugin.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/library.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/practiced.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/backEnd.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-design.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-api-specification.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-guide-spring-boot.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/responsive-adaptation-guide.md'
+    // TinyPro 文档只取 tiny-pro/docs 下的指南。首页和仓库里其余 markdown 不编进本站。
+    'tiny-pro/template/**',
+    'tiny-pro/.github/**',
+    'tiny-pro/CONTRIBUTING.md',
+    'tiny-pro/docs/index.md'
   ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
@@ -221,7 +205,13 @@ export default defineConfig({
         }
       ])
     ],
-    server: { open: true },
+    server: {
+      open: true,
+      watch: {
+        // Vite 已忽略 .git、node_modules 和构建目录。这里只避开模板源码。
+        ignored: ['**/tiny-pro/template/**']
+      }
+    },
     // 子模块里有大量独立站点的 index.html。依赖扫描如果把它们都当成入口，
     // 会扫到无效的 import.meta.glob，导致文档站起不来。
     optimizeDeps: {
@@ -287,7 +277,7 @@ export default defineConfig({
     'tiny-editor/packages/docs/fluent-editor/docs/api/:path*': 'tiny-editor/api/:path*',
     'tiny-editor/packages/docs/fluent-editor/docs/modules/:path*': 'tiny-editor/modules/:path*',
     'web-agent/docs/:path*': 'web-agent/guide/:path*',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/:path*': 'tiny-pro/guide/:path*'
+    'tiny-pro/docs/:path*': 'tiny-pro/guide/:path*'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
