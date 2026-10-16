@@ -169,6 +169,8 @@ const robotSidebarItems = [
   }
 ]
 
+
+const reactDemoRE = /\/demos\/(?:[a-z-]+\/)?react\/.*\.[jt]sx$/
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OpenTiny NEXT',
@@ -214,7 +216,8 @@ export default defineConfig({
     // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
     assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
     plugins: [
-      vueJsx(),
+      // vueJsx忽略对react demo的解析
+      vueJsx({ exclude: [reactDemoRE] }),
       react({ include: /\.(jsx|tsx)$/ }),
       resolveSubmoduleRelativePathsPlugin([
         {
@@ -224,6 +227,9 @@ export default defineConfig({
       ])
     ],
     server: { open: true },
+    esbuild: {
+      include: [/\.ts$/, reactDemoRE]
+    },
     // 子模块里有大量独立站点的 index.html。依赖扫描如果把它们都当成入口，
     // 会扫到无效的 import.meta.glob，导致文档站起不来。
     optimizeDeps: {
