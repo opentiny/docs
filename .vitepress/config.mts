@@ -1,4 +1,5 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
@@ -168,6 +169,8 @@ const robotSidebarItems = [
   }
 ]
 
+
+const reactDemoRE = /\/demos\/(?:[a-z-]+\/)?react\/.*\.[jt]sx$/
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OpenTiny NEXT',
@@ -213,7 +216,9 @@ export default defineConfig({
     // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
     assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
     plugins: [
-      vueJsx(),
+      // vueJsx忽略对react demo的解析
+      vueJsx({ exclude: [reactDemoRE] }),
+      react({ include: /\.(jsx|tsx)$/ }),
       resolveSubmoduleRelativePathsPlugin([
         {
           source: path.resolve(rootDir, 'demos'),
@@ -222,12 +227,17 @@ export default defineConfig({
       ])
     ],
     server: { open: true },
+    esbuild: {
+      include: [/\.ts$/, reactDemoRE]
+    },
     // 子模块里有大量独立站点的 index.html。依赖扫描如果把它们都当成入口，
     // 会扫到无效的 import.meta.glob，导致文档站起不来。
     optimizeDeps: {
-      entries: ['.vitepress/theme/index.ts']
+      entries: ['.vitepress/theme/index.ts'],
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'antd']
     },
     resolve: {
+      dedupe: ['react', 'react-dom'],
       alias: {
         '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
         '@demos': '../' // 根据你的项目结构调整路径
@@ -335,7 +345,7 @@ export default defineConfig({
         activeMatch: '/guide/'
       },
       {
-        text: '组件文档',
+        text: '参考文档',
         link: '/genui-sdk/components/renderer',
         activeMatch: '/components/'
       },
@@ -452,6 +462,14 @@ export default defineConfig({
           ]
         },
         {
+          text: 'GenUI SDK React 指引',
+          base: '/genui-sdk/',
+          items: [
+            { text: '安装与配置', link: 'guide/react/install' },
+            { text: '使用 Renderer 组件', link: 'guide/react/start-with-renderer' }
+          ]
+        },
+        {
           text: 'GenUI SDK Server 指引',
           base: '/genui-sdk',
           items: [{ text: 'Server 包使用文档', link: '/guide/server-usage' }]
@@ -459,21 +477,33 @@ export default defineConfig({
       ],
       '/genui-sdk/components/': [
         {
-          text: 'Vue 组件文档',
+          text: 'Vue 文档',
           base: '/genui-sdk/components/',
           items: [
             { text: 'GenuiRenderer', link: 'renderer' },
             { text: 'GenuiChat', link: 'chat' },
-            { text: 'GenuiConfigProvider', link: 'config-provider' }
+            { text: 'GenuiConfigProvider', link: 'config-provider' },
+            { text: 'generateCode', link: 'code-generator' }
           ]
         },
         {
-          text: 'Angular 组件文档',
+          text: 'Angular 文档',
           base: '/genui-sdk/components/',
-          items: [{ text: 'GenuiRenderer', link: 'angular/renderer' }]
+          items: [
+            { text: 'GenuiRenderer', link: 'angular/renderer' },
+            { text: 'GenuiConfigProvider', link: 'angular/config-provider' }
+          ]
         },
         {
-          text: 'Server 库文档',
+          text: 'React 文档',
+          base: '/genui-sdk/components/',
+          items: [
+            { text: 'GenuiRenderer', link: 'react/renderer' },
+            { text: 'GenuiConfigProvider', link: 'react/config-provider' }
+          ]
+        },
+        {
+          text: 'Server 文档',
           base: '/genui-sdk/components/',
           items: [
             { text: 'API 参考', link: 'server/api' },
@@ -481,9 +511,14 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Core 库文档',
+          text: 'Core 文档',
           base: '/genui-sdk/components/',
           items: [{ text: 'API 文档', link: 'core/api' }]
+        },
+        {
+          text: 'Skill Generator 文档',
+          base: '/genui-sdk/components/',
+          items: [{ text: 'API 文档', link: 'skill-generator/api' }]
         },
         {
           text: '物料包文档',
@@ -491,13 +526,14 @@ export default defineConfig({
           items: [
             { text: 'Vue OpenTiny Vue', link: 'materials/vue-opentiny-vue' },
             { text: 'Vue Element Plus', link: 'materials/vue-element-plus' },
-            { text: 'Angular OpenTiny NG', link: 'materials/angular-opentiny-ng' }
+            { text: 'Angular OpenTiny NG', link: 'materials/angular-opentiny-ng' },
+            { text: 'React Ant Design', link: 'materials/react-antd' }
           ]
         }
       ],
       '/genui-sdk/examples/': [
         {
-          text: 'Vue组件 特性示例',
+          text: 'Vue组件特性示例',
           collapsed: false,
           items: [
             {
@@ -539,6 +575,12 @@ export default defineConfig({
                 { text: '自定义主题', link: 'custom-theme' },
                 { text: '国际化配置', link: 'i18n' }
               ]
+            },
+            {
+              text: '物料库',
+              collapsed: false,
+              base: '/genui-sdk/examples/',
+              items: [{ text: '自定义物料库', link: 'custom-materials' }]
             }
           ]
         },
@@ -556,6 +598,20 @@ export default defineConfig({
                   link: '/examples/angular/renderer/required-complete-field-selectors'
                 },
                 { text: '传递合并 State', link: '/examples/angular/renderer/state' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'React 组件特性示例',
+          collapsed: false,
+          items: [
+            {
+              text: 'Renderer 组件',
+              base: '/genui-sdk',
+              items: [
+                { text: '自定义 Actions', link: '/examples/react/renderer/custom-actions' },
+                { text: '传递合并 State', link: '/examples/react/renderer/state' }
               ]
             }
           ]
