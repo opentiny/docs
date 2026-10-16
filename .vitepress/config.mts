@@ -1,4 +1,5 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
@@ -214,6 +215,7 @@ export default defineConfig({
     assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
     plugins: [
       vueJsx(),
+      react({ include: /\.(jsx|tsx)$/ }),
       resolveSubmoduleRelativePathsPlugin([
         {
           source: path.resolve(rootDir, 'demos'),
@@ -225,9 +227,11 @@ export default defineConfig({
     // 子模块里有大量独立站点的 index.html。依赖扫描如果把它们都当成入口，
     // 会扫到无效的 import.meta.glob，导致文档站起不来。
     optimizeDeps: {
-      entries: ['.vitepress/theme/index.ts']
+      entries: ['.vitepress/theme/index.ts'],
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'antd']
     },
     resolve: {
+      dedupe: ['react', 'react-dom'],
       alias: {
         '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
         '@demos': '../' // 根据你的项目结构调整路径
