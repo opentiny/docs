@@ -1,4 +1,5 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitepress'
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
@@ -37,6 +38,7 @@ const resolveSubmoduleRelativePathsPlugin = (options: { source: string; target: 
   }
 })
 
+const reactDemoRE = /\/demos\/(?:[a-z-]+\/)?react\/.*\.[jt]sx$/
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OpenTiny NEXT',
@@ -82,7 +84,9 @@ export default defineConfig({
     // 允许以大写扩展名结尾的图片/静态资源被当作资产处理，避免被 import-analyze 当作 JS 解析
     assetsInclude: ['**/*.{png,PNG,jpg,JPG,jpeg,JPEG,gif,GIF,webp,WEBP,svg,SVG}'],
     plugins: [
-      vueJsx(),
+      // vueJsx忽略对react demo的解析
+      vueJsx({ exclude: [reactDemoRE] }),
+      react({ include: /\.(jsx|tsx)$/ }),
       resolveSubmoduleRelativePathsPlugin([
         {
           source: path.resolve(rootDir, 'demos'),
@@ -91,12 +95,17 @@ export default defineConfig({
       ])
     ],
     server: { open: true },
+    esbuild: {
+      include: [/\.ts$/, reactDemoRE]
+    },
     // 子模块里有大量独立站点的 index.html。依赖扫描如果把它们都当成入口，
     // 会扫到无效的 import.meta.glob，导致文档站起不来。
     optimizeDeps: {
-      entries: ['.vitepress/theme/index.ts']
+      entries: ['.vitepress/theme/index.ts'],
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'antd']
     },
     resolve: {
+      dedupe: ['react', 'react-dom'],
       alias: {
         '@opentiny/tiny-robot-style': '../../tiny-robot/packages/components/dist/style.css',
         '@demos': '../' // 根据你的项目结构调整路径
@@ -181,7 +190,7 @@ export default defineConfig({
         activeMatch: '/guide/'
       },
       {
-        text: '组件文档',
+        text: '参考文档',
         link: '/genui-sdk/components/renderer',
         activeMatch: '/components/'
       },
