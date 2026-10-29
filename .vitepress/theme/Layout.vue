@@ -105,6 +105,18 @@ const redirectMap = [
   {
     patterns: ['/tiny-pro.html', '/tiny-pro/', '/tiny-pro/guide.html', '/tiny-pro/guide/'],
     target: '/tiny-pro/guide/start'
+  },
+  {
+    patterns: ['/tiny-pro/guide/menus', '/tiny-pro/guide/menus.html'],
+    target: '/tiny-pro/guide/menu'
+  },
+  {
+    patterns: ['/tiny-pro/guide/mock', '/tiny-pro/guide/mock.html'],
+    target: '/tiny-pro/guide/request'
+  },
+  {
+    patterns: ['/tiny-pro/guide/role', '/tiny-pro/guide/role.html'],
+    target: '/tiny-pro/guide/permissions'
   }
 ];
 

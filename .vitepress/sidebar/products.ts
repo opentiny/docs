@@ -107,36 +107,23 @@ export const sidebarSources: SidebarSource[] = [
   {
     kind: 'markdown',
     id: 'tiny-pro',
-    pages: 'opentiny.design/packages/opentiny-docs/src/views/vue-pro',
+    pages: 'tiny-pro/docs',
     key: '/tiny-pro/guide/',
     group: '使用文档',
-    // 与 config.mts 的 srcExclude 一致，这些页面不会发布
-    ignore: [
-      '*-us.md',
-      'quick.md',
-      'plugin.md',
-      'library.md',
-      'practiced.md',
-      'backEnd.md',
-      'back-end-design.md',
-      'back-end-api-specification.md',
-      'back-end-guide-spring-boot.md',
-      'responsive-adaptation-guide.md'
-    ],
     order: [
       'start',
       'quick-start',
       'back-end-guide',
       'front-end-guide',
       'directory',
-      'menus',
+      'menu',
       'newpage',
-      'mock',
+      'request',
       'international',
       'theme',
       'layout',
       'status',
-      'role'
+      'permissions'
     ],
     toLink: (rel) => `/tiny-pro/guide/${rel.replace(/\.md$/i, '')}`
   }

@@ -9,8 +9,7 @@ on:
       - 'tiny-vue/examples/sites/demos/pc/webdoc/**'
       - 'tiny-engine/docs/**'  
       - '.vitepress/**'
-      - 'opentiny.design/packages/opentiny-docs/src/views/vue-pro/**'
-      - 'opentiny.design/packages/opentiny-docs/src/assets/images/vue-pro/**'
+      - 'tiny-pro'
   workflow_dispatch: {}  # 支持手动触发
 
 permissions:

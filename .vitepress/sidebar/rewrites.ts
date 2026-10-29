@@ -55,6 +55,6 @@ export function createRewrites(rootDir: string): Record<string, string> {
     ...engineRewrites(rootDir),
     ...dirRewrites(rootDir, 'tiny-editor/packages/docs/fluent-editor/docs', 'tiny-editor'),
     'web-agent/docs/:path*': 'web-agent/guide/:path*',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/:path*': 'tiny-pro/guide/:path*'
+    'tiny-pro/docs/:path*': 'tiny-pro/guide/:path*'
   }
 }

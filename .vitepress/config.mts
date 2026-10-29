@@ -56,27 +56,11 @@ export default defineConfig({
     'next-sdk/packages/**/*.md',
     'genui-sdk/packages/**/*.md',
     // tinyglobby 的 ignore 会丢掉 ! 反选，不能用「整仓排除再放行」。
-    // 只排除 TinyPro Vue 中文文档以外的 markdown。
-    // opentiny.design 自带一份 genui-sdk 子模块。站点已用 genui/genui-sdk，
-    // 这份文档的 demo 解析不到物料包，不能编进本站。
-    'opentiny.design/genui-sdk/**',
-    'opentiny.design/packages/common/**',
-    'opentiny.design/packages/home/**',
-    'opentiny.design/packages/tech-college/**',
-    'opentiny.design/packages/tiny-engine-portal/**',
-    'opentiny.design/packages/opentiny-docs/src/views/ng-pro/**',
-    'opentiny.design/packages/opentiny-docs/src/views/theme/**',
-    'opentiny.design/packages/opentiny-docs/src/views/tiny-cli/**',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/*-us.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/quick.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/plugin.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/library.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/practiced.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/backEnd.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-design.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-api-specification.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/back-end-guide-spring-boot.md',
-    'opentiny.design/packages/opentiny-docs/src/views/vue-pro/responsive-adaptation-guide.md'
+    // TinyPro 文档只取 tiny-pro/docs 下的指南。首页和仓库里其余 markdown 不编进本站。
+    'tiny-pro/template/**',
+    'tiny-pro/.github/**',
+    'tiny-pro/CONTRIBUTING.md',
+    'tiny-pro/docs/index.md'
   ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],

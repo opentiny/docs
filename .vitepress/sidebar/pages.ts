@@ -22,7 +22,11 @@ export function readDocTitle(filePath: string, fallback: string) {
     const raw = fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, '')
     const body = raw.replace(/^---[\s\S]*?---\s*/, '')
     const heading = body.match(/^#\s+(.+)$/m)?.[1]
-    if (!heading) return fallback
+    if (!heading) {
+      const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)
+      const title = frontmatter?.[1].match(/^title:\s*(.+)$/m)?.[1]?.trim().replace(/^['"]|['"]$/g, '')
+      return title || fallback
+    }
     const text = heading
       .replace(/<[^>]+>/g, '')
       .replace(/\s+/g, ' ')

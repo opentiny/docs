@@ -8,6 +8,7 @@ on:
       - 'next-sdk/docs/**'
       - 'tiny-robot/docs/**'
       - 'tiny-vue/examples/sites/demos/pc/webdoc/**'
+      - 'tiny-pro'
       - '.vitepress/**'
 
   workflow_dispatch:
