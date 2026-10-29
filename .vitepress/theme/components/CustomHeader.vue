@@ -328,6 +328,7 @@ const getActiveNavTab = () => {
     "tiny-robot": ["/components/", "/tools/"],
     "tiny-editor": ["/demo/", "/api/", "/modules/"],
     "web-agent": ["/web-agent/"],
+    "tiny-pro": ["/tiny-pro/"],
   };
 
   const segments = productPathMap[activeProductTab.value] || [];
@@ -468,6 +469,14 @@ const productTabs = computed(() => [
       activeProductTab.value === "web-agent" ? "active" : "normal"
     }-web-agent.svg`,
   },
+  {
+    key: "tiny-pro",
+    name: "TinyPro",
+    link: `${prefix}tiny-pro/guide/start`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-pro" ? "active" : "normal"
+    }-tinypro.svg`,
+  },
 ]);
 
 // 切换tab时路由跳转
@@ -499,6 +508,8 @@ watch(
       activeProductTab.value = "tiny-editor";
     } else if (path.includes("/web-agent/")) {
       activeProductTab.value = "web-agent";
+    } else if (path.includes("/tiny-pro/")) {
+      activeProductTab.value = "tiny-pro";
     } else {
       activeProductTab.value = "";
     }

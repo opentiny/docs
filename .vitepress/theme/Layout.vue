@@ -175,13 +175,20 @@ const updateDocTitle = () => {
 
   // next-sdk / tiny-vue / web-agent: 从对应 sidebar 的 guide 中寻找匹配项
   if (path.includes('/next-sdk/') || path.includes('/tiny-vue/') || path.includes('/web-agent/')) {
+    const readSidebar = (keys: string[]) => {
+      for (const key of keys) {
+        const found = cfg.sidebar?.[key]
+        if (Array.isArray(found) && found.length) return found
+      }
+      return []
+    }
     let sidebarConfig: any[] = []
     if (path.includes('/next-sdk/')) {
-      sidebarConfig = cfg.sidebar?.['/next-sdk/guide/'] || []
+      sidebarConfig = readSidebar(['/next-sdk/guide/', '/next-sdk/', '/next-sdk'])
     } else if (path.includes('/tiny-vue/')) {
-      sidebarConfig = cfg.sidebar?.['/tiny-vue/guide/'] || []
+      sidebarConfig = readSidebar(['/tiny-vue/guide/', '/tiny-vue/', '/tiny-vue'])
     } else if (path.includes('/web-agent/')) {
-      sidebarConfig = cfg.sidebar?.['/web-agent/guide/'] || []
+      sidebarConfig = readSidebar(['/web-agent/guide/', '/web-agent/', '/web-agent'])
     }
 
     if (!sidebarConfig || !sidebarConfig.length) {
