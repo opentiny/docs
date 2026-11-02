@@ -126,5 +126,15 @@ export const sidebarSources: SidebarSource[] = [
       'permissions'
     ],
     toLink: (rel) => `/tiny-pro/guide/${rel.replace(/\.md$/i, '')}`
+  },
+  {
+    kind: 'vitepress',
+    id: 'tiny-robot-ai',
+    pages: 'web-agent-enterprise/packages/robot-wxt/docs',
+    mount: '/tiny-robot-ai',
+    load: () =>
+      import('../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/config.mts').then(
+        (mod) => mod.default.themeConfig?.sidebar
+      )
   }
 ]

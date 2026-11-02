@@ -16,6 +16,10 @@ import { insertFurion } from './insert-furion'
 import './medium-zoom.css';
 import './style.css'
 
+function isTinyRobotComponentPath(path: string) {
+  return /\/tiny-robot(\/|\.html|$)/.test(path)
+}
+
 declare global {
   interface Window {
     __SW_REGISTERED__?: boolean
@@ -55,7 +59,7 @@ export default {
         }
         if (typeof window !== 'undefined'){
           zoom = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
-          if (route.path.includes('tiny-robot')) {
+          if (isTinyRobotComponentPath(route.path)) {
             document.body.classList.remove('hide-code-playground');
           } else {
             document.body.classList.add('hide-code-playground');
@@ -143,7 +147,7 @@ function listenCodePlaygroundEvent() {
       files,
       extraImports,
     })
-    if (route.path.includes('tiny-robot')) {
+    if (isTinyRobotComponentPath(route.path)) {
       const playgroundUrl =
         import.meta.env.VITE_TINY_ROBOT_PLAYGROUND_URL || `${import.meta.env.BASE_URL}/tiny-robot/playground/`
       window.open(playgroundUrl.replace(/(?<!:)\/\/+/g, '/') + store.serialize(), '_blank')

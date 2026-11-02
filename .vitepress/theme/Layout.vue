@@ -117,8 +117,31 @@ const redirectMap = [
   {
     patterns: ['/tiny-pro/guide/role', '/tiny-pro/guide/role.html'],
     target: '/tiny-pro/guide/permissions'
+  },
+  {
+    patterns: [
+      '/tiny-robot-ai.html',
+      '/tiny-robot-ai/',
+      '/tiny-robot-ai/index.html',
+      '/tiny-robot-ai/ai-extension.html',
+      '/tiny-robot-ai/ai-extension/',
+      '/tiny-robot-ai/ai-extension/index.html'
+    ],
+    target: '/tiny-robot-ai/ai-extension/quick-start'
   }
 ];
+
+const docPath = (value: string) => value.split('#')[0].split('?')[0].replace(/\.html$/, '').replace(/\/$/, '')
+
+const sidebarContainsPath = (item: any, path: string): boolean => {
+  if (item?.link && docPath(item.link) === docPath(path)) return true
+  return (item?.items || []).some((child: any) => sidebarContainsPath(child, path))
+}
+
+const sidebarGroupTitle = (items: any[], path: string): string => {
+  const matched = (items || []).find((item: any) => sidebarContainsPath(item, path))
+  return matched?.text || ''
+}
 
 const updateMultipleDocTitle = (basePath: string, nav: any[]) => {
   const base = site.value?.base || '/'
@@ -170,6 +193,12 @@ const updateDocTitle = () => {
 
   if (path.includes('/tiny-pro/')) {
     docTitle.value = '使用文档'
+    return
+  }
+
+  if (path.includes('/tiny-robot-ai/')) {
+    const sidebarConfig = cfg.sidebar?.['/tiny-robot-ai/'] || []
+    docTitle.value = sidebarGroupTitle(sidebarConfig, path) || '使用文档'
     return
   }
 

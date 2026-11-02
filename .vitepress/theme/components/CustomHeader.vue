@@ -329,6 +329,7 @@ const getActiveNavTab = () => {
     "tiny-editor": ["/demo/", "/api/", "/modules/"],
     "web-agent": ["/web-agent/"],
     "tiny-pro": ["/tiny-pro/"],
+    "tiny-robot-ai": ["/tiny-robot-ai/"],
   };
 
   const segments = productPathMap[activeProductTab.value] || [];
@@ -438,6 +439,14 @@ const productTabs = computed(() => [
     }-tiny-robot.svg`,
   },
   {
+    key: "tiny-robot-ai",
+    name: "AI Extension",
+    link: `${prefix}tiny-robot-ai/ai-extension/quick-start`,
+    src: `${prefix}images/logo-${
+      activeProductTab.value === "tiny-robot-ai" ? "active" : "normal"
+    }-tiny-robot-ai.svg`,
+  },
+  {
     key: "tiny-vue",
     name: "TinyVue",
     link: `${prefix}tiny-vue/guide/introduce`,
@@ -498,6 +507,8 @@ watch(
       activeProductTab.value = "next-sdk";
     } else if (path.includes("/genui-sdk/")) {
       activeProductTab.value = "genui-sdk";
+    } else if (path.includes("/tiny-robot-ai/")) {
+      activeProductTab.value = "tiny-robot-ai";
     } else if (path.includes("/tiny-robot/")) {
       activeProductTab.value = "tiny-robot";
     } else if (path.includes("/tiny-vue/")) {

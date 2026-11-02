@@ -105,6 +105,12 @@ class TinyProNavTab extends NavTab {
   }
 }
 
+class TinyRobotAiNavTab extends NavTab {
+  getTabs(): TabItem[] {
+    return [{ key: 'guide', name: '使用文档', link: '/tiny-robot-ai/ai-extension/quick-start' }]
+  }
+}
+
 const navTabClassMap: Record<string, NavTabConstructor> = {
   'next-sdk': NextSdkNavTab,
   'tiny-vue': TinyVueNavTab,
@@ -112,7 +118,8 @@ const navTabClassMap: Record<string, NavTabConstructor> = {
   'genui-sdk': GenuiSdkNavTab,
   'tiny-editor': TinyEditorNavTab,
   'web-agent': WebAgentNavTab,
-  'tiny-pro': TinyProNavTab
+  'tiny-pro': TinyProNavTab,
+  'tiny-robot-ai': TinyRobotAiNavTab
 }
 
 const navPathMap: Record<string, string> = {
@@ -122,7 +129,8 @@ const navPathMap: Record<string, string> = {
   'genui-sdk': '/genui-sdk/',
   'tiny-editor': '/tiny-editor/',
   'web-agent': '/web-agent/',
-  'tiny-pro': '/tiny-pro/'
+  'tiny-pro': '/tiny-pro/',
+  'tiny-robot-ai': '/tiny-robot-ai/'
 }
 
 const NavTabFactory = (activeProductTab: string, route: any, site: any, themeConfig: any) => {

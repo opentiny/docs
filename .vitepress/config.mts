@@ -6,6 +6,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { isMermaidFence, renderMermaidFence } from './theme/markdown/mermaid'
 import { tinyEditorDemoPlugin } from './theme/markdown/tiny-editor-demo'
 import { tinyproDocsPlugin } from './theme/markdown/tinypro-docs'
+import { tinyRobotAiDocsPlugin } from './theme/markdown/tiny-robot-ai-docs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { createRewrites, loadSidebar } from './sidebar'
@@ -60,7 +61,23 @@ export default defineConfig({
     'tiny-pro/template/**',
     'tiny-pro/.github/**',
     'tiny-pro/CONTRIBUTING.md',
-    'tiny-pro/docs/index.md'
+    'tiny-pro/docs/index.md',
+    // 私有单仓只发布 TinyRobot AI 助手用户文档，其余 Markdown 按目录排除。
+    'web-agent-enterprise/docs/**',
+    'web-agent-enterprise/.github/**',
+    'web-agent-enterprise/skills/**',
+    'web-agent-enterprise/AGENTS.md',
+    'web-agent-enterprise/CLAUDE.md',
+    'web-agent-enterprise/packages/agent-server/**',
+    'web-agent-enterprise/packages/mcp-services/**',
+    'web-agent-enterprise/packages/robot-client/**',
+    'web-agent-enterprise/packages/web-portal/**',
+    'web-agent-enterprise/packages/robot-wxt/specs/**',
+    'web-agent-enterprise/packages/robot-wxt/src/**',
+    'web-agent-enterprise/packages/robot-wxt/AGENTS.md',
+    'web-agent-enterprise/packages/robot-wxt/CLAUDE.md',
+    // 源站首页是另一套 VitePress home，本站从快速入门进入。
+    'web-agent-enterprise/packages/robot-wxt/docs/index.md'
   ],
   base: process.env.VITEPRESS_BASE || '/',
   head: [['link', { rel: 'icon', href: '/images/logo-mini.svg' }]],
@@ -101,6 +118,7 @@ export default defineConfig({
       // tiny-editor 的 :::demo src=... 转成 <demo vue="..." />，再交给 vitepress-demo-plugin
       md.use(tinyEditorDemoPlugin)
       md.use(tinyproDocsPlugin)
+      md.use(tinyRobotAiDocsPlugin)
       md.use(vitepressDemoPlugin, {
         playground: { show: true },
         codeTransformer: (code) => {
