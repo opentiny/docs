@@ -86,8 +86,8 @@ const productCards = [
         desc: "TinyRobot AI助手",
         icon: `${prefix}images/logo-active-tiny-robot-ai.svg`,
         links: [
-          { text: "快速入门", url: "/tiny-robot-ai/ai-extension/quick-start" },
-          { text: "安装指南", url: "/tiny-robot-ai/ai-extension/install" },
+          { text: "快速入门", url: "/tiny-robot-ai/quick-start" },
+          { text: "安装指南", url: "/tiny-robot-ai/install" },
         ],
       },
       {

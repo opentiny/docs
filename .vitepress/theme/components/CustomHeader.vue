@@ -441,7 +441,7 @@ const productTabs = computed(() => [
   {
     key: "tiny-robot-ai",
     name: "AI Extension",
-    link: `${prefix}tiny-robot-ai/ai-extension/quick-start`,
+    link: `${prefix}tiny-robot-ai/quick-start`,
     src: `${prefix}images/logo-${
       activeProductTab.value === "tiny-robot-ai" ? "active" : "normal"
     }-tiny-robot-ai.svg`,

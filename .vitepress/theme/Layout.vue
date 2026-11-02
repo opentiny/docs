@@ -119,15 +119,8 @@ const redirectMap = [
     target: '/tiny-pro/guide/permissions'
   },
   {
-    patterns: [
-      '/tiny-robot-ai.html',
-      '/tiny-robot-ai/',
-      '/tiny-robot-ai/index.html',
-      '/tiny-robot-ai/ai-extension.html',
-      '/tiny-robot-ai/ai-extension/',
-      '/tiny-robot-ai/ai-extension/index.html'
-    ],
-    target: '/tiny-robot-ai/ai-extension/quick-start'
+    patterns: ['/tiny-robot-ai.html', '/tiny-robot-ai/', '/tiny-robot-ai/index.html'],
+    target: '/tiny-robot-ai/quick-start'
   }
 ];
 
@@ -183,6 +176,16 @@ const updateDocTitle = () => {
   const base = site.value?.base || '/'
   const path = route.path.replace(new RegExp(`^${base}`), '/')
   const cfg = themeConfig.value || {}
+
+  const legacyPrefix = '/tiny-robot-ai/ai-extension'
+  if (path === legacyPrefix || path.startsWith(`${legacyPrefix}/`)) {
+    const rest = path
+      .slice(legacyPrefix.length)
+      .replace(/^\//, '')
+      .replace(/\.html$/, '')
+      .replace(/\/$/, '')
+    router.go(!rest || rest === 'index' ? '/tiny-robot-ai/quick-start' : `/tiny-robot-ai/${rest}`)
+  }
 
   for (const { patterns, target } of redirectMap) {
     if (patterns.includes(path)) {

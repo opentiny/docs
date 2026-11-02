@@ -107,7 +107,7 @@ class TinyProNavTab extends NavTab {
 
 class TinyRobotAiNavTab extends NavTab {
   getTabs(): TabItem[] {
-    return [{ key: 'guide', name: '使用文档', link: '/tiny-robot-ai/ai-extension/quick-start' }]
+    return [{ key: 'guide', name: '使用文档', link: '/tiny-robot-ai/quick-start' }]
   }
 }
 
