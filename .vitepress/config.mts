@@ -7,11 +7,22 @@ import { isMermaidFence, renderMermaidFence } from './theme/markdown/mermaid'
 import { tinyEditorDemoPlugin } from './theme/markdown/tiny-editor-demo'
 import { tinyproDocsPlugin } from './theme/markdown/tinypro-docs'
 import path from 'path'
+import fs from 'node:fs'
 import { fileURLToPath } from 'url'
 import { createRewrites, loadSidebar } from './sidebar'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
+// robot-wxt 的 tsconfig 继承 wxt 生成的配置，仓库里没有这份文件。
+// 示意图组件在该目录下编译时，先补一个空配置，避免 Vite 解析失败。
+const wxtTsconfig = path.join(rootDir, 'web-agent-enterprise/packages/robot-wxt/.wxt/tsconfig.json')
+if (!fs.existsSync(wxtTsconfig)) {
+  fs.mkdirSync(path.dirname(wxtTsconfig), { recursive: true })
+  fs.writeFileSync(
+    wxtTsconfig,
+    JSON.stringify({ compilerOptions: { target: 'ESNext', module: 'ESNext', moduleResolution: 'Bundler', jsx: 'preserve' } })
+  )
+}
 const sidebar = await loadSidebar(rootDir)
 const normalizePath = (path: string, targetStyle: 'windows' | 'linux' = 'linux') => {
   if (targetStyle === 'windows') {

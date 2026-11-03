@@ -6,6 +6,13 @@ import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
 import MermaidBlock from './components/MermaidBlock.vue'
+import BuiltinSkillActionsDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/BuiltinSkillActionsDiagram.vue'
+import CustomModelRequestDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/CustomModelRequestDiagram.vue'
+import QuotaReminderDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/QuotaReminderDiagram.vue'
+import RequestPathDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/RequestPathDiagram.vue'
+import SkillImportDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/SkillImportDiagram.vue'
+import SkillSelectionDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/SkillSelectionDiagram.vue'
+import '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/diagrams.css'
 import '@opentiny/tiny-robot-style'
 import '@opentiny/fluent-editor/style.css'
 import {nextTick, watch} from 'vue';
@@ -44,6 +51,12 @@ export default {
     app.component('HomePage', HomePage)
     app.component('CustomTable', CustomTable)
     app.component('MermaidBlock', MermaidBlock)
+    app.component('RequestPathDiagram', RequestPathDiagram)
+    app.component('CustomModelRequestDiagram', CustomModelRequestDiagram)
+    app.component('SkillSelectionDiagram', SkillSelectionDiagram)
+    app.component('SkillImportDiagram', SkillImportDiagram)
+    app.component('BuiltinSkillActionsDiagram', BuiltinSkillActionsDiagram)
+    app.component('QuotaReminderDiagram', QuotaReminderDiagram)
     enhanceAppWithTabs(app)
   },
   Layout,
