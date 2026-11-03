@@ -183,6 +183,7 @@ const hotSearches = [
   { text: "SDK Server 基础使用文档", url: `${prefix}next-sdk/webmcp-sdk/webmcp-server.html` },
   { text: "NEXT-SDKs API", url: `${prefix}next-sdk/webmcp-sdk/global-tools` },
   { text: "TinyRobot 快速开始", url: `${prefix}tiny-robot/guide/quick-start` },
+  { text: "TinyRobot AI 快速入门", url: `${prefix}tiny-robot-ai/quick-start` },
 ];
 
 // 四分类卡片
@@ -218,6 +219,7 @@ const categoryCards = [
       { text: "NEXT-SDKs", url: "/next-sdk/guide/quick-start.html" },
       { text: "GenUI SDK", url: "/genui-sdk/guide/quick-start.html" },
       { text: "TinyRobot", url: "/tiny-robot/guide/quick-start.html" },
+      { text: "AI Extension", url: "/tiny-robot-ai/quick-start.html" },
       { text: "TinyVue", url: "/tiny-vue/guide/installation.html" },
       { text: "TinyEditor", url: "/tiny-editor/guide/quick-start.html" },
       { text: "TinyEngine", url: "/tiny-engine/guide/quick-start.html" },

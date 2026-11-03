@@ -24,3 +24,8 @@
 	url = git@github.com:opentiny/tiny-pro.git
 	branch = dev
 	shallow = true
+[submodule "web-agent-enterprise"]
+	path = web-agent-enterprise
+	url = git@github.com:opentiny/web-agent-enterprise.git
+	branch = develop
+	shallow = true
