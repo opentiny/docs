@@ -117,8 +117,24 @@ const redirectMap = [
   {
     patterns: ['/tiny-pro/guide/role', '/tiny-pro/guide/role.html'],
     target: '/tiny-pro/guide/permissions'
+  },
+  {
+    patterns: ['/tiny-robot-ai.html', '/tiny-robot-ai/', '/tiny-robot-ai/index.html'],
+    target: '/tiny-robot-ai/quick-start'
   }
 ];
+
+const docPath = (value: string) => value.split('#')[0].split('?')[0].replace(/\.html$/, '').replace(/\/$/, '')
+
+const sidebarContainsPath = (item: any, path: string): boolean => {
+  if (item?.link && docPath(item.link) === docPath(path)) return true
+  return (item?.items || []).some((child: any) => sidebarContainsPath(child, path))
+}
+
+const sidebarGroupTitle = (items: any[], path: string): string => {
+  const matched = (items || []).find((item: any) => sidebarContainsPath(item, path))
+  return matched?.text || ''
+}
 
 const updateMultipleDocTitle = (basePath: string, nav: any[]) => {
   const base = site.value?.base || '/'
@@ -161,6 +177,16 @@ const updateDocTitle = () => {
   const path = route.path.replace(new RegExp(`^${base}`), '/')
   const cfg = themeConfig.value || {}
 
+  const legacyPrefix = '/tiny-robot-ai/ai-extension'
+  if (path === legacyPrefix || path.startsWith(`${legacyPrefix}/`)) {
+    const rest = path
+      .slice(legacyPrefix.length)
+      .replace(/^\//, '')
+      .replace(/\.html$/, '')
+      .replace(/\/$/, '')
+    router.go(!rest || rest === 'index' ? '/tiny-robot-ai/quick-start' : `/tiny-robot-ai/${rest}`)
+  }
+
   for (const { patterns, target } of redirectMap) {
     if (patterns.includes(path)) {
       router.go(target);
@@ -170,6 +196,12 @@ const updateDocTitle = () => {
 
   if (path.includes('/tiny-pro/')) {
     docTitle.value = '使用文档'
+    return
+  }
+
+  if (path.includes('/tiny-robot-ai/')) {
+    const sidebarConfig = cfg.sidebar?.['/tiny-robot-ai/'] || []
+    docTitle.value = sidebarGroupTitle(sidebarConfig, path) || '使用文档'
     return
   }
 

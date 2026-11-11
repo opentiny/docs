@@ -55,6 +55,7 @@ export function createRewrites(rootDir: string): Record<string, string> {
     ...engineRewrites(rootDir),
     ...dirRewrites(rootDir, 'tiny-editor/packages/docs/fluent-editor/docs', 'tiny-editor'),
     'web-agent/docs/:path*': 'web-agent/guide/:path*',
-    'tiny-pro/docs/:path*': 'tiny-pro/guide/:path*'
+    'tiny-pro/docs/:path*': 'tiny-pro/guide/:path*',
+    'web-agent-enterprise/packages/robot-wxt/docs/:path*': 'tiny-robot-ai/:path*'
   }
 }

@@ -1,0 +1,29 @@
+<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.000000" height="40.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_3" x1="24.8039093" x2="8.40776062" y1="29.093502" y2="24.2194576" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.697115064" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_4" x1="5.69995213" x2="2.30659986" y1="3.75885057" y2="10.046566" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(0,0,0)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(0,0,0)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_5" x1="35.2025414" x2="23.9937" y1="29.4745007" y2="26.697813" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.905882359" />
+			<stop stop-color="rgb(255,255,255)" offset="0.697115064" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="AI Extension2" width="40.000000" height="40.000000" x="0.000000" y="0.000000" />
+	<g id="组合 16682">
+		<rect id="矩形备份 3" width="40.000000" height="40.000000" x="0.000000" y="0.000000" rx="8.000000" fill="rgb(126,183,252)" />
+		<g id="组合 3464">
+			<path id="矢量 2512" d="M6.90812 26.4986C6.00404 28.6344 7.57178 31.0004 9.89098 31.0004C11.3007 31.0004 12.5485 30.0887 12.9769 28.7457L14.7617 23.1505C15.0229 22.3316 16.1779 22.3217 16.4532 23.1358L18.3987 28.8887C18.8255 30.1509 20.0095 31.0004 21.3419 31.0004C23.559 31.0004 25.0626 28.7449 24.2099 26.6984L18.4255 12.8168C17.3684 10.2798 13.7779 10.2697 12.7066 12.8007L6.90812 26.4986Z" fill="url(#paint_linear_3)" fill-rule="evenodd" />
+			<g id="组合 144495" style="mix-blend-mode:soft-light">
+				<path id="路径 41" d="M4.44471e-13 7.75887C-1.66893e-06 11.7589 4.69996 14.7589 7.19995 8.75885C7.54825 7.92293 8.19996 5.87548 9.19996 3.75886C10.2 1.64224 3.19999 -2.95428 3.19995 2.75887C3.19995 3.75885 1.89669 7.01713 1.59998 7.75887C1.19995 8.75887 0.299692 8.43016 4.44471e-13 7.75887Z" fill="url(#paint_linear_4)" fill-rule="evenodd" transform="matrix(1,0,0,-1,14.8027,30.7588)" />
+			</g>
+			<path id="路径" d="M28.443 28.884L23.6171 15.4854C22.8307 13.3021 24.4485 11 26.769 11C28.0066 11 29.1108 11.7772 29.5284 12.9422L34.4671 26.7194C35.2145 28.8044 33.6691 31 31.4542 31C30.1047 31 28.9003 30.1536 28.443 28.884Z" fill="url(#paint_linear_5)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>

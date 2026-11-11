@@ -81,6 +81,16 @@ const productCards = [
         ],
       },
       {
+        name: "AI Extension",
+        badge: "NEW",
+        desc: "TinyRobot AI助手",
+        icon: `${prefix}images/logo-active-tiny-robot-ai.svg`,
+        links: [
+          { text: "快速入门", url: "/tiny-robot-ai/quick-start" },
+          { text: "安装指南", url: "/tiny-robot-ai/install" },
+        ],
+      },
+      {
         name: "NEXT-SDKs",
         desc: "前端智能应用开发工具包",
         icon: `${prefix}images/icon-next-sdks.svg`,

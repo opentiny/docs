@@ -6,6 +6,13 @@ import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
 import MermaidBlock from './components/MermaidBlock.vue'
+import BuiltinSkillActionsDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/BuiltinSkillActionsDiagram.vue'
+import CustomModelRequestDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/CustomModelRequestDiagram.vue'
+import QuotaReminderDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/QuotaReminderDiagram.vue'
+import RequestPathDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/RequestPathDiagram.vue'
+import SkillImportDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/SkillImportDiagram.vue'
+import SkillSelectionDiagram from '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/components/SkillSelectionDiagram.vue'
+import '../../web-agent-enterprise/packages/robot-wxt/docs/.vitepress/theme/diagrams.css'
 import '@opentiny/tiny-robot-style'
 import '@opentiny/fluent-editor/style.css'
 import {nextTick, watch} from 'vue';
@@ -15,6 +22,10 @@ import { insertFurion } from './insert-furion'
 // 引入样式文件
 import './medium-zoom.css';
 import './style.css'
+
+function isTinyRobotComponentPath(path: string) {
+  return /\/tiny-robot(\/|\.html|$)/.test(path)
+}
 
 declare global {
   interface Window {
@@ -40,6 +51,12 @@ export default {
     app.component('HomePage', HomePage)
     app.component('CustomTable', CustomTable)
     app.component('MermaidBlock', MermaidBlock)
+    app.component('RequestPathDiagram', RequestPathDiagram)
+    app.component('CustomModelRequestDiagram', CustomModelRequestDiagram)
+    app.component('SkillSelectionDiagram', SkillSelectionDiagram)
+    app.component('SkillImportDiagram', SkillImportDiagram)
+    app.component('BuiltinSkillActionsDiagram', BuiltinSkillActionsDiagram)
+    app.component('QuotaReminderDiagram', QuotaReminderDiagram)
     enhanceAppWithTabs(app)
   },
   Layout,
@@ -55,7 +72,7 @@ export default {
         }
         if (typeof window !== 'undefined'){
           zoom = mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
-          if (route.path.includes('tiny-robot')) {
+          if (isTinyRobotComponentPath(route.path)) {
             document.body.classList.remove('hide-code-playground');
           } else {
             document.body.classList.add('hide-code-playground');
@@ -143,7 +160,7 @@ function listenCodePlaygroundEvent() {
       files,
       extraImports,
     })
-    if (route.path.includes('tiny-robot')) {
+    if (isTinyRobotComponentPath(route.path)) {
       const playgroundUrl =
         import.meta.env.VITE_TINY_ROBOT_PLAYGROUND_URL || `${import.meta.env.BASE_URL}/tiny-robot/playground/`
       window.open(playgroundUrl.replace(/(?<!:)\/\/+/g, '/') + store.serialize(), '_blank')

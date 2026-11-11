@@ -132,28 +132,32 @@ body,
   color: rgb(23, 23, 23);
 }
 
-.VPSidebarItem.is-active .link {
+.VPSidebarItem.is-active > .item > .link {
   background-color: #f5faff;
+}
+
+.main-content .VPSidebarItem:is(.level-1, .level-2, .level-3) > .item > .text,
+.main-content .VPSidebarItem:is(.level-1, .level-2, .level-3) > .item > .link > .text {
+  font-weight: 400;
+}
+
+.main-content .VPSidebarItem.has-active > .item > .text,
+.main-content .VPSidebarItem.has-active > .item > .link > .text {
   font-weight: 600;
 }
 
-.VPSidebarItem.is-active.level-1 .text {
-  font-weight: 600;
-}
-
-.VPSidebarItem.level-1.is-link.is-active.has-active > .item .link > .text {
+.main-content .VPSidebarItem.is-link.is-active:is(.level-1, .level-2, .level-3) > .item > .link > .text {
   color: #1476ff;
+  font-weight: 600;
 }
+
+.main-content .VPSidebarItem.is-active .VPSidebarItem:not(.is-active) > .item > .link > .text {
+  color: var(--vp-c-text-2);
+  font-weight: 400;
+}
+
 .VPSidebarItem.level-2.is-active .item .indicator {
   width: 0;
-}
-.VPSidebarItem.level-2.is-active.has-active .item .link .text {
-  color: #1476ff;
-  font-weight: 600;
-}
-.VPSidebarItem.level-2.is-active.has-active .item .link:hover .text {
-  color: #1476ff;
-  font-weight: 600;
 }
 /* 暗色主题侧边栏项目样式增强 */
 .dark .VPSidebarItem .link:hover {
@@ -165,15 +169,14 @@ body,
 .dark .VPSidebarItem.level-2.is-link > .item .link:hover .text {
   color: #e6e6e6;
 }
-.dark .VPSidebarItem.level-2.is-active.has-active .item .link:hover .text {
-  color: #1476ff;
-  font-weight: 600;
-}
-.dark .VPSidebarItem.is-active .link {
-  background-color: #152a47;
-}
-.dark .VPSidebarItem.level-1.is-link.is-active.has-active > .item .link > .text {
+.dark .main-content .VPSidebarItem.is-link.is-active:is(.level-1, .level-2, .level-3) > .item > .link > .text {
   color: #5291ff;
+}
+.dark .main-content .VPSidebarItem.is-active .VPSidebarItem:not(.is-active) > .item > .link > .text {
+  color: var(--vp-c-text-2);
+}
+.dark .VPSidebarItem.is-active > .item > .link {
+  background-color: #152a47;
 }
 .main-content .group {
   margin-top: 22px;

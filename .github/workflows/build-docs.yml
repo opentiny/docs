@@ -10,6 +10,7 @@ on:
       - 'tiny-engine/docs/**'  
       - '.vitepress/**'
       - 'tiny-pro'
+      - 'web-agent-enterprise'
   workflow_dispatch: {}  # 支持手动触发
 
 permissions:
