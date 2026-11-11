@@ -1,5 +1,6 @@
 packages:
   - tiny-robot/**
+  - '!tiny-robot/packages/cli/templates/**'
   - genui
   - genui/genui-sdk/packages/frameworks/angular
   - genui/genui-sdk/packages/core

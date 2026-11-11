@@ -80,7 +80,7 @@ const redirectMap = [
   },
   { 
     patterns: ['/tiny-robot/components.html', '/tiny-robot/components/'],
-    target: '/tiny-robot/components/container'
+    target: '/tiny-robot/components/layout'
   },
   { 
     patterns: ['/tiny-robot/tools.html', '/tiny-robot/tools/'],
@@ -88,7 +88,7 @@ const redirectMap = [
   },
   { 
     patterns: ['/tiny-robot/examples/', '/tiny-robot/examples.html'],
-    target: '/tiny-robot/examples/assistant'
+    target: '/tiny-robot/examples/chat-tiny-robot'
   },
   { 
     patterns: ['/next-sdk.html', '/next-sdk/', '/next-sdk/guide.html', '/next-sdk/guide/'],
