@@ -196,7 +196,7 @@ const categoryCards = [
     links: [
       { text: "NEXT-SDKs WebMCP API", url: "/next-sdk/guide/webmcp-article.html" },
       { text: "TinyEditor API", url: "/tiny-editor/api/fluent-editor-instance.html" },
-      { text: "TinyRobot API", url: "/tiny-robot/tools/ai-client.html#api" },
+      { text: "TinyRobot API", url: "/tiny-robot/suites/chat.html#trchat-api" },
       { text: "WebAgent API", url: "/web-agent/guide/api-reference.html" },
     ],
   },
@@ -207,7 +207,7 @@ const categoryCards = [
     links: [
       { text: "NEXT-SDKs WebMCP", url: "/next-sdk/guide/quick-start.html" },
       { text: "TinyEditor", url: "/tiny-editor/guide/quick-start.html" },
-      { text: "TinyRobot", url: "/tiny-robot/components/container.html" },
+      { text: "TinyRobot", url: "/tiny-robot/suites/quick-start.html" },
       { text: "WebAgent API", url: "/web-agent/guide/api-reference.html" },
     ],
   },
@@ -218,7 +218,7 @@ const categoryCards = [
     links: [
       { text: "NEXT-SDKs", url: "/next-sdk/guide/quick-start.html" },
       { text: "GenUI SDK", url: "/genui-sdk/guide/quick-start.html" },
-      { text: "TinyRobot", url: "/tiny-robot/guide/quick-start.html" },
+      { text: "TinyRobot", url: "/tiny-robot/best-practices/extension-manager-integration.html" },
       { text: "AI Extension", url: "/tiny-robot-ai/quick-start.html" },
       { text: "TinyVue", url: "/tiny-vue/guide/installation.html" },
       { text: "TinyEditor", url: "/tiny-editor/guide/quick-start.html" },
@@ -232,7 +232,7 @@ const categoryCards = [
     subtitle: "体验各产品功能与示例",
     icon: `${prefix}images/icon-demo.svg`,
     links: [
-      { text: "TinyRobot", url: "/tiny-robot/examples/assistant.html" },
+      { text: "TinyRobot", url: "/tiny-robot/examples/chat-tiny-robot.html" },
       { text: "TinyEditor", url: "/tiny-editor/demo/basic-usage.html" },
       { text: "TinyEngine", url: "https://opentiny.design/tiny-engine#/tiny-engine-editor" },
     ],

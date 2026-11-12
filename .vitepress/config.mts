@@ -6,6 +6,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { isMermaidFence, renderMermaidFence } from './theme/markdown/mermaid'
 import { tinyEditorDemoPlugin } from './theme/markdown/tiny-editor-demo'
 import { tinyproDocsPlugin } from './theme/markdown/tinypro-docs'
+import { tinyRobotLinks } from './theme/markdown/tiny-robot-links'
 import path from 'path'
 import fs from 'node:fs'
 import { fileURLToPath } from 'url'
@@ -128,6 +129,7 @@ export default defineConfig({
       // tiny-editor 的 :::demo src=... 转成 <demo vue="..." />，再交给 vitepress-demo-plugin
       md.use(tinyEditorDemoPlugin)
       md.use(tinyproDocsPlugin)
+      md.use(tinyRobotLinks)
       md.use(vitepressDemoPlugin, {
         playground: { show: true },
         codeTransformer: (code) => {
@@ -168,12 +170,12 @@ export default defineConfig({
       },
       {
         text: '演示',
-        link: '/tiny-robot/examples/assistant',
+        link: '/tiny-robot/examples/chat-tiny-robot',
         activeMatch: '/examples/'
       },
       {
         text: '迁移指南',
-        link: '/tiny-robot/migration/bubble-migration',
+        link: '/tiny-robot/migration/',
         activeMatch: '/migration/'
       }
     ],

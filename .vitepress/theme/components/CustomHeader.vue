@@ -325,7 +325,7 @@ const getActiveNavTab = () => {
 
   const productPathMap: Record<string, string[]> = {
     "next-sdk": ["/next-sdk/"],
-    "tiny-robot": ["/components/", "/tools/"],
+    "tiny-robot": ["/components/", "/tools/", "/suites/", "/best-practices/"],
     "tiny-editor": ["/demo/", "/api/", "/modules/"],
     "web-agent": ["/web-agent/"],
     "tiny-pro": ["/tiny-pro/"],

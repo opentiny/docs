@@ -76,8 +76,8 @@ const productCards = [
         desc: "AI 对话组件库",
         icon: `${prefix}images/icon-tiny-robot.svg`,
         links: [
-          { text: "综合示例", url: "/tiny-robot/examples/assistant" },
-          { text: "迁移指南", url: "/tiny-robot/migration/bubble-migration" },
+          { text: "产品演示", url: "/tiny-robot/examples/chat-tiny-robot" },
+          { text: "迁移指南", url: "/tiny-robot/migration/" },
         ],
       },
       {
